@@ -8,20 +8,26 @@ namespace JackSazerak.UWP.Managers
 {
     public class LevelManager
     {
-        public static LevelContainer LoadLevel(ContentManager content, string name = "E1M1")
+        private static Tile LoadTile(string textureName, ContentManager contentManager)
+        {
+            var tile = new Tile
+            {
+                Color = Color.White,
+                Texture = contentManager.Load<Texture2D>(textureName)
+            };
+            
+            tile.Rect = new Rectangle(0, 0, tile.Texture.Width, tile.Texture.Height);
+
+            return tile;
+        }
+
+        public static LevelContainer LoadLevel(ContentManager contentManager, string name = "E1M1")
         {
             var level = new LevelContainer();
-
-            var tile = new Tile();
-
-            tile.Color = Color.White;
-
-            tile.Rect = new Rectangle(0, 0, 1920, 1080);
-
-            tile.Texture = content.Load<Texture2D>("Backgrounds/main");
-
-            level.Tiles.Add(tile);
             
+            level.Tiles.Add(LoadTile("Backgrounds/main", contentManager));
+            level.Tiles.Add(LoadTile("Sprites/jack", contentManager));
+
             return level;
         }
     }
