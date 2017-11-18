@@ -1,4 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using JackSazerak.UWP.Managers;
+using JackSazerak.UWP.Objects;
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace JackSazerak.UWP
@@ -7,6 +10,7 @@ namespace JackSazerak.UWP
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        LevelContainer currentLevel;
 
         public MainGame()
         {
@@ -22,6 +26,8 @@ namespace JackSazerak.UWP
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            
+            currentLevel = LevelManager.LoadLevel(this.Content);
         }
 
         protected override void UnloadContent()
@@ -36,7 +42,16 @@ namespace JackSazerak.UWP
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            
+
+            spriteBatch.Begin();
+
+            foreach (var tile in currentLevel.Tiles)
+            {
+                spriteBatch.Draw(tile.Texture, tile.Rect, tile.Color);
+            }
+
+            spriteBatch.End();
+
             base.Draw(gameTime);
         }
     }
