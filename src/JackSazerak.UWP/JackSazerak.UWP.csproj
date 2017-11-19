@@ -108,6 +108,7 @@
     <Compile Include="MainGame.cs" />
     <Compile Include="Managers\LevelManager.cs" />
     <Compile Include="Objects\LevelContainer.cs" />
+    <Compile Include="Objects\Player.cs" />
     <Compile Include="Objects\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
