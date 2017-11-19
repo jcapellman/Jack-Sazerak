@@ -10,7 +10,7 @@ namespace JackSazerak.UWP.Managers
     {
         private static Tile LoadTile(string textureName, ContentManager contentManager)
         {
-            var tile = new Tile
+            var tile = new Tile 
             {
                 Color = Color.White,
                 Texture = contentManager.Load<Texture2D>(textureName)
@@ -26,7 +26,8 @@ namespace JackSazerak.UWP.Managers
             var level = new LevelContainer();
             
             level.Tiles.Add(LoadTile("Backgrounds/main", contentManager));
-            level.Tiles.Add(LoadTile("Sprites/jack", contentManager));
+
+            level.CurrentPlayer = new Player(LoadTile("Sprites/jack", contentManager));
 
             return level;
         }

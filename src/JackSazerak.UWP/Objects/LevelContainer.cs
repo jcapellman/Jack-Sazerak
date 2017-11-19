@@ -6,6 +6,8 @@ namespace JackSazerak.UWP.Objects
     {
         public List<Tile> Tiles { get; set; }
 
+        public Player CurrentPlayer { get; set; }
+
         public LevelContainer()
         {
             Tiles = new List<Tile>();
