@@ -5,10 +5,22 @@ namespace JackSazerak.UWP.Objects
 {
     public class Tile
     {
+        public Vector2 TilePosition { get; private set; }
+
         public Texture2D Texture { get; set; }
 
         public Rectangle Rect { get; set; }
 
         public Color Color { get; set; }
+
+        public void UpdatePosition(int x = 0, int y = 0)
+        {
+            TilePosition = new Vector2(TilePosition.X + x, TilePosition.Y + y);            
+        }
+
+        public void Render(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(Texture, TilePosition, Rect, Color);
+        }
     }
 }
