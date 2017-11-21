@@ -57,7 +57,6 @@ namespace JackSazerak.UWP
                     case Keys.Down:
                         currentLevel.CurrentPlayer.UpdatePosition(0, 10);
                         break;
-
                 }
             }
 

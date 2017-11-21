@@ -28,7 +28,7 @@ namespace JackSazerak.UWP.Managers
             level.Tiles.Add(LoadTile("Backgrounds/main", contentManager));
 
             level.CurrentPlayer = new Player(LoadTile("Sprites/jack", contentManager));
-
+            
             return level;
         }
     }
