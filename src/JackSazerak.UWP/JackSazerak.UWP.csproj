@@ -105,6 +105,7 @@
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="JSONObjects\Level.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Managers\LevelManager.cs" />
     <Compile Include="Objects\LevelContainer.cs" />

@@ -1,4 +1,7 @@
-﻿using JackSazerak.UWP.Objects;
+﻿using System.IO;
+
+using JackSazerak.UWP.JSONObjects;
+using JackSazerak.UWP.Objects;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -21,6 +24,8 @@ namespace JackSazerak.UWP.Managers
             return tile;
         }
 
+        private Level LoadJSON(string name) => Newtonsoft.Json.JsonConvert.DeserializeObject<Level>(File.ReadAllText(name));
+        
         public static LevelContainer LoadLevel(ContentManager contentManager, string name = "E1M1")
         {
             var level = new LevelContainer();
