@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace JackSazerak.UWP.JSONObjects
 {
@@ -10,5 +11,8 @@ namespace JackSazerak.UWP.JSONObjects
 
         [DataMember]
         public string Background { get; set; }
+
+        [DataMember]
+        public List<LevelTile> Tiles { get; set; }
     }
 }
