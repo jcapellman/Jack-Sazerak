@@ -24,13 +24,20 @@ namespace JackSazerak.UWP.Managers
             return tile;
         }
 
-        private Level LoadJSON(string name) => Newtonsoft.Json.JsonConvert.DeserializeObject<Level>(File.ReadAllText(name));
+        private static Level LoadJSON(string name) => Newtonsoft.Json.JsonConvert.DeserializeObject<Level>(File.ReadAllText(name));
         
         public static LevelContainer LoadLevel(ContentManager contentManager, string name = "E1M1")
         {
+            var levelObject = LoadJSON(name);
+
             var level = new LevelContainer();
             
-            level.Tiles.Add(LoadTile("Backgrounds/main", contentManager));
+            level.Tiles.Add(LoadTile(levelObject.Background, contentManager));
+
+            foreach (var tile in levelObject.Tiles)
+            {
+                level.Tiles.Add(LoadTile(tile, contentManager));
+            }
 
             level.CurrentPlayer = new Player(LoadTile("Sprites/jack", contentManager));
             
