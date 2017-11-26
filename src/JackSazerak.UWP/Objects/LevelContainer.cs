@@ -1,5 +1,7 @@
 ﻿using JackSazerak.UWP.Objects.JSONObjects;
 
+using Microsoft.Xna.Framework.Content;
+
 using System.Collections.Generic;
 
 namespace JackSazerak.UWP.Objects
@@ -10,19 +12,12 @@ namespace JackSazerak.UWP.Objects
 
         public Player CurrentPlayer { get; set; }
 
-        public LevelContainer()
-        {
-            Tiles = new List<Tile>();
-        }
-
-        public override LevelContainer FromJSON(Level jsonObject)
+        public LevelContainer(Level jsonObject, ContentManager contentManager)
         {
             foreach (var tile in jsonObject.Tiles)
             {
-                Tiles.Add(new Tile().FromJSON(tile));
+                Tiles.Add(new Tile(tile, contentManager));
             }
-
-            return this;
         }
     }
 }

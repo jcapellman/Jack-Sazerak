@@ -22,22 +22,7 @@ namespace JackSazerak.UWP.Managers
 
             return tile;
         }
-
-        private static Tile LoadTile(LevelTile levelTile, ContentManager contentManager)
-        {
-            var tile = new Tile
-            {
-                Color = Color.White,
-                Texture = contentManager.Load<Texture2D>($"Tiles/{levelTile.TextureName}")
-            };
-
-            tile.Rect = new Rectangle(0, 0, levelTile.Width, levelTile.Height);
-
-            tile.UpdatePosition(levelTile.PositionX, levelTile.PositionY);
-
-            return tile;
-        }
-
+        
         private static Tile LoadSprite(string spriteName, ContentManager contentManager)
         {
             var tile = new Tile
@@ -57,15 +42,10 @@ namespace JackSazerak.UWP.Managers
         {
             var levelObject = LoadJSON(name);
 
-            var level = new LevelContainer().FromJSON(levelObject);
+            var level = new LevelContainer(levelObject, contentManager);
             
             level.Tiles.Add(LoadBackgroundTile(levelObject.Background, contentManager));
-
-            foreach (var tile in levelObject.Tiles)
-            {
-                level.Tiles.Add(LoadTile(tile, contentManager));
-            }
-
+            
             level.CurrentPlayer = new Player(LoadSprite("jack", contentManager));
             
             return level;
