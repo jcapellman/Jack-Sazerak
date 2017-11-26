@@ -105,10 +105,11 @@
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="JSONObjects\Level.cs" />
-    <Compile Include="JSONObjects\LevelTile.cs" />
+    <Compile Include="Objects\JSONObjects\Level.cs" />
+    <Compile Include="Objects\JSONObjects\LevelTile.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Managers\LevelManager.cs" />
+    <Compile Include="Objects\BaseObject.cs" />
     <Compile Include="Objects\LevelContainer.cs" />
     <Compile Include="Objects\Player.cs" />
     <Compile Include="Objects\Tile.cs" />

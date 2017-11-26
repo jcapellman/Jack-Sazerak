@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace JackSazerak.UWP.JSONObjects
+namespace JackSazerak.UWP.Objects.JSONObjects
 {
     [DataContract]
     public class LevelTile

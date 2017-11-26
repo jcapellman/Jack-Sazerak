@@ -1,8 +1,7 @@
 ﻿using System.IO;
 
-using JackSazerak.UWP.JSONObjects;
 using JackSazerak.UWP.Objects;
-
+using JackSazerak.UWP.Objects.JSONObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -58,7 +57,7 @@ namespace JackSazerak.UWP.Managers
         {
             var levelObject = LoadJSON(name);
 
-            var level = new LevelContainer();
+            var level = new LevelContainer().FromJSON(levelObject);
             
             level.Tiles.Add(LoadBackgroundTile(levelObject.Background, contentManager));
 

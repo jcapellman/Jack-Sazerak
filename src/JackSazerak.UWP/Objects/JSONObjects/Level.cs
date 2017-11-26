@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace JackSazerak.UWP.JSONObjects
+namespace JackSazerak.UWP.Objects.JSONObjects
 {
     [DataContract]
     public class Level
