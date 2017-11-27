@@ -8,15 +8,25 @@ namespace JackSazerak.UWP.Objects
 {
     public class Tile : BaseObject<LevelTile, Tile>
     {
+        public Tile() { }
+
         public Tile(LevelTile levelTile, ContentManager contentManager)
         {
             Color = Color.White;
             
             Texture = contentManager.Load<Texture2D>($"Tiles/{levelTile.TextureName}");
             
-            Rect = new Rectangle(0, 0, levelTile.Width, levelTile.Height);
+            switch (levelTile.TileType)
+            {
+                case Enums.TILE_TYPE.BACKGROUND:
+                    Rect = new Rectangle(0, 0, Texture.Width, Texture.Height);
+                    break;
+                case Enums.TILE_TYPE.REGULAR:
+                    Rect = new Rectangle(0, 0, levelTile.Width, levelTile.Height);
 
-            UpdatePosition(levelTile.PositionX, levelTile.PositionY);
+                    UpdatePosition(levelTile.PositionX, levelTile.PositionY);
+                    break;
+            }
         }
 
         public Vector2 TilePosition { get; private set; }

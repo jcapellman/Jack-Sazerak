@@ -1,4 +1,6 @@
-﻿namespace JackSazerak.UWP.Objects
+﻿using Microsoft.Xna.Framework.Content;
+
+namespace JackSazerak.UWP.Objects
 {
     public class Player : Tile
     {
