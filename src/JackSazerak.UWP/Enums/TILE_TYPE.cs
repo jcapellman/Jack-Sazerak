@@ -2,8 +2,8 @@
 {
     public enum TILE_TYPE
     {
-        BACKGROUND,
+        BACKGROUNDS,
         REGULAR,
-        CURRENT_PLAYER
+        SPRITES
     }
 }

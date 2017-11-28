@@ -15,11 +15,14 @@ namespace JackSazerak.UWP.Objects
 
         public LevelContainer(Level jsonObject, ContentManager contentManager)
         {
-            Tiles.Add(new Tile(new LevelTile
+            Tiles = new List<Tile>
             {
-                TileType = TILE_TYPE.BACKGROUND,
-                TextureName = jsonObject.Background
-            }, contentManager));
+                new Tile(new LevelTile
+                {
+                    TileType = TILE_TYPE.BACKGROUNDS,
+                    TextureName = jsonObject.Background
+                }, contentManager)
+            };
 
             foreach (var tile in jsonObject.Tiles)
             {
@@ -29,7 +32,7 @@ namespace JackSazerak.UWP.Objects
             CurrentPlayer = new Player(new Tile(new LevelTile
             {
                 TextureName = "jack",
-                TileType = TILE_TYPE.CURRENT_PLAYER
+                TileType = TILE_TYPE.SPRITES
             }, contentManager));
         }
     }

@@ -13,7 +13,7 @@ namespace JackSazerak.UWP.Managers
         
         public static LevelContainer LoadLevel(ContentManager contentManager, string name = "E1M1")
         {
-            var levelObject = LoadJSON(name);
+            var levelObject = LoadJSON($"Levels/{name}");
 
             return new LevelContainer(levelObject, contentManager);
         }

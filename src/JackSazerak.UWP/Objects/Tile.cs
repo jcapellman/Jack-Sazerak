@@ -14,11 +14,11 @@ namespace JackSazerak.UWP.Objects
         {
             Color = Color.White;
             
-            Texture = contentManager.Load<Texture2D>($"Tiles/{levelTile.TextureName}");
+            Texture = contentManager.Load<Texture2D>($"{levelTile.TileType}/{levelTile.TextureName}");
             
             switch (levelTile.TileType)
             {
-                case Enums.TILE_TYPE.BACKGROUND:
+                case Enums.TILE_TYPE.BACKGROUNDS:
                     Rect = new Rectangle(0, 0, Texture.Width, Texture.Height);
                     break;
                 case Enums.TILE_TYPE.REGULAR:
