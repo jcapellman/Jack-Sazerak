@@ -13,6 +13,9 @@ namespace JackSazerak.UWP.Objects.JSONObjects
         public string Background { get; set; }
 
         [DataMember]
+        public string CurrentPlayer { get; set; }
+
+        [DataMember]
         public List<LevelTile> Tiles { get; set; }
     }
 }

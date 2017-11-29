@@ -1,5 +1,6 @@
 ﻿{
-	"LevelName": "E1M1",
+  "LevelName": "E1M1",
+  "CurrentPlayer": "jack",
 	"Background": "main",
 	"Tiles": []
 }

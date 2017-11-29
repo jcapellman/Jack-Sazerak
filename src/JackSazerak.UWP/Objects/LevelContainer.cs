@@ -29,11 +29,7 @@ namespace JackSazerak.UWP.Objects
                 Tiles.Add(new Tile(tile, contentManager));
             }
 
-            CurrentPlayer = new Player(new Tile(new LevelTile
-            {
-                TextureName = "jack",
-                TileType = TILE_TYPE.SPRITES
-            }, contentManager));
+            CurrentPlayer = new Player(jsonObject.CurrentPlayer, contentManager);
         }
     }
 }

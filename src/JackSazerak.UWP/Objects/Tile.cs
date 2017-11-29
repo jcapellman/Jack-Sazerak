@@ -8,8 +8,6 @@ namespace JackSazerak.UWP.Objects
 {
     public class Tile : BaseObject<LevelTile, Tile>
     {
-        public Tile() { }
-
         public Tile(LevelTile levelTile, ContentManager contentManager)
         {
             Color = Color.White;
@@ -25,6 +23,11 @@ namespace JackSazerak.UWP.Objects
                     Rect = new Rectangle(0, 0, levelTile.Width, levelTile.Height);
 
                     UpdatePosition(levelTile.PositionX, levelTile.PositionY);
+                    break;
+                case Enums.TILE_TYPE.SPRITES:
+                    Rect = new Rectangle(0, 0, levelTile.Width, levelTile.Height);
+
+                    UpdatePosition(0, 900 - levelTile.PositionY);
                     break;
             }
         }

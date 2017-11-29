@@ -1,16 +1,12 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using JackSazerak.UWP.Enums;
+using JackSazerak.UWP.Objects.JSONObjects;
+
+using Microsoft.Xna.Framework.Content;
 
 namespace JackSazerak.UWP.Objects
 {
     public class Player : Tile
     {
-        public Player(Tile tile)
-        {
-            Texture = tile.Texture;
-            Rect = tile.Rect;
-            Color = tile.Color;
-
-            UpdatePosition(0, 900 - Texture.Height);
-        }
+        public Player(string spriteName, ContentManager contentManager) : base(new LevelTile { TextureName = spriteName, TileType = TILE_TYPE.SPRITES}, contentManager) { }                
     }
 }
