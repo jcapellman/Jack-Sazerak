@@ -1,9 +1,8 @@
 ﻿using System.IO;
 
 using JackSazerak.UWP.Objects;
+using JackSazerak.UWP.Objects.Containers;
 using JackSazerak.UWP.Objects.JSONObjects;
-
-using Microsoft.Xna.Framework.Content;
 
 namespace JackSazerak.UWP.Managers
 {
@@ -11,11 +10,11 @@ namespace JackSazerak.UWP.Managers
     {
         private static Level LoadJSON(string name) => Newtonsoft.Json.JsonConvert.DeserializeObject<Level>(File.ReadAllText(name));
         
-        public static LevelContainer LoadLevel(ContentManager contentManager, string name = "E1M1")
+        public static LevelContainer LoadLevel(GameWrapper gameWrapper, string name = "E1M1")
         {
             var levelObject = LoadJSON($"Levels/{name}");
 
-            return new LevelContainer(levelObject, contentManager);
+            return new LevelContainer(levelObject, gameWrapper);
         }
     }
 }

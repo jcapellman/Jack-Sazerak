@@ -1,18 +1,18 @@
-﻿using JackSazerak.UWP.Objects.JSONObjects;
+﻿using JackSazerak.UWP.Objects.Containers;
+using JackSazerak.UWP.Objects.JSONObjects;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace JackSazerak.UWP.Objects
 {
     public class Tile : BaseObject<LevelTile, Tile>
     {
-        public Tile(LevelTile levelTile, ContentManager contentManager)
+        public Tile(LevelTile levelTile, GameWrapper wrapper)
         {
             Color = Color.White;
             
-            Texture = contentManager.Load<Texture2D>($"{levelTile.TileType}/{levelTile.TextureName}");
+            Texture = wrapper.ContentManager.Load<Texture2D>($"{levelTile.TileType}/{levelTile.TextureName}");
             
             switch (levelTile.TileType)
             {
@@ -27,7 +27,7 @@ namespace JackSazerak.UWP.Objects
                 case Enums.TILE_TYPE.SPRITES:
                     Rect = new Rectangle(0, 0, Texture.Width, Texture.Height);
 
-                    UpdatePosition(0, 900 - Texture.Height);
+                    UpdatePosition(0, wrapper.Window_Height - Texture.Height);
                     break;
             }
         }

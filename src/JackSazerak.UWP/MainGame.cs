@@ -1,5 +1,6 @@
 ﻿using JackSazerak.UWP.Managers;
 using JackSazerak.UWP.Objects;
+using JackSazerak.UWP.Objects.Containers;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -19,6 +20,13 @@ namespace JackSazerak.UWP
             Content.RootDirectory = "Content";
         }
 
+        public GameWrapper GameWrapper => new GameWrapper
+        {
+            ContentManager = Content,
+            Window_Height = Window.ClientBounds.Height,
+            Window_Width = Window.ClientBounds.Width
+        };
+
         protected override void Initialize()
         {
             base.Initialize();
@@ -28,7 +36,7 @@ namespace JackSazerak.UWP
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
-            currentLevel = LevelManager.LoadLevel(this.Content);
+            currentLevel = LevelManager.LoadLevel(GameWrapper);
         }
 
         protected override void UnloadContent()

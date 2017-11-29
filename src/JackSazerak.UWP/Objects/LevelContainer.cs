@@ -1,9 +1,8 @@
 ﻿using JackSazerak.UWP.Objects.JSONObjects;
 using JackSazerak.UWP.Enums;
 
-using Microsoft.Xna.Framework.Content;
-
 using System.Collections.Generic;
+using JackSazerak.UWP.Objects.Containers;
 
 namespace JackSazerak.UWP.Objects
 {
@@ -13,7 +12,7 @@ namespace JackSazerak.UWP.Objects
 
         public Player CurrentPlayer { get; set; }
 
-        public LevelContainer(Level jsonObject, ContentManager contentManager)
+        public LevelContainer(Level jsonObject, GameWrapper gameWrapper)
         {
             Tiles = new List<Tile>
             {
@@ -21,15 +20,15 @@ namespace JackSazerak.UWP.Objects
                 {
                     TileType = TILE_TYPE.BACKGROUNDS,
                     TextureName = jsonObject.Background
-                }, contentManager)
+                }, gameWrapper)
             };
 
             foreach (var tile in jsonObject.Tiles)
             {
-                Tiles.Add(new Tile(tile, contentManager));
+                Tiles.Add(new Tile(tile, gameWrapper));
             }
 
-            CurrentPlayer = new Player(jsonObject.CurrentPlayer, contentManager);
+            CurrentPlayer = new Player(jsonObject.CurrentPlayer, gameWrapper);
         }
     }
 }
