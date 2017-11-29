@@ -25,20 +25,20 @@ namespace JackSazerak.UWP.Objects
                     UpdatePosition(levelTile.PositionX, levelTile.PositionY);
                     break;
                 case Enums.TILE_TYPE.SPRITES:
-                    Rect = new Rectangle(0, 0, levelTile.Width, levelTile.Height);
+                    Rect = new Rectangle(0, 0, Texture.Width, Texture.Height);
 
-                    UpdatePosition(0, 900 - levelTile.PositionY);
+                    UpdatePosition(0, 900 - Texture.Height);
                     break;
             }
         }
 
-        public Vector2 TilePosition { get; private set; }
+        private Vector2 TilePosition { get; set; }
 
-        public Texture2D Texture { get; set; }
+        private Texture2D Texture { get; set; }
 
-        public Rectangle Rect { get; set; }
+        private Rectangle Rect { get; set; }
 
-        public Color Color { get; set; }
+        private Color Color { get; set; }
 
         public void UpdatePosition(int x = 0, int y = 0)
         {
