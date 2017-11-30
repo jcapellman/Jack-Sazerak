@@ -80,7 +80,12 @@ namespace JackSazerak.UWP
             }
 
             currentLevel.CurrentPlayer.Render(spriteBatch);
-            
+
+            foreach (var text in currentLevel.TextElements)
+            {
+                text.Render(spriteBatch);
+            }
+
             spriteBatch.End();
 
             base.Draw(gameTime);

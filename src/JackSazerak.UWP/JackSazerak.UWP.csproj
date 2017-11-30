@@ -117,6 +117,7 @@
     <Compile Include="Objects\BaseObject.cs" />
     <Compile Include="Objects\LevelContainer.cs" />
     <Compile Include="Objects\Player.cs" />
+    <Compile Include="Objects\Text.cs" />
     <Compile Include="Objects\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
