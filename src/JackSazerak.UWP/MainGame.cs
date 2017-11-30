@@ -1,4 +1,5 @@
-﻿using JackSazerak.UWP.Managers;
+﻿using JackSazerak.UWP.Enums;
+using JackSazerak.UWP.Managers;
 using JackSazerak.UWP.Objects;
 using JackSazerak.UWP.Objects.Containers;
 
@@ -13,25 +14,20 @@ namespace JackSazerak.UWP
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         LevelContainer currentLevel;
-
+        
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
 
-        public GameWrapper GameWrapper => new GameWrapper
+        private GameWrapper GameWrapper => new GameWrapper
         {
             ContentManager = Content,
             Window_Height = Window.ClientBounds.Height,
             Window_Width = Window.ClientBounds.Width
         };
-
-        protected override void Initialize()
-        {
-            base.Initialize();
-        }
-
+        
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -41,6 +37,7 @@ namespace JackSazerak.UWP
 
         protected override void UnloadContent()
         {
+            Content.Unload();
         }
 
         protected override void Update(GameTime gameTime)
@@ -54,16 +51,16 @@ namespace JackSazerak.UWP
                 switch (keyPressed)
                 {
                     case Keys.Right:
-                        currentLevel.CurrentPlayer.UpdatePosition(10, 0);
+                        EventManager.FireEvent(ACTION.PLAYER_MOVE_RIGHT);                      
                         break;
                     case Keys.Left:
-                        currentLevel.CurrentPlayer.UpdatePosition(-10, 0);
+                        EventManager.FireEvent(ACTION.PLAYER_MOVE_LEFT);
                         break;
                     case Keys.Up:
-                        currentLevel.CurrentPlayer.UpdatePosition(0, -10);
+                        EventManager.FireEvent(ACTION.PLAYER_MOVE_UP);
                         break;
                     case Keys.Down:
-                        currentLevel.CurrentPlayer.UpdatePosition(0, 10);
+                        EventManager.FireEvent(ACTION.PLAYER_MOVE_DOWN);
                         break;
                 }
             }
