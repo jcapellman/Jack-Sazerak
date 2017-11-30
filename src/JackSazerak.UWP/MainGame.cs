@@ -14,11 +14,14 @@ namespace JackSazerak.UWP
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         LevelContainer currentLevel;
-        
+        SoundManager soundManager;
+
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            soundManager = new SoundManager(GameWrapper);
         }
 
         private GameWrapper GameWrapper => new GameWrapper

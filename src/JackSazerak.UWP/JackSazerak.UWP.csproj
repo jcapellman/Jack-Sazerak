@@ -109,6 +109,7 @@
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Managers\EventManager.cs" />
+    <Compile Include="Managers\SoundManager.cs" />
     <Compile Include="Objects\Containers\GameWrapper.cs" />
     <Compile Include="Objects\JSONObjects\Level.cs" />
     <Compile Include="Objects\JSONObjects\LevelTile.cs" />

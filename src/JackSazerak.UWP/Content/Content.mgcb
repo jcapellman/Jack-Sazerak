@@ -44,3 +44,9 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/HUD.spritefont
 
+#begin Sounds/Footstep.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Footstep.wav
+
