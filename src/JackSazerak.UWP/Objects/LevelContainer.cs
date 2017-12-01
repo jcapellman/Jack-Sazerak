@@ -10,6 +10,8 @@ namespace JackSazerak.UWP.Objects
 {
     public class LevelContainer : BaseObject<Level, LevelContainer>
     {
+        public Vector2 Camera { get; set; }
+
         public List<Text> TextElements { get; set; }
 
         public List<Tile> Tiles { get; set; }

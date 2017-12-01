@@ -1,4 +1,5 @@
-﻿using JackSazerak.UWP.Objects.Containers;
+﻿using JackSazerak.UWP.Managers;
+using JackSazerak.UWP.Objects.Containers;
 using JackSazerak.UWP.Objects.JSONObjects;
 
 using Microsoft.Xna.Framework;
@@ -13,7 +14,11 @@ namespace JackSazerak.UWP.Objects
             Color = Color.White;
             
             Texture = wrapper.ContentManager.Load<Texture2D>($"{levelTile.TileType}/{levelTile.TextureName}");
-            
+
+            TileType = levelTile.TileType;
+
+            EventManager.EventOccurred += EventManager_EventOccurred;
+
             switch (levelTile.TileType)
             {
                 case Enums.TILE_TYPE.BACKGROUNDS:
@@ -28,6 +33,30 @@ namespace JackSazerak.UWP.Objects
                     Rect = new Rectangle(0, 0, Texture.Width, Texture.Height);
 
                     UpdatePosition(0, wrapper.Window_Height - Texture.Height);
+                    break;
+            }
+        }
+
+        private void EventManager_EventOccurred(object sender, Enums.ACTION e)
+        {
+            if (TileType == Enums.TILE_TYPE.SPRITES)
+            {
+                return;
+            }
+
+            switch (e)
+            {
+                case Enums.ACTION.PLAYER_MOVE_RIGHT:
+                    UpdatePosition(-10, 0);
+                    break;
+                case Enums.ACTION.PLAYER_MOVE_LEFT:
+                    UpdatePosition(10, 0);
+                    break;
+                case Enums.ACTION.PLAYER_MOVE_UP:
+                    UpdatePosition(0, 10);
+                    break;
+                case Enums.ACTION.PLAYER_MOVE_DOWN:
+                    UpdatePosition(0, -10);
                     break;
             }
         }
