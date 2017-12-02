@@ -50,6 +50,9 @@ namespace JackSazerak.UWP.States
                     case Keys.Down:
                         EventManager.FireEvent(ACTION.PLAYER_MOVE_DOWN);
                         break;
+                    case Keys.Escape:
+                        OnSwitchState(GAME_STATES.MAIN_MENU);
+                        break;
                 }
             }
         }
