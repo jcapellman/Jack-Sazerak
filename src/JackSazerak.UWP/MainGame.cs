@@ -1,7 +1,6 @@
-﻿using JackSazerak.UWP.Enums;
-using JackSazerak.UWP.Managers;
-using JackSazerak.UWP.Objects;
+﻿using JackSazerak.UWP.Managers;
 using JackSazerak.UWP.Objects.Containers;
+using JackSazerak.UWP.States;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,8 +12,9 @@ namespace JackSazerak.UWP
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        LevelContainer currentLevel;
         SoundManager soundManager;
+
+        BaseState currentState;
 
         public MainGame()
         {
@@ -35,7 +35,7 @@ namespace JackSazerak.UWP
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
-            currentLevel = LevelManager.LoadLevel(GameWrapper);
+            currentState = new LevelState("E1M1", GameWrapper);
         }
 
         protected override void UnloadContent()
@@ -46,27 +46,8 @@ namespace JackSazerak.UWP
         protected override void Update(GameTime gameTime)
         {
             var state = Keyboard.GetState();
-
-            var pressedKeys = state.GetPressedKeys();
-
-            foreach (var keyPressed in pressedKeys)
-            {
-                switch (keyPressed)
-                {
-                    case Keys.Right:
-                        EventManager.FireEvent(ACTION.PLAYER_MOVE_RIGHT);                      
-                        break;
-                    case Keys.Left:
-                        EventManager.FireEvent(ACTION.PLAYER_MOVE_LEFT);
-                        break;
-                    case Keys.Up:
-                        EventManager.FireEvent(ACTION.PLAYER_MOVE_UP);
-                        break;
-                    case Keys.Down:
-                        EventManager.FireEvent(ACTION.PLAYER_MOVE_DOWN);
-                        break;
-                }
-            }
+            
+            currentState.HandleInputs(state.GetPressedKeys());
 
             base.Update(gameTime);
         }
@@ -77,17 +58,7 @@ namespace JackSazerak.UWP
 
             spriteBatch.Begin();
 
-            foreach (var tile in currentLevel.Tiles)
-            {
-                tile.Render(spriteBatch);
-            }
-
-            currentLevel.CurrentPlayer.Render(spriteBatch);
-
-            foreach (var text in currentLevel.TextElements)
-            {
-                text.Render(spriteBatch);
-            }
+            currentState.Render(spriteBatch);
 
             spriteBatch.End();
 
