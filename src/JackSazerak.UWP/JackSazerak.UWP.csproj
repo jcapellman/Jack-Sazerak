@@ -104,12 +104,14 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enums\ACTION.cs" />
+    <Compile Include="Enums\GAME_STATES.cs" />
     <Compile Include="Enums\TILE_TYPE.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Managers\EventManager.cs" />
     <Compile Include="Managers\SoundManager.cs" />
+    <Compile Include="Managers\StateManager.cs" />
     <Compile Include="Objects\Containers\GameWrapper.cs" />
     <Compile Include="Objects\JSONObjects\Level.cs" />
     <Compile Include="Objects\JSONObjects\LevelTile.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="States\BaseState.cs" />
     <Compile Include="States\LevelState.cs" />
+    <Compile Include="States\MainMenuState.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
