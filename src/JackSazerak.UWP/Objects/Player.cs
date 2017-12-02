@@ -21,16 +21,16 @@ namespace JackSazerak.UWP.Objects
             switch (e)
             {
                 case ACTION.PLAYER_MOVE_RIGHT:
-                    UpdatePosition(10, 0);
+                    UpdatePosition(30, 0);
                     break;
                 case ACTION.PLAYER_MOVE_LEFT:
-                    UpdatePosition(-10, 0);
+                    UpdatePosition(-30, 0);
                     break;
                 case ACTION.PLAYER_MOVE_UP:
-                    UpdatePosition(0, -10);
+                    UpdatePosition(0, -30);
                     break;
                 case ACTION.PLAYER_MOVE_DOWN:
-                    UpdatePosition(0, 10);
+                    UpdatePosition(0, 30);
                     break;
             }
         }
