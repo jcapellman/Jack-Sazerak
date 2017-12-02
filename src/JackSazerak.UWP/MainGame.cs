@@ -1,6 +1,6 @@
-﻿using JackSazerak.UWP.Managers;
+﻿using JackSazerak.UWP.Enums;
+using JackSazerak.UWP.Managers;
 using JackSazerak.UWP.Objects.Containers;
-using JackSazerak.UWP.States;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,8 +13,7 @@ namespace JackSazerak.UWP
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SoundManager soundManager;
-
-        BaseState currentState;
+        StateManager stateManager;
 
         public MainGame()
         {
@@ -35,7 +34,16 @@ namespace JackSazerak.UWP
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
-            currentState = new LevelState("E1M1", GameWrapper);
+            stateManager = new StateManager();
+
+            stateManager.SwitchState += StateManager_SwitchState;
+            
+            stateManager.OnSwitchState(GAME_STATES.MAIN_MENU);
+        }
+
+        private void StateManager_SwitchState(object sender, Enums.GAME_STATES e)
+        {
+            stateManager.SetState(e, GameWrapper);
         }
 
         protected override void UnloadContent()
@@ -47,7 +55,7 @@ namespace JackSazerak.UWP
         {
             var state = Keyboard.GetState();
             
-            currentState.HandleInputs(state.GetPressedKeys());
+            stateManager.HandleInput(state.GetPressedKeys());
 
             base.Update(gameTime);
         }
@@ -58,7 +66,7 @@ namespace JackSazerak.UWP
 
             spriteBatch.Begin();
 
-            currentState.Render(spriteBatch);
+            stateManager.RenderState(spriteBatch);
 
             spriteBatch.End();
 
