@@ -1,4 +1,5 @@
-﻿using JackSazerak.UWP.Managers;
+﻿using JackSazerak.UWP.Enums;
+using JackSazerak.UWP.Managers;
 using JackSazerak.UWP.Objects.Containers;
 using JackSazerak.UWP.Objects.JSONObjects;
 
@@ -21,15 +22,15 @@ namespace JackSazerak.UWP.Objects
 
             switch (levelTile.TileType)
             {
-                case Enums.TILE_TYPE.BACKGROUNDS:
+                case TILE_TYPE.BACKGROUNDS:
                     Rect = new Rectangle(0, 0, Texture.Width, Texture.Height);
                     break;
-                case Enums.TILE_TYPE.REGULAR:
+                case TILE_TYPE.REGULAR:
                     Rect = new Rectangle(0, 0, levelTile.Width, levelTile.Height);
 
                     UpdatePosition(levelTile.PositionX, levelTile.PositionY);
                     break;
-                case Enums.TILE_TYPE.SPRITES:
+                case TILE_TYPE.SPRITES:
                     Rect = new Rectangle(0, 0, Texture.Width, Texture.Height);
 
                     UpdatePosition(0, wrapper.Window_Height - Texture.Height);
@@ -37,27 +38,10 @@ namespace JackSazerak.UWP.Objects
             }
         }
 
-        private void EventManager_EventOccurred(object sender, Enums.ACTION e)
+        private void EventManager_EventOccurred(object sender, ACTION e)
         {
-            if (TileType == Enums.TILE_TYPE.SPRITES)
+            if (TileType == TILE_TYPE.SPRITES)
             {
-                return;
-            }
-
-            switch (e)
-            {
-                case Enums.ACTION.PLAYER_MOVE_RIGHT:
-                    UpdatePosition(-10, 0);
-                    break;
-                case Enums.ACTION.PLAYER_MOVE_LEFT:
-                    UpdatePosition(10, 0);
-                    break;
-                case Enums.ACTION.PLAYER_MOVE_UP:
-                    UpdatePosition(0, 10);
-                    break;
-                case Enums.ACTION.PLAYER_MOVE_DOWN:
-                    UpdatePosition(0, -10);
-                    break;
             }
         }
 
@@ -76,6 +60,13 @@ namespace JackSazerak.UWP.Objects
 
         public void Render(SpriteBatch spriteBatch)
         {
+            switch (TileType)
+            {
+                case TILE_TYPE.BACKGROUNDS:
+                    UpdatePosition(0, -5);
+                    break;
+            }
+
             spriteBatch.Draw(Texture, TilePosition, Rect, Color);
         }
     }
