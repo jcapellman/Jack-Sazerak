@@ -4,6 +4,7 @@
     {
         BACKGROUNDS,
         REGULAR,
-        SPRITES
+        SPRITES,
+        TILES
     }
 }

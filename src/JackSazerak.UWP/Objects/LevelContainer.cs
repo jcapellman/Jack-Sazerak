@@ -20,14 +20,20 @@ namespace JackSazerak.UWP.Objects
 
         public LevelContainer(Level jsonObject, GameWrapper gameWrapper)
         {
-            Tiles = new List<Tile>
+            Tiles = new List<Tile>();
+
+            for (var x = 0; x < 100; x++)
             {
-                new Tile(new LevelTile
+                Tiles.Add(new Tile(new LevelTile
                 {
-                    TileType = TILE_TYPE.BACKGROUNDS,
-                    TextureName = jsonObject.Background
-                }, gameWrapper)
-            };
+                    TileType = TILE_TYPE.TILES,
+                    TextureName = "Water",
+                    PositionX = 100,
+                    PositionY = x * -128,
+                    Height = 128,
+                    Width = 128
+                }, gameWrapper));
+            }
 
             foreach (var tile in jsonObject.Tiles)
             {

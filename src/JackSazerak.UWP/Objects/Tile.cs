@@ -25,6 +25,7 @@ namespace JackSazerak.UWP.Objects
                 case TILE_TYPE.BACKGROUNDS:
                     Rect = new Rectangle(0, 0, Texture.Width, Texture.Height);
                     break;
+                case TILE_TYPE.TILES:
                 case TILE_TYPE.REGULAR:
                     Rect = new Rectangle(0, 0, levelTile.Width, levelTile.Height);
 
@@ -62,8 +63,8 @@ namespace JackSazerak.UWP.Objects
         {
             switch (TileType)
             {
-                case TILE_TYPE.BACKGROUNDS:
-                    UpdatePosition(0, -5);
+                case TILE_TYPE.TILES:
+                    UpdatePosition(0, 5);
                     break;
             }
 
