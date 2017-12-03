@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 using Microsoft.Xna.Framework;
 
@@ -19,10 +22,15 @@ namespace JackSazerak.UWP.Objects
 
         public Player CurrentPlayer { get; set; }
 
+        private List<BaseAircraft> GetAllAircraft(GameWrapper gameWrapper) => Assembly.GetExecutingAssembly().GetTypes().Where(a => a.BaseType == typeof(BaseAircraft)).Select(b => (BaseAircraft)Activator.CreateInstance(b, gameWrapper)).ToList();        
+
         public LevelContainer(Level jsonObject, GameWrapper gameWrapper)
         {
+            var aircraft = GetAllAircraft(gameWrapper);
+
             Tiles = new List<Tile>();
 
+            // Swap out temporary code when level editor is done
             for (var x = 0; x < 100; x++)
             {
                 Tiles.Add(new Tile(new LevelTile
@@ -41,7 +49,7 @@ namespace JackSazerak.UWP.Objects
                 Tiles.Add(new Tile(tile, gameWrapper));
             }
 
-            CurrentPlayer = new Player(new F55(gameWrapper));
+            CurrentPlayer = new Player(aircraft.FirstOrDefault(a => a.GetName() == jsonObject.CurrentPlayer));
 
             TextElements = new List<Text>
             {
