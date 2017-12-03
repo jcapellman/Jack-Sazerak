@@ -9,6 +9,8 @@ namespace JackSazerak.UWP.GameObjects.Aircraft
 
         }
 
+        public override string GetName() => "F55";
+
         protected override int AgilityHorizontal() => 50;
 
         protected override int AgilityVertical() => 50;
