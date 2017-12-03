@@ -106,7 +106,12 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Enums\ACTION.cs" />
     <Compile Include="Enums\GAME_STATES.cs" />
+    <Compile Include="Enums\MOVEMENT.cs" />
     <Compile Include="Enums\TILE_TYPE.cs" />
+    <Compile Include="GameObjects\Aircraft\BaseAircraft.cs" />
+    <Compile Include="GameObjects\Aircraft\F45.cs" />
+    <Compile Include="GameObjects\Aircraft\F55.cs" />
+    <Compile Include="GameObjects\BaseGameObject.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
@@ -168,6 +173,7 @@
   <ItemGroup>
     <None Include="JackSazerak.UWP_TemporaryKey.pfx" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
