@@ -9,6 +9,8 @@ namespace JackSazerak.UWP.GameObjects.Aircraft
         {
         }
 
+        public abstract string GetName();
+
         protected abstract int AgilityHorizontal();
 
         protected abstract int AgilityVertical();
