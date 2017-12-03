@@ -1,10 +1,11 @@
-﻿using JackSazerak.UWP.Objects.JSONObjects;
-using JackSazerak.UWP.Enums;
-using JackSazerak.UWP.Objects.Containers;
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
+
+using JackSazerak.UWP.Objects.JSONObjects;
+using JackSazerak.UWP.Enums;
+using JackSazerak.UWP.Objects.Containers;
+using JackSazerak.UWP.GameObjects.Aircraft;
 
 namespace JackSazerak.UWP.Objects
 {
@@ -40,7 +41,7 @@ namespace JackSazerak.UWP.Objects
                 Tiles.Add(new Tile(tile, gameWrapper));
             }
 
-            CurrentPlayer = new Player(jsonObject.CurrentPlayer, gameWrapper);
+            CurrentPlayer = new Player(new F55(gameWrapper));
 
             TextElements = new List<Text>
             {
