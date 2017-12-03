@@ -1,19 +1,25 @@
 ﻿using JackSazerak.UWP.Enums;
+using JackSazerak.UWP.GameObjects.Aircraft;
 using JackSazerak.UWP.Managers;
-using JackSazerak.UWP.Objects.Containers;
-using JackSazerak.UWP.Objects.JSONObjects;
+
+using Microsoft.Xna.Framework.Graphics;
 
 namespace JackSazerak.UWP.Objects
 {
-    public class Player : Tile
+    public class Player
     {
-        public Player(string spriteName, GameWrapper gameWrapper) : base(new LevelTile
+        private readonly BaseAircraft aircraft;
+
+        public Player(BaseAircraft aircraft)
         {
-            TextureName = spriteName,
-            TileType = TILE_TYPE.SPRITES
-        }, gameWrapper)
-        {
+            this.aircraft = aircraft;
+
             EventManager.EventOccurred += EventManager_EventOccurred;
+        }
+
+        public void Render(SpriteBatch spriteBatch)
+        {
+            aircraft.Render(spriteBatch);
         }
 
         private void EventManager_EventOccurred(object sender, ACTION e)
@@ -21,16 +27,16 @@ namespace JackSazerak.UWP.Objects
             switch (e)
             {
                 case ACTION.PLAYER_MOVE_RIGHT:
-                    UpdatePosition(30, 0);
+                    aircraft.Move(MOVEMENT.RIGHT);
                     break;
                 case ACTION.PLAYER_MOVE_LEFT:
-                    UpdatePosition(-30, 0);
+                    aircraft.Move(MOVEMENT.LEFT);
                     break;
                 case ACTION.PLAYER_MOVE_UP:
-                    UpdatePosition(0, -30);
+                    aircraft.Move(MOVEMENT.UP);
                     break;
                 case ACTION.PLAYER_MOVE_DOWN:
-                    UpdatePosition(0, 30);
+                    aircraft.Move(MOVEMENT.DOWN);
                     break;
             }
         }
