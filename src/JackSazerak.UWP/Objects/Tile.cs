@@ -54,9 +54,15 @@ namespace JackSazerak.UWP.Objects
 
         private Color Color { get; set; }
 
-        public void UpdatePosition(int x = 0, int y = 0)
+        public void UpdatePosition(int x = 0, int y = 0, bool absolute = false)
         {
-            TilePosition = new Vector2(TilePosition.X + x, TilePosition.Y + y);            
+            if (absolute)
+            {
+                TilePosition = new Vector2(x, y);
+            } else
+            {
+                TilePosition = new Vector2(TilePosition.X + x, TilePosition.Y + y);
+            }
         }
 
         public void Render(SpriteBatch spriteBatch)
