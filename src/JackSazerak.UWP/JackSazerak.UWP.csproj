@@ -103,6 +103,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\Constants.cs" />
     <Compile Include="Enums\ACTION.cs" />
     <Compile Include="Enums\GAME_STATES.cs" />
     <Compile Include="Enums\TILE_TYPE.cs" />
