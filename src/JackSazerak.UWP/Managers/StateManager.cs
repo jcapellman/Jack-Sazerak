@@ -13,9 +13,9 @@ namespace JackSazerak.UWP.Managers
     {
         private BaseState currentState;
 
-        public void HandleInput(Keys[] keysPressed)
+        public void HandleInput(KeyboardState state)
         {
-            currentState.HandleInputs(keysPressed);
+            currentState.HandleInputs(state);
         }
 
         public void RenderState(SpriteBatch spriteBatch)

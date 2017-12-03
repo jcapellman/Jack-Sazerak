@@ -33,16 +33,15 @@ namespace JackSazerak.UWP.States
             selector.Render(spriteBatch);
         }
 
-        public override void HandleInputs(Keys[] keysPressed)
+        public override void HandleInputs(KeyboardState state)
         {
-            if (keysPressed.Any(a => a == Keys.Enter))
-            {
+            if (state.IsKeyDown(Keys.Enter)) {             
                 OnSwitchState(GAME_STATES.LEVEL);
 
                 return;
             }
 
-            if (keysPressed.Any(a => a == Keys.Up))
+            if (state.IsKeyDown(Keys.Up))
             {
                 if (selectedIndex == 0)
                 {
@@ -58,7 +57,7 @@ namespace JackSazerak.UWP.States
                 return;
             }
 
-            if (keysPressed.Any(a => a == Keys.Down))
+            if (state.IsKeyDown(Keys.Down))
             {
                 if (selectedIndex == 3)
                 {

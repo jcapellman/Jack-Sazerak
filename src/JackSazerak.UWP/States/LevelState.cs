@@ -32,9 +32,9 @@ namespace JackSazerak.UWP.States
             }
         }
 
-        public override void HandleInputs(Keys[] keysPressed)
+        public override void HandleInputs(KeyboardState state)
         {
-            foreach (var keyPressed in keysPressed)
+            foreach (var keyPressed in state.GetPressedKeys())
             {
                 switch (keyPressed)
                 {
