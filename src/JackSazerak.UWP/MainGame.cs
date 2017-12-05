@@ -24,7 +24,7 @@ namespace JackSazerak.UWP
 
             graphics = new GraphicsDeviceManager(this);
             graphics.PreparingDeviceSettings += Graphics_PreparingDeviceSettings;
-
+            
             Content.RootDirectory = "Content";
 
             soundManager = new SoundManager(GameWrapper);

@@ -4,10 +4,7 @@ namespace JackSazerak.UWP.GameObjects.Aircraft
 {
     public class F45 : BaseAircraft
     {
-        public F45(GameWrapper wrapper) : base("F45", wrapper)
-        {
-            
-        }
+        public F45(GameWrapper wrapper) : base("F45", wrapper) { }
 
         public override string GetName() => "F45";
 
