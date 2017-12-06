@@ -49,7 +49,7 @@ namespace JackSazerak.UWP.Objects
                 Tiles.Add(new Tile(tile, gameWrapper));
             }
 
-            CurrentPlayer = new Player(aircraft.FirstOrDefault(a => a.GetName() == jsonObject.CurrentPlayer));
+            CurrentPlayer = new Player(aircraft.FirstOrDefault(a => a.Name == jsonObject.CurrentPlayer));
 
             TextElements = new List<Text>
             {

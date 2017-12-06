@@ -9,27 +9,27 @@ namespace JackSazerak.UWP.GameObjects.Aircraft
         {
         }
 
-        public abstract string GetName();
+        public abstract string Name { get; }
 
-        protected abstract int AgilityHorizontal();
+        protected abstract int AgilityHorizontal { get; }
 
-        protected abstract int AgilityVertical();
+        protected abstract int AgilityVertical { get; }
 
         public void Move(MOVEMENT movementOption)
         {
             switch (movementOption)
             {
                 case MOVEMENT.RIGHT:
-                    UpdatePosition(AgilityHorizontal(), 0);
+                    UpdatePosition(AgilityHorizontal, 0);
                     break;
                 case MOVEMENT.LEFT:
-                    UpdatePosition(AgilityHorizontal() * -1, 0);
+                    UpdatePosition(AgilityHorizontal * -1, 0);
                     break;
                 case MOVEMENT.UP:
-                    UpdatePosition(0, AgilityVertical() * -1);
+                    UpdatePosition(0, AgilityVertical * -1);
                     break;
                 case MOVEMENT.DOWN:
-                    UpdatePosition(0, AgilityVertical());
+                    UpdatePosition(0, AgilityVertical);
                     break;
             }
         }

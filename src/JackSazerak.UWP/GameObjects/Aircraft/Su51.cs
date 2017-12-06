@@ -6,10 +6,10 @@ namespace JackSazerak.UWP.GameObjects.Aircraft
     {
         public Su51(GameWrapper wrapper) : base("Su51", wrapper) { }
 
-        public override string GetName() => "Su51";
+        public override string Name => "Su51";
 
-        protected override int AgilityHorizontal() => 40;
+        protected override int AgilityHorizontal => 40;
 
-        protected override int AgilityVertical() => 40;
+        protected override int AgilityVertical => 40;
     }
 }
