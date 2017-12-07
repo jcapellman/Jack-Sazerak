@@ -116,6 +116,7 @@
     <Compile Include="GameObjects\Aircraft\Su51.cs" />
     <Compile Include="GameObjects\BaseGameObject.cs" />
     <Compile Include="GameObjects\Static\Background.cs" />
+    <Compile Include="GameObjects\Weapon\BaseWeapon.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
