@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 
 using JackSazerak.UWP.Enums;
+using JackSazerak.UWP.GameObjects.Static;
 using JackSazerak.UWP.Objects;
 using JackSazerak.UWP.Objects.Containers;
 using JackSazerak.UWP.Objects.JSONObjects;
@@ -12,14 +13,14 @@ namespace JackSazerak.UWP.States
 {
     public class MainMenuState : BaseState
     {
-        private readonly Tile background;
+        private readonly Background background;
         private readonly Tile selector;
 
         private int selectedIndex = 0;
 
         public MainMenuState(GameWrapper gameWrapper)
         {
-            background = new Tile(new LevelTile { TextureName = "mainmenu", TileType = TILE_TYPE.BACKGROUNDS}, gameWrapper);
+            background = new Background("mainmenu", gameWrapper);
 
             selector = new Tile(new LevelTile { TextureName = "f45", TileType = TILE_TYPE.SPRITES }, gameWrapper);
 
