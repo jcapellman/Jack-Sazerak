@@ -8,5 +8,9 @@ namespace JackSazerak.UWP.GameObjects.Weapon
         protected BaseWeapon(string textureName, GameWrapper wrapper) : base(textureName, TILE_TYPE.SPRITES, wrapper)
         {
         }
+
+        protected abstract int RateOfFire { get; }
+
+        protected abstract int Damage { get; }
     }
 }
