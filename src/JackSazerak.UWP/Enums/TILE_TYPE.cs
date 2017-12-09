@@ -5,6 +5,7 @@
         BACKGROUNDS,
         REGULAR,
         SPRITES,
-        TILES
+        TILES,
+        WEAPONS
     }
 }
