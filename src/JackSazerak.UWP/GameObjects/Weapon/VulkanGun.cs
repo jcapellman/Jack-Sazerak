@@ -4,7 +4,7 @@ namespace JackSazerak.UWP.GameObjects.Weapon
 {
     public class VulkanGun : BaseWeapon
     {
-        protected VulkanGun(GameWrapper wrapper) : base("VulkanGun", wrapper)
+        protected VulkanGun(GameWrapper wrapper) : base("vulkangun", wrapper)
         {
         }
 
