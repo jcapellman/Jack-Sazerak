@@ -1,10 +1,11 @@
-﻿using JackSazerak.UWP.Objects.Containers;
+﻿using JackSazerak.UWP.Enums;
+using JackSazerak.UWP.Objects.Containers;
 
 namespace JackSazerak.UWP.GameObjects.Weapon
 {
     public class Sidewinder : BaseWeapon
     {
-        protected Sidewinder(GameWrapper wrapper) : base("Sidewinder", wrapper)
+        protected Sidewinder(GameWrapper wrapper) : base("sidewinder", wrapper)
         {
         }
 

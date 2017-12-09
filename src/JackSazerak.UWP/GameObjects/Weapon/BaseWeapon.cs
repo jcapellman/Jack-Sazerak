@@ -5,7 +5,7 @@ namespace JackSazerak.UWP.GameObjects.Weapon
 {
     public abstract class BaseWeapon : BaseGameObject
     {
-        protected BaseWeapon(string textureName, GameWrapper wrapper) : base(textureName, TILE_TYPE.SPRITES, wrapper)
+        protected BaseWeapon(string textureName, GameWrapper wrapper) : base(textureName, TILE_TYPE.WEAPONS, wrapper)
         {
         }
 
