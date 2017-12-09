@@ -1,10 +1,11 @@
-﻿using JackSazerak.UWP.Objects.Containers;
+﻿using JackSazerak.UWP.GameObjects.Weapon;
+using JackSazerak.UWP.Objects.Containers;
 
 namespace JackSazerak.UWP.GameObjects.Aircraft
 {
     public class Mig51 : BaseAircraft
     {
-        public Mig51(GameWrapper wrapper) : base("Mig51", wrapper)
+        public Mig51(GameWrapper wrapper) : base("Mig51", new VulkanGun(wrapper), wrapper)
         {
         }
 

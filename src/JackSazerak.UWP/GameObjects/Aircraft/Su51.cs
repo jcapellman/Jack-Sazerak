@@ -1,10 +1,11 @@
-﻿using JackSazerak.UWP.Objects.Containers;
+﻿using JackSazerak.UWP.GameObjects.Weapon;
+using JackSazerak.UWP.Objects.Containers;
 
 namespace JackSazerak.UWP.GameObjects.Aircraft
 {
     public class Su51 : BaseAircraft
     {
-        public Su51(GameWrapper wrapper) : base("Su51", wrapper) { }
+        public Su51(GameWrapper wrapper) : base("Su51", new VulkanGun(wrapper), wrapper) { }
 
         public override string Name => "Su51";
 
