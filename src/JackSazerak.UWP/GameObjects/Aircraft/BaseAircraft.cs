@@ -1,13 +1,17 @@
 ﻿using JackSazerak.UWP.Enums;
+using JackSazerak.UWP.GameObjects.Weapon;
 using JackSazerak.UWP.Objects.Containers;
 
 namespace JackSazerak.UWP.GameObjects.Aircraft
 {
     public abstract class BaseAircraft : BaseGameObject
     {
-        protected BaseAircraft(string textureName, GameWrapper wrapper) : base(textureName, TILE_TYPE.SPRITES, wrapper)
+        protected BaseAircraft(string textureName, BaseWeapon primaryWeapon, GameWrapper wrapper) : base(textureName, TILE_TYPE.SPRITES, wrapper)
         {
+            PrimaryWeapon = primaryWeapon;
         }
+
+        protected BaseWeapon PrimaryWeapon { get; }
 
         public abstract string Name { get; }
 
