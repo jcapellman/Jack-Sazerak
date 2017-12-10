@@ -114,6 +114,7 @@
     <Compile Include="GameObjects\Aircraft\F55.cs" />
     <Compile Include="GameObjects\Aircraft\Mig51.cs" />
     <Compile Include="GameObjects\Aircraft\Su51.cs" />
+    <Compile Include="GameObjects\Aircraft\XB91.cs" />
     <Compile Include="GameObjects\BaseGameObject.cs" />
     <Compile Include="GameObjects\Static\Background.cs" />
     <Compile Include="GameObjects\Weapon\BaseWeapon.cs" />
