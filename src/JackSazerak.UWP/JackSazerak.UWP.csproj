@@ -113,6 +113,7 @@
     <Compile Include="GameObjects\Aircraft\F25.cs" />
     <Compile Include="GameObjects\Aircraft\F45.cs" />
     <Compile Include="GameObjects\Aircraft\F55.cs" />
+    <Compile Include="GameObjects\Aircraft\J20.cs" />
     <Compile Include="GameObjects\Aircraft\Mig51.cs" />
     <Compile Include="GameObjects\Aircraft\Su51.cs" />
     <Compile Include="GameObjects\Aircraft\XB91.cs" />
