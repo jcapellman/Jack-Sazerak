@@ -109,6 +109,7 @@
     <Compile Include="Enums\MOVEMENT.cs" />
     <Compile Include="Enums\TILE_TYPE.cs" />
     <Compile Include="GameObjects\Aircraft\BaseAircraft.cs" />
+    <Compile Include="GameObjects\Aircraft\F18.cs" />
     <Compile Include="GameObjects\Aircraft\F19.cs" />
     <Compile Include="GameObjects\Aircraft\F25.cs" />
     <Compile Include="GameObjects\Aircraft\F28.cs" />
