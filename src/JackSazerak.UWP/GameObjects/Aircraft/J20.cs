@@ -5,7 +5,7 @@ namespace JackSazerak.UWP.GameObjects.Aircraft
 {
     public class J20 : BaseAircraft
     {
-        protected J20(GameWrapper wrapper) : base("J20", new VulkanGun(wrapper), wrapper)
+        public J20(GameWrapper wrapper) : base("J20", new VulkanGun(wrapper), wrapper)
         {
         }
 
