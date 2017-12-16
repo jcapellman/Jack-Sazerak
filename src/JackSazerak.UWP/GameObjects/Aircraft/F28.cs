@@ -5,10 +5,10 @@ namespace JackSazerak.UWP.GameObjects.Aircraft
 {
     public class F28 : BaseAircraft
     {
-        protected F28(GameWrapper wrapper) : base("F28", new VulkanGun(wrapper), wrapper)
-        {
+        public F28(GameWrapper wrapper) : base("F28", new VulkanGun(wrapper), wrapper)
+        {            
         }
-
+        
         public override string Name => "F28";
 
         protected override int AgilityHorizontal => 40;
