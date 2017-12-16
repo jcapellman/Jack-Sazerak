@@ -5,7 +5,7 @@ namespace JackSazerak.UWP.GameObjects.Aircraft
 {
     public class XB91 : BaseAircraft
     {
-        protected XB91(GameWrapper wrapper) : base("xb91", new VulkanGun(wrapper), wrapper)
+        public XB91(GameWrapper wrapper) : base("xb91", new VulkanGun(wrapper), wrapper)
         {
         }
         
