@@ -8,28 +8,28 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace JackSazerak.UWP.Objects
 {
-    public class Tile : BaseObject<LevelTile, Tile>
+    public abstract class Tile : BaseObject<LevelTile, Tile>
     {
-        public Tile(LevelTile levelTile, GameWrapper wrapper)
+        public Tile(string textureName, TILE_TYPE tileType, GameWrapper wrapper)
         {
             Color = Color.White;
             
-            Texture = wrapper.ContentManager.Load<Texture2D>($"{levelTile.TileType}/{levelTile.TextureName}");
+            Texture = wrapper.ContentManager.Load<Texture2D>($"{tileType}/{textureName}");
 
-            TileType = levelTile.TileType;
+            TileType = tileType;
 
             EventManager.EventOccurred += EventManager_EventOccurred;
 
-            switch (levelTile.TileType)
+            switch (tileType)
             {
                 case TILE_TYPE.BACKGROUNDS:
                     Rect = new Rectangle(0, 0, Texture.Width, Texture.Height);
                     break;
                 case TILE_TYPE.TILES:
                 case TILE_TYPE.REGULAR:
-                    Rect = new Rectangle(0, 0, levelTile.Width, levelTile.Height);
+                    Rect = new Rectangle(0, 0, Width, Height);
 
-                    UpdatePosition(levelTile.PositionX, levelTile.PositionY);
+                    UpdatePosition(PositionX, PositionY);
                     break;
                 case TILE_TYPE.SPRITES:
                     Rect = new Rectangle(0, 0, Texture.Width, Texture.Height);
@@ -38,6 +38,14 @@ namespace JackSazerak.UWP.Objects
                     break;
             }
         }
+
+        protected int Width { get; set; }
+
+        protected int Height { get; set; }
+
+        protected int PositionX { get; set; }
+
+        protected int PositionY { get; set; }
 
         private void EventManager_EventOccurred(object sender, ACTION e)
         {
