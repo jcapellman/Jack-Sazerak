@@ -14,7 +14,7 @@ namespace JackSazerak.UWP.States
     public class MainMenuState : BaseState
     {
         private readonly Background background;
-        private readonly Tile selector;
+        private readonly MenuSelector selector;
 
         private int selectedIndex = 0;
 
@@ -22,7 +22,7 @@ namespace JackSazerak.UWP.States
         {
             background = new Background("mainmenu", gameWrapper);
 
-            selector = new Tile(new LevelTile { TextureName = "f45", TileType = TILE_TYPE.SPRITES }, gameWrapper);
+            selector = new MenuSelector("F45", gameWrapper);
 
             selectedIndex = 0;
         }
