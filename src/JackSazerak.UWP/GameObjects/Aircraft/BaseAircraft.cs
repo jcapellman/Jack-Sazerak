@@ -21,6 +21,10 @@ namespace JackSazerak.UWP.GameObjects.Aircraft
 
         protected abstract int HitPoints { get; }
 
+        protected abstract int UnlockedLevel { get; }
+
+        protected abstract int Cost { get; }
+
         public void Move(MOVEMENT movementOption)
         {
             switch (movementOption)
