@@ -121,6 +121,8 @@
     <Compile Include="GameObjects\Aircraft\XB91.cs" />
     <Compile Include="GameObjects\BaseGameObject.cs" />
     <Compile Include="GameObjects\Static\Background.cs" />
+    <Compile Include="GameObjects\Static\BackgroundTile.cs" />
+    <Compile Include="GameObjects\Static\MenuSelector.cs" />
     <Compile Include="GameObjects\Weapon\BaseWeapon.cs" />
     <Compile Include="GameObjects\Weapon\Sidewinder.cs" />
     <Compile Include="GameObjects\Weapon\VulkanGun.cs" />
