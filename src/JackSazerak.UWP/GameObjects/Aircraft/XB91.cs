@@ -16,5 +16,9 @@ namespace JackSazerak.UWP.GameObjects.Aircraft
         protected override int AgilityVertical => 100;
 
         protected override int HitPoints => 30;
+
+        protected override int UnlockedLevel => 0;
+
+        protected override int Cost => 0;
     }
 }
