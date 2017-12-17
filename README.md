@@ -1,5 +1,5 @@
 # Jack Sazerak
-Top down shooter throwback to the early 90s utilizing the MonoGame framework and C#.
+Top down shooter throwback to the early 90s utilizing the MonoGame framework and C#.  Eventually High Scores and Player Profiles will be added - but this will be near the end of development.
 
 ## Gameplay Features
 * Top-down aircraft shooter set in an alternate timeline where the cold war never ended
@@ -21,6 +21,9 @@ Top down shooter throwback to the early 90s utilizing the MonoGame framework and
 * Handle non-keyboard input
 * Weather/Transparent overlay effects
 * Camera Effects
+* REST API for High Scores and Player Profile Statistics
+* MVC Micro-Site
+* MVC Player Profile Site
 
 ### Graphic Asset Todo List
 * Static Graphics for Menus
@@ -32,6 +35,8 @@ Top down shooter throwback to the early 90s utilizing the MonoGame framework and
 * Repeatable Tiles
 * More Aircraft
 * Weather Effects
+* MVC Micro-Site
+* MVC Player Profile Site
 
 ### Sound Asset Todo List
 * Music
