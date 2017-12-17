@@ -15,7 +15,7 @@ Top down shooter throwback to the early 90s utilizing the MonoGame framework and
 * HUD during In-Game State
 * Load/Save Games
 * Hub State
-** Upgrade Screen
-** Pursche Aircraft Screen
-** Mission Selection Screen
+* Upgrade Screen
+* Pursche Aircraft Screen
+* Mission Selection Screen
 * Handle non-keyboard input
