@@ -10,7 +10,15 @@ namespace JackSazerak.UWP.Objects
 {
     public abstract class Tile : BaseObject<LevelTile, Tile>
     {
-        public Tile(string textureName, TILE_TYPE tileType, GameWrapper wrapper)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="textureName"></param>
+        /// <param name="tileType"></param>
+        /// <param name="wrapper"></param>
+        /// <param name="size">If not used the Texture Size is used</param>
+        /// <param name="position">If not used 0,0 is used</param>
+        public Tile(string textureName, TILE_TYPE tileType, GameWrapper wrapper, Vector2? size = null, Vector2? position = null)
         {
             Color = Color.White;
             
@@ -27,9 +35,9 @@ namespace JackSazerak.UWP.Objects
                     break;
                 case TILE_TYPE.TILES:
                 case TILE_TYPE.REGULAR:
-                    Rect = new Rectangle(0, 0, Width, Height);
+                    Rect = new Rectangle(0, 0, (int) (size?.X ?? Texture.Width), (int)(size?.Y ?? Texture.Height));
 
-                    UpdatePosition(PositionX, PositionY);
+                    UpdatePosition((int)(position?.X ?? 0), (int)(position?.Y ?? 0));
                     break;
                 case TILE_TYPE.SPRITES:
                     Rect = new Rectangle(0, 0, Texture.Width, Texture.Height);
@@ -38,15 +46,7 @@ namespace JackSazerak.UWP.Objects
                     break;
             }
         }
-
-        protected int Width { get; set; }
-
-        protected int Height { get; set; }
-
-        protected int PositionX { get; set; }
-
-        protected int PositionY { get; set; }
-
+        
         private void EventManager_EventOccurred(object sender, ACTION e)
         {
             if (TileType == TILE_TYPE.SPRITES)
