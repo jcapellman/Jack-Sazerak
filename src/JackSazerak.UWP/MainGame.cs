@@ -18,16 +18,32 @@ namespace JackSazerak.UWP
         SoundManager soundManager;
         StateManager stateManager;
 
+        Matrix scale;
+
         public MainGame()
         {
             TargetElapsedTime = TimeSpan.FromTicks(Constants.GAME_UPDATE_TICKS);
-
-            graphics = new GraphicsDeviceManager(this);
-            graphics.PreparingDeviceSettings += Graphics_PreparingDeviceSettings;
             
+            InitGraphics();
+
             Content.RootDirectory = "Content";
 
             soundManager = new SoundManager(GameWrapper);
+        }
+
+        private void InitGraphics()
+        {
+            graphics = new GraphicsDeviceManager(this);
+
+            graphics.PreparingDeviceSettings += Graphics_PreparingDeviceSettings;
+
+            graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
+            graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
+
+            var scaleX = (float)graphics.PreferredBackBufferWidth / Constants.TARGET_RESOLUTION_WIDTH;
+            var scaleY = (float)graphics.PreferredBackBufferHeight / Constants.TARGET_RESOLUTION_HEIGHT;
+
+            scale = Matrix.CreateScale(new Vector3(scaleX, scaleY, 1));
         }
 
         private void Graphics_PreparingDeviceSettings(object sender, PreparingDeviceSettingsEventArgs e)
@@ -74,7 +90,7 @@ namespace JackSazerak.UWP
         {
             GraphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, scale);
 
             stateManager.RenderState(spriteBatch);
 
