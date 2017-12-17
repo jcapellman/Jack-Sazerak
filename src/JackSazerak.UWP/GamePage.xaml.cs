@@ -5,14 +5,11 @@ namespace JackSazerak.UWP
 {
     public sealed partial class GamePage : Page
     {
-		readonly MainGame _game;
-
 		public GamePage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             
-			var launchArguments = string.Empty;
-            _game = MonoGame.Framework.XamlGame<MainGame>.Create(launchArguments, Window.Current.CoreWindow, swapChainPanel);
+            MonoGame.Framework.XamlGame<MainGame>.Create(string.Empty, Window.Current.CoreWindow, swapChainPanel);
         }
     }
 }

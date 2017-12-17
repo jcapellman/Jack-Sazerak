@@ -64,13 +64,7 @@ namespace JackSazerak.UWP.Objects
 
         public void UpdatePosition(int x = 0, int y = 0, bool absolute = false)
         {
-            if (absolute)
-            {
-                TilePosition = new Vector2(x, y);
-            } else
-            {
-                TilePosition = new Vector2(TilePosition.X + x, TilePosition.Y + y);
-            }
+            TilePosition = absolute ? new Vector2(x, y) : new Vector2(TilePosition.X + x, TilePosition.Y + y);
         }
 
         public void Render(SpriteBatch spriteBatch)

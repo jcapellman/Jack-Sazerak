@@ -11,7 +11,7 @@ namespace JackSazerak.UWP.Managers
     {
         private string SND_FOOTSTEP = "Footstep";
 
-        private List<SoundEffect> sounds;
+        private readonly List<SoundEffect> sounds;
 
         public SoundManager(GameWrapper gameWrapper)
         {

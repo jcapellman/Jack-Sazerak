@@ -30,10 +30,10 @@ namespace JackSazerak.UWP.GameObjects.Aircraft
             switch (movementOption)
             {
                 case MOVEMENT.RIGHT:
-                    UpdatePosition(AgilityHorizontal, 0);
+                    UpdatePosition(AgilityHorizontal);
                     break;
                 case MOVEMENT.LEFT:
-                    UpdatePosition(AgilityHorizontal * -1, 0);
+                    UpdatePosition(AgilityHorizontal * -1);
                     break;
                 case MOVEMENT.UP:
                     UpdatePosition(0, AgilityVertical * -1);

@@ -19,8 +19,8 @@ namespace JackSazerak.UWP
     /// </summary>
     public App()
     {
-        this.InitializeComponent();
-        this.Suspending += OnSuspending;
+        InitializeComponent();
+        Suspending += OnSuspending;
 
         //API check to ensure the "RequiresPointerMode" property exists, ensuring project is running on build 14393 or later
         if (Windows.Foundation.Metadata.ApiInformation.IsPropertyPresent("Windows.UI.Xaml.Application", "RequiresPointerMode"))

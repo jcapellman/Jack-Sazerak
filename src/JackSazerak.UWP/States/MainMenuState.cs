@@ -1,10 +1,6 @@
-﻿using System.Linq;
-
-using JackSazerak.UWP.Enums;
+﻿using JackSazerak.UWP.Enums;
 using JackSazerak.UWP.GameObjects.Static;
-using JackSazerak.UWP.Objects;
 using JackSazerak.UWP.Objects.Containers;
-using JackSazerak.UWP.Objects.JSONObjects;
 
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
