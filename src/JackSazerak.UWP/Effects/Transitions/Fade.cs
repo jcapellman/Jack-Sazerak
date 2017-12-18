@@ -1,13 +1,11 @@
-﻿using System;
-using System.Globalization;
-using JackSazerak.UWP.Objects.Containers;
+﻿using JackSazerak.UWP.Objects.Containers;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace JackSazerak.UWP.Effects
+namespace JackSazerak.UWP.Effects.Transitions
 {
-    public class Fade
+    public class Fade : BaseTransitions
     {
         public enum FADE_TYPE
         {
@@ -24,14 +22,7 @@ namespace JackSazerak.UWP.Effects
         private float changePerFrame;
 
         private float opacity;
-
-        public event EventHandler TransitionCompleted;
-
-        public void OnTransitionCompleted()
-        {
-            TransitionCompleted?.Invoke(null, null);
-        }
-
+        
         public Fade(FADE_TYPE fadeType, int durationSeconds, Color color, GameWrapper gameWrapper)
         {
             texture = new Texture2D(gameWrapper.GraphicsDevice, gameWrapper.Window_Width, gameWrapper.Window_Height);
@@ -66,7 +57,7 @@ namespace JackSazerak.UWP.Effects
             }
         }
 
-        public void Render(SpriteBatch spriteBatch)
+        public override void Render(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, new Vector2(0,0), Color.White * opacity);
 

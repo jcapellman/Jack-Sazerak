@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using JackSazerak.UWP.Effects;
+
+using JackSazerak.UWP.Effects.Transitions;
 using JackSazerak.UWP.Enums;
 using JackSazerak.UWP.Objects.Containers;
 using JackSazerak.UWP.States;

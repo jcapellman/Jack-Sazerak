@@ -104,7 +104,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\Constants.cs" />
-    <Compile Include="Effects\Fade.cs" />
+    <Compile Include="Effects\Transitions\Fade.cs" />
+    <Compile Include="Effects\Transitions\BaseTransitions.cs" />
     <Compile Include="Enums\ACTION.cs" />
     <Compile Include="Enums\GAME_STATES.cs" />
     <Compile Include="Enums\MOVEMENT.cs" />
