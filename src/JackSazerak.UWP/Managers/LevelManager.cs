@@ -6,7 +6,7 @@ using JackSazerak.UWP.Objects.JSONObjects;
 
 namespace JackSazerak.UWP.Managers
 {
-    public class LevelManager
+    public static class LevelManager
     {
         private static Level LoadJSON(string name) => Newtonsoft.Json.JsonConvert.DeserializeObject<Level>(File.ReadAllText(name));
         

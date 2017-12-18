@@ -1,6 +1,7 @@
 ﻿using System;
 
 using JackSazerak.UWP.Common;
+using JackSazerak.UWP.Effects;
 using JackSazerak.UWP.Enums;
 using JackSazerak.UWP.Managers;
 using JackSazerak.UWP.Objects.Containers;
@@ -55,14 +56,15 @@ namespace JackSazerak.UWP
         {
             ContentManager = Content,
             Window_Height = Window.ClientBounds.Height,
-            Window_Width = Window.ClientBounds.Width
+            Window_Width = Window.ClientBounds.Width,
+            GraphicsDevice = graphics.GraphicsDevice
         };
         
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
-            stateManager = new StateManager();
+            stateManager = new StateManager(GameWrapper);
 
             stateManager.SwitchState += StateManager_SwitchState;
             
