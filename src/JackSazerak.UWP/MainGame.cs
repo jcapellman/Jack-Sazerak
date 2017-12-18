@@ -36,10 +36,12 @@ namespace JackSazerak.UWP
         {
             graphics = new GraphicsDeviceManager(this);
 
+            graphics.IsFullScreen = true;
+
             graphics.PreparingDeviceSettings += Graphics_PreparingDeviceSettings;
 
-            graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
-            graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
             var scaleX = (float)graphics.PreferredBackBufferWidth / Constants.TARGET_RESOLUTION_WIDTH;
             var scaleY = (float)graphics.PreferredBackBufferHeight / Constants.TARGET_RESOLUTION_HEIGHT;
@@ -55,8 +57,8 @@ namespace JackSazerak.UWP
         private GameWrapper GameWrapper => new GameWrapper
         {
             ContentManager = Content,
-            Window_Height = Window.ClientBounds.Height,
-            Window_Width = Window.ClientBounds.Width,
+            Window_Height = graphics.PreferredBackBufferHeight,
+            Window_Width = graphics.PreferredBackBufferWidth,
             GraphicsDevice = graphics.GraphicsDevice
         };
         
