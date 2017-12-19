@@ -8,7 +8,7 @@ namespace JackSazerak.UWP.Effects.Transitions
     {
         public event EventHandler TransitionCompleted;
 
-        public void OnTransitionCompleted()
+        protected void OnTransitionCompleted()
         {
             TransitionCompleted?.Invoke(null, null);
         }

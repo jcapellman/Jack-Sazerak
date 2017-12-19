@@ -1,7 +1,6 @@
 ﻿using System;
 
 using JackSazerak.UWP.Common;
-using JackSazerak.UWP.Effects;
 using JackSazerak.UWP.Enums;
 using JackSazerak.UWP.Managers;
 using JackSazerak.UWP.Objects.Containers;
