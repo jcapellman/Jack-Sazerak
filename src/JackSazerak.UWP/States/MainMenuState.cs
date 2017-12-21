@@ -32,8 +32,22 @@ namespace JackSazerak.UWP.States
 
         public override void HandleInputs(KeyboardState state)
         {
-            if (state.IsKeyDown(Keys.Enter)) {             
+            if (state.IsKeyDown(Keys.Q)) {             
+                OnSwitchState(GAME_STATES.LEVEL);
+
+                return;
+            }
+
+            if (state.IsKeyDown(Keys.W))
+            {
                 OnSwitchState(GAME_STATES.MAIN_MENU_OPTIONS);
+
+                return;
+            }
+
+            if (state.IsKeyDown(Keys.E))
+            {
+                OnSwitchState(GAME_STATES.MAIN_MENU_ABOUT);
 
                 return;
             }
