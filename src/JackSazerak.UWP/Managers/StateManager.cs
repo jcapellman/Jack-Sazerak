@@ -79,6 +79,9 @@ namespace JackSazerak.UWP.Managers
                 case GAME_STATES.MAIN_MENU_OPTIONS:
                     currentState = new OptionsMainMenuState(gameWrapper);
                     break;
+                case GAME_STATES.MAIN_MENU_ABOUT:
+                    currentState = new AboutMainMenuState(gameWrapper);
+                    break;
             }
 
             currentState.SwitchState += CurrentState_SwitchState;
