@@ -14,6 +14,8 @@ namespace JackSazerak.UWP.States
 
         private int selectedIndex = 0;
 
+        public override GAME_STATES GameState => GAME_STATES.MAIN_MENU;
+
         public MainMenuState(GameWrapper gameWrapper)
         {
             background = new Background("mainmenu", gameWrapper);
