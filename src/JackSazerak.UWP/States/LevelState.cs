@@ -12,9 +12,11 @@ namespace JackSazerak.UWP.States
     {
         private readonly LevelContainer level;
 
-        public LevelState(string levelName, GameWrapper gameWrapper)
+        public override GAME_STATES GameState => GAME_STATES.LEVEL;
+
+        public LevelState(GameWrapper gameWrapper)
         {
-            level = LevelManager.LoadLevel(gameWrapper, levelName);
+            level = LevelManager.LoadLevel(gameWrapper, "E1M1");
         }
 
         public override void Render(SpriteBatch spriteBatch)
