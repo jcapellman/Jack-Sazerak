@@ -10,7 +10,9 @@ namespace JackSazerak.UWP.States
     public class OptionsMainMenuState : BaseState
     {
         private readonly Background background;
-        
+
+        public override GAME_STATES GameState => GAME_STATES.MAIN_MENU_OPTIONS;
+
         public OptionsMainMenuState(GameWrapper gameWrapper)
         {
             background = new Background("options_menu", gameWrapper);
