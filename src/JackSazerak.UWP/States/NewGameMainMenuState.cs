@@ -11,6 +11,8 @@ namespace JackSazerak.UWP.States
     {
         private readonly Background background;
 
+        public override GAME_STATES GameState => GAME_STATES.MAIN_MENU_NEWGAME;
+
         public NewGameMainMenuState(GameWrapper gameWrapper)
         {
             background = new Background("newgame_menu", gameWrapper);
