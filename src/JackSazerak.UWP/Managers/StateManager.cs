@@ -62,7 +62,7 @@ namespace JackSazerak.UWP.Managers
                 handleTransition(Fade.FADE_TYPE.FADE_IN);
             }
             else
-            {                
+            {
                 transitionCompleted = true;
 
                 handleTransition(Fade.FADE_TYPE.FADE_OUT);
@@ -81,6 +81,9 @@ namespace JackSazerak.UWP.Managers
                     break;
                 case GAME_STATES.MAIN_MENU_ABOUT:
                     currentState = new AboutMainMenuState(gameWrapper);
+                    break;
+                case GAME_STATES.MAIN_MENU_NEWGAME:
+                    currentState = new NewGameMainMenuState(gameWrapper);
                     break;
             }
 
