@@ -52,6 +52,13 @@ namespace JackSazerak.UWP.States
                 return;
             }
 
+            if (state.IsKeyDown(Keys.R))
+            {
+                OnSwitchState(GAME_STATES.MAIN_MENU_NEWGAME);
+
+                return;
+            }
+
             if (state.IsKeyDown(Keys.Up))
             {
                 if (selectedIndex == 0)
