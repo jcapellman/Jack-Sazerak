@@ -11,6 +11,8 @@ namespace JackSazerak.UWP.States
     {
         public abstract void Render(SpriteBatch spriteBatch);
 
+        public abstract GAME_STATES GameState { get; }
+
         public abstract void HandleInputs(KeyboardState state);
 
         public event EventHandler<GAME_STATES> SwitchState;
