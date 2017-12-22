@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 using JackSazerak.UWP.Effects.Transitions;
 using JackSazerak.UWP.Enums;
@@ -18,9 +21,19 @@ namespace JackSazerak.UWP.Managers
         private bool transitionCompleted = false;
         private readonly Fade baseFade;
 
+        private List<BaseState> gameStates;
+
         public StateManager(GameWrapper gameWrapper)
         {
             baseFade = new Fade(Fade.FADE_TYPE.FADE_IN, 3, Color.Black, gameWrapper);
+
+            LoadGameStates(gameWrapper);
+        }
+
+        private void LoadGameStates(GameWrapper gameWrapper)
+        {
+            gameStates = Assembly.GetExecutingAssembly().GetTypes().Where(a => 
+                a.BaseType == typeof(BaseState) && !a.IsAbstract).Select(b => (BaseState)Activator.CreateInstance(b, gameWrapper)).ToList();
         }
 
         public void HandleInput(KeyboardState state)
@@ -67,25 +80,8 @@ namespace JackSazerak.UWP.Managers
 
                 handleTransition(Fade.FADE_TYPE.FADE_OUT);
             }
-
-            switch (gameState)
-            {
-                case GAME_STATES.MAIN_MENU:
-                    currentState = new MainMenuState(gameWrapper);                    
-                    break;
-                case GAME_STATES.LEVEL:
-                    currentState = new LevelState("E1M1", gameWrapper);
-                    break;
-                case GAME_STATES.MAIN_MENU_OPTIONS:
-                    currentState = new OptionsMainMenuState(gameWrapper);
-                    break;
-                case GAME_STATES.MAIN_MENU_ABOUT:
-                    currentState = new AboutMainMenuState(gameWrapper);
-                    break;
-                case GAME_STATES.MAIN_MENU_NEWGAME:
-                    currentState = new NewGameMainMenuState(gameWrapper);
-                    break;
-            }
+            
+            currentState = gameStates.FirstOrDefault(a => a.GameState == gameState) ?? throw new Exception($"Could not find implementation of {gameState}");
 
             currentState.SwitchState += CurrentState_SwitchState;
         }
