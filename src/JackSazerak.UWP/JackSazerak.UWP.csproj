@@ -107,9 +107,12 @@
     <Compile Include="Effects\Transitions\Fade.cs" />
     <Compile Include="Effects\Transitions\BaseTransitions.cs" />
     <Compile Include="Enums\ACTION.cs" />
+    <Compile Include="Enums\FONT_NAME.cs" />
     <Compile Include="Enums\GAME_STATES.cs" />
+    <Compile Include="Enums\HORIZONTAL_ALIGNMENT.cs" />
     <Compile Include="Enums\MOVEMENT.cs" />
     <Compile Include="Enums\TILE_TYPE.cs" />
+    <Compile Include="Enums\VERTICAL_ALIGNMENT.cs" />
     <Compile Include="GameObjects\Aircraft\BaseAircraft.cs" />
     <Compile Include="GameObjects\Aircraft\F18.cs" />
     <Compile Include="GameObjects\Aircraft\F19.cs" />
@@ -121,9 +124,11 @@
     <Compile Include="GameObjects\Aircraft\Mig51.cs" />
     <Compile Include="GameObjects\Aircraft\Su51.cs" />
     <Compile Include="GameObjects\Aircraft\XB91.cs" />
+    <Compile Include="GameObjects\BaseTextGameObject.cs" />
     <Compile Include="GameObjects\BaseGameObject.cs" />
     <Compile Include="GameObjects\Static\Background.cs" />
     <Compile Include="GameObjects\Static\BackgroundTile.cs" />
+    <Compile Include="GameObjects\Static\TextLabel.cs" />
     <Compile Include="GameObjects\Static\MenuSelector.cs" />
     <Compile Include="GameObjects\Weapon\BaseWeapon.cs" />
     <Compile Include="GameObjects\Weapon\Sidewinder.cs" />
