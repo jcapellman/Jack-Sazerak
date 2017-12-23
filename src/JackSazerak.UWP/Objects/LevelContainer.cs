@@ -42,6 +42,8 @@ namespace JackSazerak.UWP.Objects
             }
 
             CurrentPlayer = new Player(aircraft.FirstOrDefault(a => a.Name == jsonObject.CurrentPlayer));
+
+            TextElements = new List<Text>();
         }
     }
 }
