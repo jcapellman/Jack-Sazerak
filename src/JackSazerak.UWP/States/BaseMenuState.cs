@@ -22,16 +22,16 @@ namespace JackSazerak.UWP.States
         }
 
         protected void AddTextLabel(string str, Color color, HORIZONTAL_ALIGNMENT hAlignment,
-            VERTICAL_ALIGNMENT vAlignment, Vector2? position, GameWrapper gameWrapper)
+            VERTICAL_ALIGNMENT vAlignment, GameWrapper gameWrapper, Vector2? position = null, float? offsetX = null, float? offsetY = null)
         {
-            textLabels.Add(new TextLabel(str, color, FONT_NAME.MAINMENU, hAlignment, vAlignment, gameWrapper, position));
+            textLabels.Add(new TextLabel(str, color, FONT_NAME.MAINMENU, hAlignment, vAlignment, gameWrapper, position, offsetX, offsetY));
         }
 
         protected void SetHeader(string headerStr, GameWrapper gameWrapper)
         {
             if (!string.IsNullOrEmpty(headerStr))
             {
-                AddTextLabel(headerStr, Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.TOP, null, gameWrapper);                
+                AddTextLabel(headerStr, Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.TOP, gameWrapper);                
             }
         }
 
