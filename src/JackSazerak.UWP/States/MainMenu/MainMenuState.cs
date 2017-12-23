@@ -10,8 +10,7 @@ namespace JackSazerak.UWP.States.MainMenu
     public class MainMenuState : BaseMenuState
     {
         private readonly MenuSelector selector;
-        private readonly TextLabel tlNewGame;
-
+        
         private int selectedIndex = 0;
 
         public override GAME_STATES GameState => GAME_STATES.MAIN_MENU;
@@ -22,8 +21,11 @@ namespace JackSazerak.UWP.States.MainMenu
 
             selector = new MenuSelector("F45", gameWrapper);
 
-            AddTextLabel("NEW GAME", Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, null, gameWrapper);
-
+            AddTextLabel("NEW GAME", Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper, offsetY: -160);
+            AddTextLabel("LOAD GAME", Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper, offsetY: -80);
+            AddTextLabel("OPTIONS", Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper, offsetY: 0);
+            AddTextLabel("ABOUT", Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper, offsetY: 80);
+            
             selectedIndex = 0;
         }
 
