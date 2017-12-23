@@ -150,13 +150,14 @@
     <Compile Include="Objects\Text.cs" />
     <Compile Include="Objects\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="States\AboutMainMenuState.cs" />
+    <Compile Include="States\MainMenu\AboutMainMenuState.cs" />
+    <Compile Include="States\BaseMenuState.cs" />
     <Compile Include="States\BaseState.cs" />
     <Compile Include="States\LevelState.cs" />
-    <Compile Include="States\LoadGameMainMenuState.cs" />
-    <Compile Include="States\MainMenuState.cs" />
-    <Compile Include="States\NewGameMainMenuState.cs" />
-    <Compile Include="States\OptionsMainMenuState.cs" />
+    <Compile Include="States\MainMenu\LoadGameMainMenuState.cs" />
+    <Compile Include="States\MainMenu\MainMenuState.cs" />
+    <Compile Include="States\MainMenu\NewGameMainMenuState.cs" />
+    <Compile Include="States\MainMenu\OptionsMainMenuState.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

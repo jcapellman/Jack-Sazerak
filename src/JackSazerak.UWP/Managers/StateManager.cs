@@ -21,7 +21,7 @@ namespace JackSazerak.UWP.Managers
         private bool transitionCompleted = false;
         private readonly Fade baseFade;
 
-        private List<BaseState> gameStates;
+        private List<BaseMenuState> mainMenuStates;
 
         public StateManager(GameWrapper gameWrapper)
         {
@@ -32,8 +32,8 @@ namespace JackSazerak.UWP.Managers
 
         private void LoadGameStates(GameWrapper gameWrapper)
         {
-            gameStates = Assembly.GetExecutingAssembly().GetTypes().Where(a => 
-                a.BaseType == typeof(BaseState) && !a.IsAbstract).Select(b => (BaseState)Activator.CreateInstance(b, gameWrapper)).ToList();
+            mainMenuStates = Assembly.GetExecutingAssembly().GetTypes().Where(a => 
+                a.BaseType == typeof(BaseMenuState) && !a.IsAbstract).Select(b => (BaseMenuState)Activator.CreateInstance(b, gameWrapper)).ToList();
         }
 
         public void HandleInput(KeyboardState state)
@@ -81,7 +81,7 @@ namespace JackSazerak.UWP.Managers
                 handleTransition(Fade.FADE_TYPE.FADE_OUT);
             }
             
-            currentState = gameStates.FirstOrDefault(a => a.GameState == gameState) ?? throw new Exception($"Could not find implementation of {gameState}");
+            currentState = mainMenuStates.FirstOrDefault(a => a.GameState == gameState) ?? throw new Exception($"Could not find implementation of {gameState}");
 
             currentState.SwitchState += CurrentState_SwitchState;
         }
