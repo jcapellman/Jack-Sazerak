@@ -266,3 +266,10 @@
 /processorParam:TextureFormat=Color
 /build:Backgrounds/loadgame_menu.png
 
+#begin Fonts/MAINMENU.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/MAINMENU.spritefont
+
