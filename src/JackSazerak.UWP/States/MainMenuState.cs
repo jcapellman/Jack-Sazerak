@@ -2,6 +2,7 @@
 using JackSazerak.UWP.GameObjects.Static;
 using JackSazerak.UWP.Objects.Containers;
 
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -11,6 +12,7 @@ namespace JackSazerak.UWP.States
     {
         private readonly Background background;
         private readonly MenuSelector selector;
+        private readonly TextLabel tlNewGame;
 
         private int selectedIndex = 0;
 
@@ -22,6 +24,8 @@ namespace JackSazerak.UWP.States
 
             selector = new MenuSelector("F45", gameWrapper);
 
+            tlNewGame = new TextLabel("NEW GAME", Color.White, FONT_NAME.MAINMENU, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper);
+
             selectedIndex = 0;
         }
 
@@ -30,6 +34,8 @@ namespace JackSazerak.UWP.States
             background.Render(spriteBatch);
 
             selector.Render(spriteBatch);
+
+            tlNewGame.Render(spriteBatch);
         }
 
         public override void HandleInputs(KeyboardState state)
