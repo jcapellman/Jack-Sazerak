@@ -1,4 +1,6 @@
-﻿using JackSazerak.UWP.Enums;
+﻿using System.Collections.Generic;
+
+using JackSazerak.UWP.Enums;
 using JackSazerak.UWP.GameObjects.Static;
 using JackSazerak.UWP.Objects.Containers;
 
@@ -10,14 +12,26 @@ namespace JackSazerak.UWP.States
 {
     public abstract class BaseMenuState : BaseState
     {
-        private TextLabel tlHeader;
         private Background bMain;
-        
+
+        private readonly List<TextLabel> textLabels;
+
+        public BaseMenuState()
+        {
+            textLabels = new List<TextLabel>();
+        }
+
+        protected void AddTextLabel(string str, Color color, HORIZONTAL_ALIGNMENT hAlignment,
+            VERTICAL_ALIGNMENT vAlignment, Vector2? position, GameWrapper gameWrapper)
+        {
+            textLabels.Add(new TextLabel(str, color, FONT_NAME.MAINMENU, hAlignment, vAlignment, gameWrapper, position));
+        }
+
         protected void SetHeader(string headerStr, GameWrapper gameWrapper)
         {
             if (!string.IsNullOrEmpty(headerStr))
             {
-                tlHeader = new TextLabel(headerStr, Color.White, FONT_NAME.MAINMENU, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.TOP, gameWrapper);
+                AddTextLabel(headerStr, Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.TOP, null, gameWrapper);                
             }
         }
 
@@ -33,7 +47,10 @@ namespace JackSazerak.UWP.States
         {
             bMain?.Render(spriteBatch);
 
-            tlHeader?.Render(spriteBatch);
+            foreach (var textLabel in textLabels)
+            {
+                textLabel.Render(spriteBatch);
+            }
         }
 
         public override void HandleInputs(KeyboardState state)
