@@ -1,28 +1,20 @@
 ﻿using JackSazerak.UWP.Enums;
-using JackSazerak.UWP.GameObjects.Static;
 using JackSazerak.UWP.Objects.Containers;
 
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace JackSazerak.UWP.States
+namespace JackSazerak.UWP.States.MainMenu
 {
-    public class NewGameMainMenuState : BaseState
+    public class NewGameMainMenuState : BaseMenuState
     {
-        private readonly Background background;
-
         public override GAME_STATES GameState => GAME_STATES.MAIN_MENU_NEWGAME;
 
         public NewGameMainMenuState(GameWrapper gameWrapper)
         {
-            background = new Background("newgame_menu", gameWrapper);
+            SetHeader("NEW GAME", gameWrapper);
+            SetBackground("newgame_menu", gameWrapper);
         }
-
-        public override void Render(SpriteBatch spriteBatch)
-        {
-            background.Render(spriteBatch);
-        }
-
+        
         public override void HandleInputs(KeyboardState state)
         {
             if (state.IsKeyDown(Keys.Escape))
