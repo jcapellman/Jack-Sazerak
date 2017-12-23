@@ -11,7 +11,7 @@ namespace JackSazerak.UWP.GameObjects
 {
     public abstract class BaseTextGameObject : Text
     {
-        protected BaseTextGameObject(string str, Color color, FONT_NAME fontName, HORIZONTAL_ALIGNMENT hAlignment, VERTICAL_ALIGNMENT vAlignment, GameWrapper wrapper, Vector2? position = null) : base(str, color, position, fontName, wrapper.ContentManager)
+        protected BaseTextGameObject(string str, Color color, FONT_NAME fontName, HORIZONTAL_ALIGNMENT hAlignment, VERTICAL_ALIGNMENT vAlignment, GameWrapper wrapper, Vector2? position = null, float? offsetX = null, float? offsetY = null) : base(str, color, position, fontName, wrapper.ContentManager)
         {
             if (hAlignment == HORIZONTAL_ALIGNMENT.NONE && vAlignment == VERTICAL_ALIGNMENT.NONE && position.HasValue)
             {
@@ -53,6 +53,16 @@ namespace JackSazerak.UWP.GameObjects
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(vAlignment), vAlignment, null);
+            }
+
+            if (offsetX.HasValue)
+            {
+                actualPosition.X += offsetX.Value;
+            }
+
+            if (offsetY.HasValue)
+            {
+                actualPosition.Y += offsetY.Value;
             }
 
             UpdatePosition(actualPosition);
