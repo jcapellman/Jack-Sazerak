@@ -3,14 +3,12 @@ using JackSazerak.UWP.GameObjects.Static;
 using JackSazerak.UWP.Objects.Containers;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace JackSazerak.UWP.States
+namespace JackSazerak.UWP.States.MainMenu
 {
-    public class MainMenuState : BaseState
+    public class MainMenuState : BaseMenuState
     {
-        private readonly Background background;
         private readonly MenuSelector selector;
         private readonly TextLabel tlNewGame;
 
@@ -20,22 +18,13 @@ namespace JackSazerak.UWP.States
 
         public MainMenuState(GameWrapper gameWrapper)
         {
-            background = new Background("mainmenu", gameWrapper);
+            SetBackground("mainmenu", gameWrapper);
 
             selector = new MenuSelector("F45", gameWrapper);
 
             tlNewGame = new TextLabel("NEW GAME", Color.White, FONT_NAME.MAINMENU, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper);
 
             selectedIndex = 0;
-        }
-
-        public override void Render(SpriteBatch spriteBatch)
-        {
-            background.Render(spriteBatch);
-
-            selector.Render(spriteBatch);
-
-            tlNewGame.Render(spriteBatch);
         }
 
         public override void HandleInputs(KeyboardState state)
