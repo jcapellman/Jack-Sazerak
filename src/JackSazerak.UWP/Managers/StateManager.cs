@@ -25,7 +25,7 @@ namespace JackSazerak.UWP.Managers
 
         public StateManager(GameWrapper gameWrapper)
         {
-            baseFade = new Fade(Fade.FADE_TYPE.FADE_IN, 3, Color.Black, gameWrapper);
+            baseFade = new Fade(Fade.FADE_TYPE.FADE_IN, 1, Color.Black, gameWrapper);
 
             LoadGameStates(gameWrapper);
         }
