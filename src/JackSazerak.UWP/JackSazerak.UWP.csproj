@@ -148,6 +148,7 @@
     <Compile Include="States\AboutMainMenuState.cs" />
     <Compile Include="States\BaseState.cs" />
     <Compile Include="States\LevelState.cs" />
+    <Compile Include="States\LoadGameMainMenuState.cs" />
     <Compile Include="States\MainMenuState.cs" />
     <Compile Include="States\NewGameMainMenuState.cs" />
     <Compile Include="States\OptionsMainMenuState.cs" />
