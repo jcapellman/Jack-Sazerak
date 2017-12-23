@@ -22,7 +22,7 @@ namespace JackSazerak.UWP.States.MainMenu
 
             selector = new MenuSelector("F45", gameWrapper);
 
-            tlNewGame = new TextLabel("NEW GAME", Color.White, FONT_NAME.MAINMENU, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper);
+            AddTextLabel("NEW GAME", Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, null, gameWrapper);
 
             selectedIndex = 0;
         }
