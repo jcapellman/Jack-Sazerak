@@ -104,6 +104,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="Effects\Animations\Scroll.cs" />
     <Compile Include="Effects\Transitions\Fade.cs" />
     <Compile Include="Effects\Transitions\BaseTransitions.cs" />
     <Compile Include="Enums\ACTION.cs" />
@@ -137,9 +138,11 @@
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Managers\EventManager.cs" />
+    <Compile Include="Managers\GameSaveManager.cs" />
     <Compile Include="Managers\SoundManager.cs" />
     <Compile Include="Managers\StateManager.cs" />
     <Compile Include="Objects\Containers\GameWrapper.cs" />
+    <Compile Include="Objects\JSONObjects\GameSave.cs" />
     <Compile Include="Objects\JSONObjects\Level.cs" />
     <Compile Include="Objects\JSONObjects\LevelTile.cs" />
     <Compile Include="MainGame.cs" />
