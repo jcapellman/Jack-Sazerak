@@ -1,4 +1,6 @@
-﻿using JackSazerak.UWP.Enums;
+﻿using System;
+
+using JackSazerak.UWP.Enums;
 using JackSazerak.UWP.GameObjects.Static;
 using JackSazerak.UWP.Objects.Containers;
 
@@ -9,9 +11,9 @@ namespace JackSazerak.UWP.States.MainMenu
 {
     public class MainMenuState : BaseMenuState
     {
-        private readonly MenuSelector selector;
-        
         private int selectedIndex = 0;
+
+        private Guid guidSelector;
 
         public override GAME_STATES GameState => GAME_STATES.MAIN_MENU;
 
@@ -19,7 +21,7 @@ namespace JackSazerak.UWP.States.MainMenu
         {
             SetBackground("mainmenu", gameWrapper);
 
-            selector = new MenuSelector("F45", gameWrapper);
+            guidSelector = AddGameObject(new MenuSelector("F45", gameWrapper));
 
             AddTextLabel("NEW GAME", Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper, offsetY: -160);
             AddTextLabel("LOAD GAME", Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper, offsetY: -80);
@@ -76,7 +78,7 @@ namespace JackSazerak.UWP.States.MainMenu
                     selectedIndex--;
                 }
 
-                selector.UpdatePosition(0, (selectedIndex * 128), true);
+                GetGameObject(guidSelector).UpdatePosition(0, (selectedIndex * 128), true);
 
                 return;
             }
@@ -92,7 +94,7 @@ namespace JackSazerak.UWP.States.MainMenu
                     selectedIndex++;
                 }
 
-                selector.UpdatePosition(0, (selectedIndex * 128), true);
+                GetGameObject(guidSelector).UpdatePosition(0, (selectedIndex * 128), true);
 
                 return;
             }
