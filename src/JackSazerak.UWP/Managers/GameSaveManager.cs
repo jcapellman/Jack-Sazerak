@@ -6,6 +6,11 @@ namespace JackSazerak.UWP.Managers
 {
     public static class GameSaveManager
     {
-        public static List<GameSave> GetSavedGames() => new List<GameSave>();
+        public static List<GameSave> GetSavedGames() => new List<GameSave>();   // TODO
+
+        public static void SaveGame(GameSave gameSave)
+        {
+            // TODO
+        }
     }
 }
