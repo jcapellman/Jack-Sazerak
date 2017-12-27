@@ -22,7 +22,7 @@ namespace JackSazerak.UWP.States.MainMenu
             SetBackground("loadgame_menu", gameWrapper);
             SetHeader("LOAD GAME", gameWrapper);
 
-            gameSaves = GameSaveManager.GetSavedGames();
+            gameSaves = new GameSaveManager().GetSavedGamesAsync().Result;
 
             if (!gameSaves.Any())
             {
