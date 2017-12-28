@@ -30,11 +30,18 @@ namespace JackSazerak.UWP.Managers
             return saveGames;
         }
 
-        public async void SaveGameAsync(GameSave gameSave)
+        public async Task<bool> SaveGameAsync(GameSave gameSave, bool overwrite = false)
         {
             var file = await Folder.GetFileAsync($"{gameSave.SaveFileName}{Constants.FILE_SAVE_EXTENSION}");
 
+            if (file.IsAvailable && !overwrite)
+            {
+                return false;
+            }
+
             await Windows.Storage.FileIO.WriteTextAsync(file, JsonConvert.SerializeObject(gameSave));
+
+            return true;
         }
     }
 }
