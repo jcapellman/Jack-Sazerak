@@ -2,7 +2,7 @@
 {
     public class GameSave
     {
-        public string SaveFileName { get; set; }
+        public string GameName { get; set; }
 
         public int Money { get; set; }
 
