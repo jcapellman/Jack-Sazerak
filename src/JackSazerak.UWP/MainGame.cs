@@ -4,7 +4,7 @@ using JackSazerak.UWP.Common;
 using JackSazerak.UWP.Enums;
 using JackSazerak.UWP.Managers;
 using JackSazerak.UWP.Objects.Containers;
-
+using JackSazerak.UWP.PlatformImplementations;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -17,13 +17,16 @@ namespace JackSazerak.UWP
         SpriteBatch spriteBatch;
         SoundManager soundManager;
         StateManager stateManager;
+        FileStorage fileStorage;
 
         Matrix scale;
 
         public MainGame()
         {
             TargetElapsedTime = TimeSpan.FromTicks(Constants.GAME_UPDATE_TICKS);
-            
+
+            fileStorage = new FileStorage();
+
             InitGraphics();
 
             Content.RootDirectory = "Content";
@@ -58,7 +61,8 @@ namespace JackSazerak.UWP
             ContentManager = Content,
             Window_Height = graphics.PreferredBackBufferHeight,
             Window_Width = graphics.PreferredBackBufferWidth,
-            GraphicsDevice = graphics.GraphicsDevice
+            GraphicsDevice = graphics.GraphicsDevice,
+            FileStorage = fileStorage
         };
         
         protected override void LoadContent()
