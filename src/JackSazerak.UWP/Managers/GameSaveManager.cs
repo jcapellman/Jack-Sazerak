@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using JackSazerak.Library.PlatformInterfaces;
 using JackSazerak.UWP.Common;
 using JackSazerak.UWP.Objects.JSONObjects;
 
@@ -12,17 +12,22 @@ namespace JackSazerak.UWP.Managers
 {
     public class GameSaveManager
     {
-        private Windows.Storage.StorageFolder Folder => Windows.Storage.ApplicationData.Current.LocalFolder;
+        private IFileStorage fileStorage;
+
+        public GameSaveManager(IFileStorage fileStorage)
+        {
+            this.fileStorage = fileStorage;
+        }
         
         public async Task<List<GameSave>> GetSavedGamesAsync()
         {
-            var files = await Folder.GetFilesAsync();
+            var files = await fileStorage.GetFilesAsync();
 
             var saveGames = new List<GameSave>();
 
-            foreach (var save in files.Where(a => a.Name.EndsWith(Constants.FILE_SAVE_EXTENSION)))
+            foreach (var fileName in files.Where(a => a.EndsWith(Constants.FILE_SAVE_EXTENSION)))
             {
-                var fileContent = await Windows.Storage.FileIO.ReadTextAsync(save);
+                var fileContent = await fileStorage.ReadTextFileAsync(fileName);
 
                 saveGames.Add((GameSave)JsonConvert.DeserializeObject(fileContent));
             }
@@ -36,19 +41,12 @@ namespace JackSazerak.UWP.Managers
         {
             var saveFileName = BuildSaveFileName(gameSave.GameName);
 
-            if (!overwrite)
+            if (!overwrite && await fileStorage.FileExistsAsync(saveFileName))
             {
-                var existingFile = await Folder.TryGetItemAsync(saveFileName);
-
-                if (existingFile != null)
-                {
                     return false;
-                }
             }
 
-            var file = await Folder.GetFileAsync(saveFileName);
-            
-            await Windows.Storage.FileIO.WriteTextAsync(file, JsonConvert.SerializeObject(gameSave));
+            await fileStorage.WriteTextFileAsync(saveFileName, JsonConvert.SerializeObject(gameSave));
 
             return true;
         }
