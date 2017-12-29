@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using JackSazerak.Library.PlatformInterfaces;
+
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace JackSazerak.UWP.Objects.Containers
@@ -12,5 +14,7 @@ namespace JackSazerak.UWP.Objects.Containers
         public int Window_Height { get; set; }
 
         public GraphicsDevice GraphicsDevice { get; set; }
+
+        public IFileStorage FileStorage { get; set; }
     }
 }
