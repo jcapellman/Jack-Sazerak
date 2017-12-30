@@ -10,5 +10,6 @@
 
         // File IO
         public const string FILE_SAVE_EXTENSION = ".jss";
+        public const string FOLDER_NAME_SAVES = "saves";
     }
 }
