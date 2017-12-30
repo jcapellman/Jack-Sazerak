@@ -33,12 +33,6 @@ namespace JackSazerak.UWP.States.MainMenu
 
         public override void HandleInputs(KeyboardState state)
         {
-            if (state.IsKeyDown(Keys.Escape))
-            {
-                Windows.UI.Xaml.Application.Current.Exit();
-                return;
-            }
-
             if (state.IsKeyDown(Keys.Q)) {             
                 OnSwitchState(GAME_STATES.LEVEL);
 
