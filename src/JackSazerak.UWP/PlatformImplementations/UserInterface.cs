@@ -10,7 +10,7 @@ namespace JackSazerak.UWP.PlatformImplementations
     {
         public async void ShowMessageBox(string title, string content)
         {
-            var dialog = new MessageDialog(content);
+            var dialog = new MessageDialog(content, title);
 
             await dialog.ShowAsync();
         }
