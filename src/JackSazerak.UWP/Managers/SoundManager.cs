@@ -24,9 +24,9 @@ namespace JackSazerak.UWP.Managers
 
         private SoundEffect getSound(string soundName) => sounds.FirstOrDefault(a => a.Name == $"Sounds/{soundName}");
 
-        private void EventManager_EventOccurred(object sender, Enums.ACTION e)
+        private void EventManager_EventOccurred(object sender, (Enums.ACTION eventType, object argument) param)
         {
-            switch (e)
+            switch (param.eventType)
             {
                 case Enums.ACTION.PLAYER_MOVE_DOWN:
                 case Enums.ACTION.PLAYER_MOVE_LEFT:
