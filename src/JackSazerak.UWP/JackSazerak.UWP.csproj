@@ -137,6 +137,7 @@
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Managers\ErrorManager.cs" />
     <Compile Include="Managers\EventManager.cs" />
     <Compile Include="Managers\GameSaveManager.cs" />
     <Compile Include="Managers\SoundManager.cs" />
