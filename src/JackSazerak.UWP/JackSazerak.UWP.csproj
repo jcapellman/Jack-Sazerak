@@ -153,6 +153,7 @@
     <Compile Include="Objects\Text.cs" />
     <Compile Include="Objects\Tile.cs" />
     <Compile Include="PlatformImplementations\FileStorage.cs" />
+    <Compile Include="PlatformImplementations\UserInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="States\MainMenu\AboutMainMenuState.cs" />
     <Compile Include="States\BaseMenuState.cs" />
