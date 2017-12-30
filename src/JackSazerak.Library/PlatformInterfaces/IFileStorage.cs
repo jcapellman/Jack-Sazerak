@@ -9,7 +9,7 @@ namespace JackSazerak.Library.PlatformInterfaces
 
         Task<string> ReadTextFileAsync(string fileName);
 
-        Task<List<string>> GetFilesAsync();
+        Task<List<string>> GetFilesAsync(string folderName);
 
         Task<bool> WriteTextFileAsync(string fileName, string content);
     }
