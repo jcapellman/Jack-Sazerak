@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using JackSazerak.Library.Common;
+
 namespace JackSazerak.Library.PlatformInterfaces
 {
     public interface IFileStorage
     {
-        Task<bool> FileExistsAsync(string fileName);
+        Task<ReturnWrapper<bool>> FileExistsAsync(string fileName);
 
-        Task<string> ReadTextFileAsync(string fileName);
+        Task<ReturnWrapper<string>> ReadTextFileAsync(string fileName);
 
-        Task<List<string>> GetFilesAsync(string folderName);
+        Task<ReturnWrapper<List<string>>> GetFilesAsync(string folderName);
 
-        Task<bool> WriteTextFileAsync(string fileName, string content);
+        Task<ReturnWrapper<bool>> WriteTextFileAsync(string fileName, string content);
     }
 }
