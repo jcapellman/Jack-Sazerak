@@ -47,7 +47,7 @@ namespace JackSazerak.UWP.Objects
             }
         }
         
-        private void EventManager_EventOccurred(object sender, ACTION e)
+        private void EventManager_EventOccurred(object sender, (ACTION eventType, object argument) param)
         {
             if (TileType == TILE_TYPE.SPRITES)
             {
