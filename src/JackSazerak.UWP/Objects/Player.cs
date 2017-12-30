@@ -22,9 +22,9 @@ namespace JackSazerak.UWP.Objects
             aircraft.Render(spriteBatch);
         }
 
-        private void EventManager_EventOccurred(object sender, ACTION e)
+        private void EventManager_EventOccurred(object sender, (ACTION eventType, object argument) param)
         {
-            switch (e)
+            switch (param.eventType)
             {
                 case ACTION.PLAYER_MOVE_RIGHT:
                     aircraft.Move(MOVEMENT.RIGHT);
