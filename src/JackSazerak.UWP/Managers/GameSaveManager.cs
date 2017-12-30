@@ -21,7 +21,7 @@ namespace JackSazerak.UWP.Managers
         
         public async Task<List<GameSave>> GetSavedGamesAsync()
         {
-            var files = await fileStorage.GetFilesAsync();
+            var files = await fileStorage.GetFilesAsync(Constants.FOLDER_NAME_SAVES);
 
             var saveGames = new List<GameSave>();
 
