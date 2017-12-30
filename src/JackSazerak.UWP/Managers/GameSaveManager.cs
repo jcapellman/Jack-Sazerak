@@ -23,6 +23,13 @@ namespace JackSazerak.UWP.Managers
         {
             var files = await fileStorage.GetFilesAsync(Constants.FOLDER_NAME_SAVES);
             
+            if (files.HasException)
+            {
+                EventManager.FireEvent(Enums.ACTION.ERROR_CRITICAL, files.ReturnException);
+
+                return new List<GameSave>();
+            }
+
             var saveGames = new List<GameSave>();
 
             foreach (var fileName in files.Object.Where(a => a.EndsWith(Constants.FILE_SAVE_EXTENSION)))
@@ -31,6 +38,8 @@ namespace JackSazerak.UWP.Managers
 
                 if (fileContent.HasException)
                 {
+                    EventManager.FireEvent(Enums.ACTION.ERROR_WARNING, fileContent.ReturnException);
+
                     continue;
                 }
 
@@ -52,6 +61,8 @@ namespace JackSazerak.UWP.Managers
 
                 if (result.HasException || !result.Object)
                 {
+                    EventManager.FireEvent(Enums.ACTION.ERROR_CRITICAL, result.ReturnException);
+
                     return false;
                 }
             }
