@@ -16,5 +16,7 @@ namespace JackSazerak.UWP.Objects.Containers
         public GraphicsDevice GraphicsDevice { get; set; }
 
         public IFileStorage FileStorage { get; set; }
+
+        public IUserInterface UserInterface { get; set; }
     }
 }
