@@ -2,6 +2,8 @@
 {
     public static class Constants
     {
+        public const string GAME_NAME = "Jack Sazerak";
+
         public const int GAME_UPDATE_TICKS = 333333; // 30 FPS Inputs
 
         // Values used for scaling
