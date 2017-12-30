@@ -17,7 +17,10 @@ namespace JackSazerak.UWP
         SpriteBatch spriteBatch;
         SoundManager soundManager;
         StateManager stateManager;
+
+        // Platform Implementations
         FileStorage fileStorage;
+        UserInterface userInterface;
 
         Matrix scale;
 
@@ -26,6 +29,7 @@ namespace JackSazerak.UWP
             TargetElapsedTime = TimeSpan.FromTicks(Constants.GAME_UPDATE_TICKS);
 
             fileStorage = new FileStorage();
+            userInterface = new UserInterface();
 
             InitGraphics();
 
@@ -62,7 +66,8 @@ namespace JackSazerak.UWP
             Window_Height = graphics.PreferredBackBufferHeight,
             Window_Width = graphics.PreferredBackBufferWidth,
             GraphicsDevice = graphics.GraphicsDevice,
-            FileStorage = fileStorage
+            FileStorage = fileStorage,
+            UserInterface = userInterface
         };
         
         protected override void LoadContent()
