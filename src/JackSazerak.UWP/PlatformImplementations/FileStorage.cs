@@ -5,17 +5,32 @@ using System.Threading.Tasks;
 
 using JackSazerak.Library.PlatformInterfaces;
 
+using Windows.Storage;
+
 namespace JackSazerak.UWP.PlatformImplementations
 {
     public class FileStorage : IFileStorage
     {
-        private Windows.Storage.StorageFolder Folder => Windows.Storage.ApplicationData.Current.LocalFolder;
+        private Windows.Storage.StorageFolder Folder => ApplicationData.Current.LocalFolder;
 
-        async Task<List<string>> IFileStorage.GetFilesAsync()
+        async Task<List<string>> IFileStorage.GetFilesAsync(string folderName)
         {
-            var files = await Folder.GetFilesAsync();
+            try
+            {
+                var folder = await Folder.GetFolderAsync(folderName);
 
-            return files.Select(a => a.Name).ToList();
+                if (folder == null)
+                {
+                    return new List<string>();
+                }
+
+                var files = await folder.GetFilesAsync();
+
+                return files.Select(a => a.Name).ToList();
+            } catch (Exception)
+            {
+                return new List<string>();
+            }
         }
 
         async Task<bool> IFileStorage.FileExistsAsync(string fileName)
