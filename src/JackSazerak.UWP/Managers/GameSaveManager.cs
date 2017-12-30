@@ -22,14 +22,19 @@ namespace JackSazerak.UWP.Managers
         public async Task<List<GameSave>> GetSavedGamesAsync()
         {
             var files = await fileStorage.GetFilesAsync(Constants.FOLDER_NAME_SAVES);
-
+            
             var saveGames = new List<GameSave>();
 
-            foreach (var fileName in files.Where(a => a.EndsWith(Constants.FILE_SAVE_EXTENSION)))
+            foreach (var fileName in files.Object.Where(a => a.EndsWith(Constants.FILE_SAVE_EXTENSION)))
             {
                 var fileContent = await fileStorage.ReadTextFileAsync(fileName);
 
-                saveGames.Add((GameSave)JsonConvert.DeserializeObject(fileContent));
+                if (fileContent.HasException)
+                {
+                    continue;
+                }
+
+                saveGames.Add((GameSave)JsonConvert.DeserializeObject(fileContent.Object));
             }
 
             return saveGames;
@@ -41,9 +46,14 @@ namespace JackSazerak.UWP.Managers
         {
             var saveFileName = BuildSaveFileName(gameSave.GameName);
 
-            if (!overwrite && await fileStorage.FileExistsAsync(saveFileName))
+            if (!overwrite)
             {
+                var result = await fileStorage.FileExistsAsync(saveFileName);
+
+                if (result.HasException || !result.Object)
+                {
                     return false;
+                }
             }
 
             await fileStorage.WriteTextFileAsync(saveFileName, JsonConvert.SerializeObject(gameSave));
