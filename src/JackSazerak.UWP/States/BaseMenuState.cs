@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using JackSazerak.UWP.Enums;
+using JackSazerak.Library.Enums;
+
 using JackSazerak.UWP.GameObjects;
 using JackSazerak.UWP.GameObjects.Static;
 using JackSazerak.UWP.Objects.Containers;
@@ -37,17 +38,17 @@ namespace JackSazerak.UWP.States
             return guid;
         }
 
-        protected void AddTextLabel(string str, Color color, HORIZONTAL_ALIGNMENT hAlignment,
-            VERTICAL_ALIGNMENT vAlignment, GameWrapper gameWrapper, Vector2? position = null, float? offsetX = null, float? offsetY = null)
+        protected void AddTextLabel(string str, Color color, HorizontalAlignment hAlignment,
+            VerticalAlignment vAlignment, GameWrapper gameWrapper, Vector2? position = null, float? offsetX = null, float? offsetY = null)
         {
-            textLabels.Add(new TextLabel(str, color, FONT_NAME.MAINMENU, hAlignment, vAlignment, gameWrapper, position, offsetX, offsetY));
+            textLabels.Add(new TextLabel(str, color, FontName.MAINMENU, hAlignment, vAlignment, gameWrapper, position, offsetX, offsetY));
         }
 
         protected void SetHeader(string headerStr, GameWrapper gameWrapper)
         {
             if (!string.IsNullOrEmpty(headerStr))
             {
-                AddTextLabel(headerStr, Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.TOP, gameWrapper);                
+                AddTextLabel(headerStr, Color.White, HorizontalAlignment.CENTER, VerticalAlignment.TOP, gameWrapper);                
             }
         }
 

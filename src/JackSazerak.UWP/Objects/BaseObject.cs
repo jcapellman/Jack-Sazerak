@@ -1,9 +1,9 @@
-﻿using JackSazerak.UWP.Enums;
+﻿using JackSazerak.Library.Enums;
 
 namespace JackSazerak.UWP.Objects
 {
     public abstract class BaseObject<T, K>
     {
-        public TILE_TYPE TileType { get; set; }
+        public TileType TileType { get; set; }
     }
 }

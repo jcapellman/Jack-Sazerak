@@ -1,10 +1,12 @@
 ﻿using System;
 
-using JackSazerak.UWP.Common;
-using JackSazerak.UWP.Enums;
+using JackSazerak.Library.Common;
+using JackSazerak.Library.Enums;
+
 using JackSazerak.UWP.Managers;
 using JackSazerak.UWP.Objects.Containers;
 using JackSazerak.UWP.PlatformImplementations;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -82,10 +84,10 @@ namespace JackSazerak.UWP
 
             stateManager.SwitchState += StateManager_SwitchState;
             
-            stateManager.OnSwitchState(GAME_STATES.MAIN_MENU);
+            stateManager.OnSwitchState(GameStates.MAIN_MENU);
         }
 
-        private void StateManager_SwitchState(object sender, Enums.GAME_STATES e)
+        private void StateManager_SwitchState(object sender, GameStates e)
         {
             stateManager.SetState(e, GameWrapper);
         }

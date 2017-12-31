@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 
 using JackSazerak.UWP.Effects.Transitions;
-using JackSazerak.UWP.Enums;
+using JackSazerak.Library.Enums;
 using JackSazerak.UWP.Objects.Containers;
 using JackSazerak.UWP.States;
 
@@ -48,9 +48,9 @@ namespace JackSazerak.UWP.Managers
             fade?.Render(spriteBatch);
         }
 
-        public event EventHandler<GAME_STATES> SwitchState;
+        public event EventHandler<GameStates> SwitchState;
 
-        public void OnSwitchState(GAME_STATES gameState)
+        public void OnSwitchState(GameStates gameState)
         {
             var handler = SwitchState;
 
@@ -66,7 +66,7 @@ namespace JackSazerak.UWP.Managers
             fade.TransitionCompleted += Fade_TransitionCompleted;
         }
 
-        public void SetState(GAME_STATES gameState, GameWrapper gameWrapper, object payload = null)
+        public void SetState(GameStates gameState, GameWrapper gameWrapper, object payload = null)
         {
             if (currentState != null)
             {
@@ -100,7 +100,7 @@ namespace JackSazerak.UWP.Managers
             transitionCompleted = true;
         }
 
-        private void CurrentState_SwitchState(object sender, GAME_STATES e)
+        private void CurrentState_SwitchState(object sender, GameStates e)
         {
             OnSwitchState(e);
         }

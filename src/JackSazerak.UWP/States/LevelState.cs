@@ -1,4 +1,5 @@
-﻿using JackSazerak.UWP.Enums;
+﻿using JackSazerak.Library.Enums;
+
 using JackSazerak.UWP.Managers;
 using JackSazerak.UWP.Objects;
 using JackSazerak.UWP.Objects.Containers;
@@ -12,7 +13,7 @@ namespace JackSazerak.UWP.States
     {
         private readonly LevelContainer level;
 
-        public override GAME_STATES GameState => GAME_STATES.LEVEL;
+        public override GameStates GameState => GameStates.LEVEL;
 
         public LevelState(GameWrapper gameWrapper)
         {
@@ -41,19 +42,19 @@ namespace JackSazerak.UWP.States
                 switch (keyPressed)
                 {
                     case Keys.Right:
-                        EventManager.FireEvent(ACTION.PLAYER_MOVE_RIGHT, ACTION.HUMAN_MOVEMENT);
+                        EventManager.FireEvent(EventAction.PLAYER_MOVE_RIGHT, EventAction.HUMAN_MOVEMENT);
                         break;
                     case Keys.Left:
-                        EventManager.FireEvent(ACTION.PLAYER_MOVE_LEFT, ACTION.HUMAN_MOVEMENT);
+                        EventManager.FireEvent(EventAction.PLAYER_MOVE_LEFT, EventAction.HUMAN_MOVEMENT);
                         break;
                     case Keys.Up:
-                        EventManager.FireEvent(ACTION.PLAYER_MOVE_UP, ACTION.HUMAN_MOVEMENT);
+                        EventManager.FireEvent(EventAction.PLAYER_MOVE_UP, EventAction.HUMAN_MOVEMENT);
                         break;
                     case Keys.Down:
-                        EventManager.FireEvent(ACTION.PLAYER_MOVE_DOWN, ACTION.HUMAN_MOVEMENT);
+                        EventManager.FireEvent(EventAction.PLAYER_MOVE_DOWN, EventAction.HUMAN_MOVEMENT);
                         break;
                     case Keys.Escape:
-                        OnSwitchState(GAME_STATES.MAIN_MENU);
+                        OnSwitchState(GameStates.MAIN_MENU);
                         break;
                 }
             }

@@ -1,4 +1,5 @@
-﻿using JackSazerak.UWP.Enums;
+﻿using JackSazerak.Library.Enums;
+
 using JackSazerak.UWP.GameObjects.Aircraft;
 using JackSazerak.UWP.Managers;
 using static JackSazerak.UWP.Managers.EventManager;
@@ -27,17 +28,17 @@ namespace JackSazerak.UWP.Objects
         {
             switch (eventWrapper.ActionFired)
             {
-                case ACTION.PLAYER_MOVE_RIGHT:
-                    aircraft.Move(MOVEMENT.RIGHT);
+                case EventAction.PLAYER_MOVE_RIGHT:
+                    aircraft.Move(Movement.RIGHT);
                     break;
-                case ACTION.PLAYER_MOVE_LEFT:
-                    aircraft.Move(MOVEMENT.LEFT);
+                case EventAction.PLAYER_MOVE_LEFT:
+                    aircraft.Move(Movement.LEFT);
                     break;
-                case ACTION.PLAYER_MOVE_UP:
-                    aircraft.Move(MOVEMENT.UP);
+                case EventAction.PLAYER_MOVE_UP:
+                    aircraft.Move(Movement.UP);
                     break;
-                case ACTION.PLAYER_MOVE_DOWN:
-                    aircraft.Move(MOVEMENT.DOWN);
+                case EventAction.PLAYER_MOVE_DOWN:
+                    aircraft.Move(Movement.DOWN);
                     break;
             }
         }

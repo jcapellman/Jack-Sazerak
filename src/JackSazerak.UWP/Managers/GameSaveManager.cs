@@ -3,7 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using JackSazerak.Library.PlatformInterfaces;
-using JackSazerak.UWP.Common;
+using JackSazerak.Library.Common;
+using JackSazerak.Library.Enums;
 using JackSazerak.UWP.Objects.JSONObjects;
 
 using Newtonsoft.Json;
@@ -25,7 +26,7 @@ namespace JackSazerak.UWP.Managers
             
             if (files.HasException)
             {
-                EventManager.FireEvent(Enums.ACTION.ERROR_CRITICAL, Enums.ACTION.LOADGAME_GETGAMES, files.ReturnException);
+                EventManager.FireEvent(EventAction.ERROR_CRITICAL, EventAction.LOADGAME_GETGAMES, files.ReturnException);
 
                 return new List<GameSave>();
             }
@@ -38,7 +39,7 @@ namespace JackSazerak.UWP.Managers
 
                 if (fileContent.HasException)
                 {
-                    EventManager.FireEvent(Enums.ACTION.ERROR_WARNING, Enums.ACTION.LOADGAME_READINGGAME, fileContent.ReturnException);
+                    EventManager.FireEvent(EventAction.ERROR_WARNING, EventAction.LOADGAME_READINGGAME, fileContent.ReturnException);
 
                     continue;
                 }
@@ -61,7 +62,7 @@ namespace JackSazerak.UWP.Managers
 
                 if (result.HasException)
                 {
-                    EventManager.FireEvent(Enums.ACTION.ERROR_CRITICAL, Enums.ACTION.SAVEGAME, result.ReturnException);
+                    EventManager.FireEvent(EventAction.ERROR_CRITICAL, EventAction.SAVEGAME, result.ReturnException);
                 }
                 
                 return false;

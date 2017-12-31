@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-using JackSazerak.UWP.Enums;
+using JackSazerak.Library.Enums;
+
 using JackSazerak.UWP.Managers;
 using JackSazerak.UWP.Objects.Containers;
 using JackSazerak.UWP.Objects.JSONObjects;
@@ -13,7 +14,7 @@ namespace JackSazerak.UWP.States.MainMenu
 {
     public class LoadGameMainMenuState : BaseMenuState
     {
-        public override GAME_STATES GameState => GAME_STATES.MAIN_MENU_LOADGAME;
+        public override GameStates GameState => GameStates.MAIN_MENU_LOADGAME;
 
         private List<GameSave> gameSaves;
 
@@ -26,7 +27,7 @@ namespace JackSazerak.UWP.States.MainMenu
 
             if (!gameSaves.Any())
             {
-                AddTextLabel("No Save Games Found", Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper);
+                AddTextLabel("No Save Games Found", Color.White, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, gameWrapper);
 
                 return;
             }
@@ -36,7 +37,7 @@ namespace JackSazerak.UWP.States.MainMenu
         {
             if (state.IsKeyDown(Keys.Escape))
             {
-                OnSwitchState(GAME_STATES.MAIN_MENU);
+                OnSwitchState(GameStates.MAIN_MENU);
 
                 return;
             }

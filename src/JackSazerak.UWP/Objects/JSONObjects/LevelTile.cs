@@ -1,4 +1,4 @@
-﻿using JackSazerak.UWP.Enums;
+﻿using JackSazerak.Library.Enums;
 
 using System.Runtime.Serialization;
 
@@ -23,6 +23,6 @@ namespace JackSazerak.UWP.Objects.JSONObjects
         public int Height { get; set; }
 
         [DataMember]
-        public TILE_TYPE TileType { get; set; }
+        public TileType TileType { get; set; }
     }
 }

@@ -103,17 +103,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\Constants.cs" />
     <Compile Include="Effects\Animations\Scroll.cs" />
     <Compile Include="Effects\Transitions\Fade.cs" />
     <Compile Include="Effects\Transitions\BaseTransitions.cs" />
-    <Compile Include="Enums\ACTION.cs" />
-    <Compile Include="Enums\FONT_NAME.cs" />
-    <Compile Include="Enums\GAME_STATES.cs" />
-    <Compile Include="Enums\HORIZONTAL_ALIGNMENT.cs" />
-    <Compile Include="Enums\MOVEMENT.cs" />
-    <Compile Include="Enums\TILE_TYPE.cs" />
-    <Compile Include="Enums\VERTICAL_ALIGNMENT.cs" />
     <Compile Include="GameObjects\Aircraft\BaseAircraft.cs" />
     <Compile Include="GameObjects\Aircraft\F18.cs" />
     <Compile Include="GameObjects\Aircraft\F19.cs" />
@@ -137,7 +129,6 @@
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\ExtensionMethods.cs" />
     <Compile Include="Managers\ErrorManager.cs" />
     <Compile Include="Managers\EventManager.cs" />
     <Compile Include="Managers\GameSaveManager.cs" />

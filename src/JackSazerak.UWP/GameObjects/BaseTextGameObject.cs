@@ -1,7 +1,8 @@
 ﻿using System;
 
-using JackSazerak.UWP.Common;
-using JackSazerak.UWP.Enums;
+using JackSazerak.Library.Common;
+using JackSazerak.Library.Enums;
+
 using JackSazerak.UWP.Objects;
 using JackSazerak.UWP.Objects.Containers;
 
@@ -11,9 +12,9 @@ namespace JackSazerak.UWP.GameObjects
 {
     public abstract class BaseTextGameObject : Text
     {
-        protected BaseTextGameObject(string str, Color color, FONT_NAME fontName, HORIZONTAL_ALIGNMENT hAlignment, VERTICAL_ALIGNMENT vAlignment, GameWrapper wrapper, Vector2? position = null, float? offsetX = null, float? offsetY = null) : base(str, color, position, fontName, wrapper.ContentManager)
+        protected BaseTextGameObject(string str, Color color, FontName fontName, HorizontalAlignment hAlignment, VerticalAlignment vAlignment, GameWrapper wrapper, Vector2? position = null, float? offsetX = null, float? offsetY = null) : base(str, color, position, fontName, wrapper.ContentManager)
         {
-            if (hAlignment == HORIZONTAL_ALIGNMENT.NONE && vAlignment == VERTICAL_ALIGNMENT.NONE && position.HasValue)
+            if (hAlignment == HorizontalAlignment.NONE && vAlignment == VerticalAlignment.NONE && position.HasValue)
             {
                 UpdatePosition(position.Value);
                 return;
@@ -23,15 +24,15 @@ namespace JackSazerak.UWP.GameObjects
 
             switch (hAlignment)
             {
-                case HORIZONTAL_ALIGNMENT.NONE:
+                case HorizontalAlignment.NONE:
                     break;
-                case HORIZONTAL_ALIGNMENT.LEFT:
+                case HorizontalAlignment.LEFT:
                     actualPosition.X = 0;
                     break;
-                case HORIZONTAL_ALIGNMENT.CENTER:
+                case HorizontalAlignment.CENTER:
                     actualPosition.X = (Constants.TARGET_RESOLUTION_WIDTH - Width) / 2.0f;
                     break;
-                case HORIZONTAL_ALIGNMENT.RIGHT:
+                case HorizontalAlignment.RIGHT:
                     actualPosition.X = (Constants.TARGET_RESOLUTION_WIDTH - Width);
                     break;
                 default:
@@ -40,15 +41,15 @@ namespace JackSazerak.UWP.GameObjects
 
             switch (vAlignment)
             {
-                case VERTICAL_ALIGNMENT.NONE:
+                case VerticalAlignment.NONE:
                     break;
-                case VERTICAL_ALIGNMENT.TOP:
+                case VerticalAlignment.TOP:
                     actualPosition.Y = 0;
                     break;
-                case VERTICAL_ALIGNMENT.CENTER:
+                case VerticalAlignment.CENTER:
                     actualPosition.Y = (Constants.TARGET_RESOLUTION_HEIGHT - Height) / 2.0f;
                     break;
-                case VERTICAL_ALIGNMENT.BOTTOM:
+                case VerticalAlignment.BOTTOM:
                     actualPosition.Y = Constants.TARGET_RESOLUTION_HEIGHT;
                     break;
                 default:

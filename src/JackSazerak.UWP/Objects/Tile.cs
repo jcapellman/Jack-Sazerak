@@ -1,4 +1,5 @@
-﻿using JackSazerak.UWP.Enums;
+﻿using JackSazerak.Library.Enums;
+
 using JackSazerak.UWP.Managers;
 using JackSazerak.UWP.Objects.Containers;
 using JackSazerak.UWP.Objects.JSONObjects;
@@ -19,7 +20,7 @@ namespace JackSazerak.UWP.Objects
         /// <param name="wrapper"></param>
         /// <param name="size">If not used the Texture Size is used</param>
         /// <param name="position">If not used 0,0 is used</param>
-        public Tile(string textureName, TILE_TYPE tileType, GameWrapper wrapper, Vector2? size = null, Vector2? position = null)
+        public Tile(string textureName, TileType tileType, GameWrapper wrapper, Vector2? size = null, Vector2? position = null)
         {
             Color = Color.White;
             
@@ -31,16 +32,16 @@ namespace JackSazerak.UWP.Objects
 
             switch (tileType)
             {
-                case TILE_TYPE.BACKGROUNDS:
+                case TileType.BACKGROUNDS:
                     Rect = new Rectangle(0, 0, Texture.Width, Texture.Height);
                     break;
-                case TILE_TYPE.TILES:
-                case TILE_TYPE.REGULAR:
+                case TileType.TILES:
+                case TileType.REGULAR:
                     Rect = new Rectangle(0, 0, (int) (size?.X ?? Texture.Width), (int)(size?.Y ?? Texture.Height));
 
                     UpdatePosition((int)(position?.X ?? 0), (int)(position?.Y ?? 0));
                     break;
-                case TILE_TYPE.SPRITES:
+                case TileType.SPRITES:
                     Rect = new Rectangle(0, 0, Texture.Width, Texture.Height);
 
                     UpdatePosition(0, wrapper.Window_Height - Texture.Height);
@@ -50,7 +51,7 @@ namespace JackSazerak.UWP.Objects
         
         private void EventManager_EventOccurred(object sender, EventWrapper eventWrapper)
         {
-            if (TileType == TILE_TYPE.SPRITES)
+            if (TileType == TileType.SPRITES)
             {
             }
         }
@@ -72,7 +73,7 @@ namespace JackSazerak.UWP.Objects
         {
             switch (TileType)
             {
-                case TILE_TYPE.TILES:
+                case TileType.TILES:
                     UpdatePosition(0, 5);
                     break;
             }

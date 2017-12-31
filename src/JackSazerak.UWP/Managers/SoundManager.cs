@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using JackSazerak.Library.Enums;
+
 using JackSazerak.UWP.Objects.Containers;
 using static JackSazerak.UWP.Managers.EventManager;
 
@@ -29,10 +31,10 @@ namespace JackSazerak.UWP.Managers
         {
             switch (eventWrapper.ActionFired)
             {
-                case Enums.ACTION.PLAYER_MOVE_DOWN:
-                case Enums.ACTION.PLAYER_MOVE_LEFT:
-                case Enums.ACTION.PLAYER_MOVE_RIGHT:
-                case Enums.ACTION.PLAYER_MOVE_UP:
+                case EventAction.PLAYER_MOVE_DOWN:
+                case EventAction.PLAYER_MOVE_LEFT:
+                case EventAction.PLAYER_MOVE_RIGHT:
+                case EventAction.PLAYER_MOVE_UP:
                     getSound(SND_FOOTSTEP).Play();
                     break;
             }

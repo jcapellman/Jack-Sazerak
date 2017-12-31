@@ -1,4 +1,4 @@
-﻿using JackSazerak.UWP.Enums;
+﻿using JackSazerak.Library.Enums;
 using JackSazerak.UWP.GameObjects.Weapon;
 using JackSazerak.UWP.Objects.Containers;
 
@@ -6,7 +6,7 @@ namespace JackSazerak.UWP.GameObjects.Aircraft
 {
     public abstract class BaseAircraft : BaseGameObject
     {
-        protected BaseAircraft(string textureName, BaseWeapon primaryWeapon, GameWrapper wrapper) : base(textureName, TILE_TYPE.SPRITES, wrapper)
+        protected BaseAircraft(string textureName, BaseWeapon primaryWeapon, GameWrapper wrapper) : base(textureName, TileType.SPRITES, wrapper)
         {
             PrimaryWeapon = primaryWeapon;
         }
@@ -25,20 +25,20 @@ namespace JackSazerak.UWP.GameObjects.Aircraft
 
         protected abstract int Cost { get; }
 
-        public void Move(MOVEMENT movementOption)
+        public void Move(Movement movementOption)
         {
             switch (movementOption)
             {
-                case MOVEMENT.RIGHT:
+                case Movement.RIGHT:
                     UpdatePosition(AgilityHorizontal);
                     break;
-                case MOVEMENT.LEFT:
+                case Movement.LEFT:
                     UpdatePosition(AgilityHorizontal * -1);
                     break;
-                case MOVEMENT.UP:
+                case Movement.UP:
                     UpdatePosition(0, AgilityVertical * -1);
                     break;
-                case MOVEMENT.DOWN:
+                case Movement.DOWN:
                     UpdatePosition(0, AgilityVertical);
                     break;
             }

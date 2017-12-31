@@ -1,5 +1,7 @@
 ﻿using System;
 
+using JackSazerak.Library;
+using JackSazerak.Library.Enums;
 using JackSazerak.Library.PlatformInterfaces;
 using static JackSazerak.UWP.Managers.EventManager;
 
@@ -21,11 +23,11 @@ namespace JackSazerak.UWP.Managers
             // TODO Handle various levels to local storage, WebAPI upload and user notification
             switch (eventWrapper.ActionFired)
             {
-                case Enums.ACTION.ERROR_CRITICAL:
+                case EventAction.ERROR_CRITICAL:
                     break;
-                case Enums.ACTION.ERROR_INFO:
+                case EventAction.ERROR_INFO:
                     break;
-                case Enums.ACTION.ERROR_WARNING:
+                case EventAction.ERROR_WARNING:
                     break;
                 default:
                     return;

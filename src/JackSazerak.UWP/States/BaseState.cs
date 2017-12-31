@@ -1,6 +1,6 @@
 ﻿using System;
 
-using JackSazerak.UWP.Enums;
+using JackSazerak.Library.Enums;
 
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -11,13 +11,13 @@ namespace JackSazerak.UWP.States
     {
         public abstract void Render(SpriteBatch spriteBatch);
 
-        public abstract GAME_STATES GameState { get; }
+        public abstract GameStates GameState { get; }
 
         public abstract void HandleInputs(KeyboardState state);
 
-        public event EventHandler<GAME_STATES> SwitchState;
+        public event EventHandler<GameStates> SwitchState;
 
-        protected void OnSwitchState(GAME_STATES gameState)
+        protected void OnSwitchState(GameStates gameState)
         {
             var handler = SwitchState;
 

@@ -1,4 +1,4 @@
-﻿using JackSazerak.UWP.Enums;
+﻿using JackSazerak.Library.Enums;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -13,7 +13,7 @@ namespace JackSazerak.UWP.Objects
         private readonly SpriteFont spriteFont;
         private Vector2 position;
 
-        public Text(string str, Color color, Vector2? position, FONT_NAME fontName, ContentManager contentManager)
+        public Text(string str, Color color, Vector2? position, FontName fontName, ContentManager contentManager)
         {
             textStr = str;
 

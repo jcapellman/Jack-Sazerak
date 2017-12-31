@@ -1,6 +1,7 @@
 ﻿using System;
 
-using JackSazerak.UWP.Enums;
+using JackSazerak.Library.Enums;
+
 using JackSazerak.UWP.GameObjects.Static;
 using JackSazerak.UWP.Objects.Containers;
 
@@ -15,7 +16,7 @@ namespace JackSazerak.UWP.States.MainMenu
 
         private Guid guidSelector;
 
-        public override GAME_STATES GameState => GAME_STATES.MAIN_MENU;
+        public override GameStates GameState => GameStates.MAIN_MENU;
 
         public MainMenuState(GameWrapper gameWrapper)
         {
@@ -23,10 +24,10 @@ namespace JackSazerak.UWP.States.MainMenu
 
             guidSelector = AddGameObject(new MenuSelector("F45", gameWrapper));
 
-            AddTextLabel("NEW GAME", Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper, offsetY: -160);
-            AddTextLabel("LOAD GAME", Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper, offsetY: -80);
-            AddTextLabel("OPTIONS", Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper, offsetY: 0);
-            AddTextLabel("ABOUT", Color.White, HORIZONTAL_ALIGNMENT.CENTER, VERTICAL_ALIGNMENT.CENTER, gameWrapper, offsetY: 80);
+            AddTextLabel("NEW GAME", Color.White, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, gameWrapper, offsetY: -160);
+            AddTextLabel("LOAD GAME", Color.White, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, gameWrapper, offsetY: -80);
+            AddTextLabel("OPTIONS", Color.White, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, gameWrapper, offsetY: 0);
+            AddTextLabel("ABOUT", Color.White, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, gameWrapper, offsetY: 80);
             
             selectedIndex = 0;
         }
@@ -34,35 +35,35 @@ namespace JackSazerak.UWP.States.MainMenu
         public override void HandleInputs(KeyboardState state)
         {
             if (state.IsKeyDown(Keys.Q)) {             
-                OnSwitchState(GAME_STATES.LEVEL);
+                OnSwitchState(GameStates.LEVEL);
 
                 return;
             }
 
             if (state.IsKeyDown(Keys.W))
             {
-                OnSwitchState(GAME_STATES.MAIN_MENU_OPTIONS);
+                OnSwitchState(GameStates.MAIN_MENU_OPTIONS);
 
                 return;
             }
 
             if (state.IsKeyDown(Keys.E))
             {
-                OnSwitchState(GAME_STATES.MAIN_MENU_ABOUT);
+                OnSwitchState(GameStates.MAIN_MENU_ABOUT);
 
                 return;
             }
 
             if (state.IsKeyDown(Keys.T))
             {
-                OnSwitchState(GAME_STATES.MAIN_MENU_LOADGAME);
+                OnSwitchState(GameStates.MAIN_MENU_LOADGAME);
 
                 return;
             }
 
             if (state.IsKeyDown(Keys.R))
             {
-                OnSwitchState(GAME_STATES.MAIN_MENU_NEWGAME);
+                OnSwitchState(GameStates.MAIN_MENU_NEWGAME);
 
                 return;
             }
