@@ -103,59 +103,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Effects\Animations\Scroll.cs" />
-    <Compile Include="Effects\Transitions\Fade.cs" />
-    <Compile Include="Effects\Transitions\BaseTransitions.cs" />
-    <Compile Include="GameObjects\Aircraft\BaseAircraft.cs" />
-    <Compile Include="GameObjects\Aircraft\F18.cs" />
-    <Compile Include="GameObjects\Aircraft\F19.cs" />
-    <Compile Include="GameObjects\Aircraft\F25.cs" />
-    <Compile Include="GameObjects\Aircraft\F28.cs" />
-    <Compile Include="GameObjects\Aircraft\F45.cs" />
-    <Compile Include="GameObjects\Aircraft\F55.cs" />
-    <Compile Include="GameObjects\Aircraft\J20.cs" />
-    <Compile Include="GameObjects\Aircraft\Mig51.cs" />
-    <Compile Include="GameObjects\Aircraft\Su51.cs" />
-    <Compile Include="GameObjects\Aircraft\XB91.cs" />
-    <Compile Include="GameObjects\BaseTextGameObject.cs" />
-    <Compile Include="GameObjects\BaseGameObject.cs" />
-    <Compile Include="GameObjects\Static\Background.cs" />
-    <Compile Include="GameObjects\Static\BackgroundTile.cs" />
-    <Compile Include="GameObjects\Static\TextLabel.cs" />
-    <Compile Include="GameObjects\Static\MenuSelector.cs" />
-    <Compile Include="GameObjects\Weapon\BaseWeapon.cs" />
-    <Compile Include="GameObjects\Weapon\Sidewinder.cs" />
-    <Compile Include="GameObjects\Weapon\VulkanGun.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Managers\ErrorManager.cs" />
-    <Compile Include="Managers\EventManager.cs" />
-    <Compile Include="Managers\GameSaveManager.cs" />
-    <Compile Include="Managers\SoundManager.cs" />
-    <Compile Include="Managers\StateManager.cs" />
-    <Compile Include="Objects\Containers\GameWrapper.cs" />
-    <Compile Include="Objects\JSONObjects\GameSave.cs" />
-    <Compile Include="Objects\JSONObjects\Level.cs" />
-    <Compile Include="Objects\JSONObjects\LevelTile.cs" />
     <Compile Include="MainGame.cs" />
-    <Compile Include="Managers\LevelManager.cs" />
-    <Compile Include="Objects\BaseObject.cs" />
-    <Compile Include="Objects\LevelContainer.cs" />
-    <Compile Include="Objects\Player.cs" />
-    <Compile Include="Objects\Text.cs" />
-    <Compile Include="Objects\Tile.cs" />
     <Compile Include="PlatformImplementations\FileStorage.cs" />
     <Compile Include="PlatformImplementations\UserInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="States\MainMenu\AboutMainMenuState.cs" />
-    <Compile Include="States\BaseMenuState.cs" />
-    <Compile Include="States\BaseState.cs" />
-    <Compile Include="States\LevelState.cs" />
-    <Compile Include="States\MainMenu\LoadGameMainMenuState.cs" />
-    <Compile Include="States\MainMenu\MainMenuState.cs" />
-    <Compile Include="States\MainMenu\NewGameMainMenuState.cs" />
-    <Compile Include="States\MainMenu\OptionsMainMenuState.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -190,6 +144,9 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.5</Version>
     </PackageReference>
+    <PackageReference Include="MonoGame.Framework.WindowsUniversal">
+      <Version>3.6.0.1625</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>10.0.3</Version>
     </PackageReference>
@@ -199,7 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JackSazerak.Library\JackSazerak.Library.csproj">
-      <Project>{389CA3C0-5521-4749-99E0-C5D915D52DB9}</Project>
+      <Project>{7db08c43-729d-40c5-82b2-cd49c3890429}</Project>
       <Name>JackSazerak.Library</Name>
     </ProjectReference>
   </ItemGroup>

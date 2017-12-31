@@ -3,8 +3,9 @@
 using JackSazerak.Library.Common;
 using JackSazerak.Library.Enums;
 
-using JackSazerak.UWP.Managers;
-using JackSazerak.UWP.Objects.Containers;
+using JackSazerak.Library.Managers;
+
+using JackSazerak.Library.Objects.Containers;
 using JackSazerak.UWP.PlatformImplementations;
 
 using Microsoft.Xna.Framework;
