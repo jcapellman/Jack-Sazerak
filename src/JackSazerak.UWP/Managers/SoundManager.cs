@@ -2,6 +2,7 @@
 using System.Linq;
 
 using JackSazerak.UWP.Objects.Containers;
+using static JackSazerak.UWP.Managers.EventManager;
 
 using Microsoft.Xna.Framework.Audio;
 
@@ -24,9 +25,9 @@ namespace JackSazerak.UWP.Managers
 
         private SoundEffect getSound(string soundName) => sounds.FirstOrDefault(a => a.Name == $"Sounds/{soundName}");
 
-        private void EventManager_EventOccurred(object sender, (Enums.ACTION eventType, object argument) param)
+        private void EventManager_EventOccurred(object sender, EventWrapper eventWrapper)
         {
-            switch (param.eventType)
+            switch (eventWrapper.ActionFired)
             {
                 case Enums.ACTION.PLAYER_MOVE_DOWN:
                 case Enums.ACTION.PLAYER_MOVE_LEFT:

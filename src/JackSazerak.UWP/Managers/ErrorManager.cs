@@ -2,6 +2,7 @@
 
 using JackSazerak.Library.PlatformInterfaces;
 using JackSazerak.UWP.Objects.Containers;
+using static JackSazerak.UWP.Managers.EventManager;
 
 namespace JackSazerak.UWP.Managers
 {
@@ -13,13 +14,13 @@ namespace JackSazerak.UWP.Managers
         {
             userInterface = gameWrapper.UserInterface;
 
-            EventManager.EventOccurred += EventManager_EventOccurred;
+            EventOccurred += EventManager_EventOccurred;
         }
 
-        private void EventManager_EventOccurred(object sender, (Enums.ACTION eventType, object argument) param)
+        private void EventManager_EventOccurred(object sender, EventWrapper eventWrapper)
         {
             // TODO Handle various levels to local storage, WebAPI upload and user notification
-            switch (param.eventType)
+            switch (eventWrapper.ActionFired)
             {
                 case Enums.ACTION.ERROR_CRITICAL:
                     break;
@@ -31,7 +32,7 @@ namespace JackSazerak.UWP.Managers
                     return;
             }
 
-            userInterface.ShowMessageBox(Common.Constants.GAME_NAME, ((Exception)param.argument).ToString());
+            userInterface.ShowMessageBox(ExtensionMethods.GetDescription(eventWrapper.SourceAction), ((Exception)eventWrapper.Content).ToString());
         }
     }
 }

@@ -41,16 +41,16 @@ namespace JackSazerak.UWP.States
                 switch (keyPressed)
                 {
                     case Keys.Right:
-                        EventManager.FireEvent(ACTION.PLAYER_MOVE_RIGHT);
+                        EventManager.FireEvent(ACTION.PLAYER_MOVE_RIGHT, ACTION.HUMAN_MOVEMENT);
                         break;
                     case Keys.Left:
-                        EventManager.FireEvent(ACTION.PLAYER_MOVE_LEFT);
+                        EventManager.FireEvent(ACTION.PLAYER_MOVE_LEFT, ACTION.HUMAN_MOVEMENT);
                         break;
                     case Keys.Up:
-                        EventManager.FireEvent(ACTION.PLAYER_MOVE_UP);
+                        EventManager.FireEvent(ACTION.PLAYER_MOVE_UP, ACTION.HUMAN_MOVEMENT);
                         break;
                     case Keys.Down:
-                        EventManager.FireEvent(ACTION.PLAYER_MOVE_DOWN);
+                        EventManager.FireEvent(ACTION.PLAYER_MOVE_DOWN, ACTION.HUMAN_MOVEMENT);
                         break;
                     case Keys.Escape:
                         OnSwitchState(GAME_STATES.MAIN_MENU);

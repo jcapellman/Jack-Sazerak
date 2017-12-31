@@ -15,6 +15,8 @@ namespace JackSazerak.UWP
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        ErrorManager errorManager;
         SoundManager soundManager;
         StateManager stateManager;
 
@@ -27,7 +29,7 @@ namespace JackSazerak.UWP
         public MainGame()
         {
             TargetElapsedTime = TimeSpan.FromTicks(Constants.GAME_UPDATE_TICKS);
-
+            
             fileStorage = new FileStorage();
             userInterface = new UserInterface();
 
@@ -35,6 +37,7 @@ namespace JackSazerak.UWP
 
             Content.RootDirectory = "Content";
 
+            errorManager = new ErrorManager(GameWrapper);
             soundManager = new SoundManager(GameWrapper);
         }
 

@@ -25,7 +25,7 @@ namespace JackSazerak.UWP.Managers
             
             if (files.HasException)
             {
-                EventManager.FireEvent(Enums.ACTION.ERROR_CRITICAL, files.ReturnException);
+                EventManager.FireEvent(Enums.ACTION.ERROR_CRITICAL, Enums.ACTION.LOADGAME_GETGAMES, files.ReturnException);
 
                 return new List<GameSave>();
             }
@@ -38,7 +38,7 @@ namespace JackSazerak.UWP.Managers
 
                 if (fileContent.HasException)
                 {
-                    EventManager.FireEvent(Enums.ACTION.ERROR_WARNING, fileContent.ReturnException);
+                    EventManager.FireEvent(Enums.ACTION.ERROR_WARNING, Enums.ACTION.LOADGAME_READINGGAME, fileContent.ReturnException);
 
                     continue;
                 }
@@ -59,12 +59,12 @@ namespace JackSazerak.UWP.Managers
             {
                 var result = await fileStorage.FileExistsAsync(saveFileName);
 
-                if (result.HasException || !result.Object)
+                if (result.HasException)
                 {
-                    EventManager.FireEvent(Enums.ACTION.ERROR_CRITICAL, result.ReturnException);
-
-                    return false;
+                    EventManager.FireEvent(Enums.ACTION.ERROR_CRITICAL, Enums.ACTION.SAVEGAME, result.ReturnException);
                 }
+                
+                return false;
             }
 
             await fileStorage.WriteTextFileAsync(saveFileName, JsonConvert.SerializeObject(gameSave));

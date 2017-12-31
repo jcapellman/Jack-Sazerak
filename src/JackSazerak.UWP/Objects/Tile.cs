@@ -2,6 +2,7 @@
 using JackSazerak.UWP.Managers;
 using JackSazerak.UWP.Objects.Containers;
 using JackSazerak.UWP.Objects.JSONObjects;
+using static JackSazerak.UWP.Managers.EventManager;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -47,7 +48,7 @@ namespace JackSazerak.UWP.Objects
             }
         }
         
-        private void EventManager_EventOccurred(object sender, (ACTION eventType, object argument) param)
+        private void EventManager_EventOccurred(object sender, EventWrapper eventWrapper)
         {
             if (TileType == TILE_TYPE.SPRITES)
             {

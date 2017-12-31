@@ -1,4 +1,6 @@
-﻿namespace JackSazerak.UWP.Enums
+﻿using System.ComponentModel;
+
+namespace JackSazerak.UWP.Enums
 {
     public enum ACTION
     {
@@ -8,6 +10,12 @@
         PLAYER_MOVE_DOWN,
         ERROR_WARNING,
         ERROR_CRITICAL,
-        ERROR_INFO
+        ERROR_INFO,
+        [Description("Load Game - Get Games")]
+        LOADGAME_GETGAMES,
+        [Description("Load Game - Read Game")]
+        LOADGAME_READINGGAME,
+        SAVEGAME,
+        HUMAN_MOVEMENT
     }
 }
