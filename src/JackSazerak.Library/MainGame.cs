@@ -2,17 +2,18 @@
 
 using JackSazerak.Library.Common;
 using JackSazerak.Library.Enums;
-
+using JackSazerak.Library.Helpers;
 using JackSazerak.Library.Managers;
-
 using JackSazerak.Library.Objects.Containers;
-using JackSazerak.UWP.PlatformImplementations;
+using JackSazerak.Library.PlatformInterfaces;
+
+using Autofac;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace JackSazerak.UWP
+namespace JackSazerak.Library
 {
     public class MainGame : Game
     {
@@ -24,27 +25,30 @@ namespace JackSazerak.UWP
         StateManager stateManager;
 
         // Platform Implementations
-        FileStorage fileStorage;
-        UserInterface userInterface;
+        IFileStorage fileStorage;
+        IUserInterface userInterface;
 
         Matrix scale;
-
+        
         public MainGame()
         {
             TargetElapsedTime = TimeSpan.FromTicks(Constants.GAME_UPDATE_TICKS);
-            
-            fileStorage = new FileStorage();
-            userInterface = new UserInterface();
-            
+
+            var container = AutofacConfiguration.Register();
+
+            fileStorage = container.Resolve<IFileStorage>();
+
+            userInterface = container.Resolve<IUserInterface>();
+
             errorManager = new ErrorManager(userInterface);
+            
+            Content.RootDirectory = "Content";
 
             InitGraphics();
 
-            Content.RootDirectory = "Content";
-
             soundManager = new SoundManager(GameWrapper);
         }
-
+        
         private void InitGraphics()
         {
             graphics = new GraphicsDeviceManager(this);

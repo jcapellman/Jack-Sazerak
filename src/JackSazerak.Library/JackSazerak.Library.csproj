@@ -139,7 +139,9 @@
     <Compile Include="GameObjects\Weapon\BaseWeapon.cs" />
     <Compile Include="GameObjects\Weapon\Sidewinder.cs" />
     <Compile Include="GameObjects\Weapon\VulkanGun.cs" />
+    <Compile Include="Helpers\AutofacConfiguration.cs" />
     <Compile Include="Helpers\ExtensionMethods.cs" />
+    <Compile Include="MainGame.cs" />
     <Compile Include="Managers\ErrorManager.cs" />
     <Compile Include="Managers\EventManager.cs" />
     <Compile Include="Managers\GameSaveManager.cs" />
@@ -155,6 +157,7 @@
     <Compile Include="Objects\Player.cs" />
     <Compile Include="Objects\Text.cs" />
     <Compile Include="Objects\Tile.cs" />
+    <Compile Include="PlatformInterfaces\IDI.cs" />
     <Compile Include="PlatformInterfaces\IFileStorage.cs" />
     <Compile Include="PlatformInterfaces\IUserInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -169,6 +172,9 @@
     <EmbeddedResource Include="Properties\JackSazerak.Librar.rd.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Autofac">
+      <Version>4.6.2</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.5</Version>
     </PackageReference>
@@ -178,6 +184,9 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>10.0.3</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Levels\E1M1" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

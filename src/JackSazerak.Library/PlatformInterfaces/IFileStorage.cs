@@ -5,7 +5,7 @@ using JackSazerak.Library.Common;
 
 namespace JackSazerak.Library.PlatformInterfaces
 {
-    public interface IFileStorage
+    public interface IFileStorage : IDI
     {
         Task<ReturnWrapper<bool>> FileExistsAsync(string fileName);
 
