@@ -1,7 +1,6 @@
 ﻿using System;
 
 using JackSazerak.Library.PlatformInterfaces;
-using JackSazerak.UWP.Objects.Containers;
 using static JackSazerak.UWP.Managers.EventManager;
 
 namespace JackSazerak.UWP.Managers
@@ -10,9 +9,9 @@ namespace JackSazerak.UWP.Managers
     {
         private IUserInterface userInterface;
 
-        public ErrorManager(GameWrapper gameWrapper)
+        public ErrorManager(IUserInterface userInterface)
         {
-            userInterface = gameWrapper.UserInterface;
+            this.userInterface = userInterface;
 
             EventOccurred += EventManager_EventOccurred;
         }

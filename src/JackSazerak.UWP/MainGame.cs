@@ -32,12 +32,13 @@ namespace JackSazerak.UWP
             
             fileStorage = new FileStorage();
             userInterface = new UserInterface();
+            
+            errorManager = new ErrorManager(userInterface);
 
             InitGraphics();
 
             Content.RootDirectory = "Content";
 
-            errorManager = new ErrorManager(GameWrapper);
             soundManager = new SoundManager(GameWrapper);
         }
 
