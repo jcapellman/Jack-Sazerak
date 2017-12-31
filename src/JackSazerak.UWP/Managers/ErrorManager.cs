@@ -31,7 +31,7 @@ namespace JackSazerak.UWP.Managers
                     return;
             }
 
-            userInterface.ShowMessageBox(ExtensionMethods.GetDescription(eventWrapper.SourceAction), ((Exception)eventWrapper.Content).ToString());
+            userInterface.ShowMessageBox(eventWrapper.SourceAction.GetDescription(), ((Exception)eventWrapper.Content).ToString());
         }
     }
 }
