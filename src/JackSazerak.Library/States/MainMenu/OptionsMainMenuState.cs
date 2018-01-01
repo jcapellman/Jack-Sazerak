@@ -9,7 +9,7 @@ namespace JackSazerak.Library.States.MainMenu
     {
         public override GameStates GameState => GameStates.MAIN_MENU_OPTIONS;
 
-        public OptionsMainMenuState(GameWrapper gameWrapper)
+        public override void InitState(GameWrapper gameWrapper)
         {
             SetHeader("OPTIONS", gameWrapper);
             SetBackground("options_menu", gameWrapper);            
