@@ -28,7 +28,7 @@ namespace JackSazerak.UWP.PlatformImplementations
                 var files = await folder.GetFilesAsync();
 
                 return new ReturnWrapper<List<string>>(files.Select(a => a.Name).ToList());
-            } catch (Exception ex)
+            } catch (JackException ex)
             {
                 return new ReturnWrapper<List<string>>(ex);
             }
@@ -41,7 +41,7 @@ namespace JackSazerak.UWP.PlatformImplementations
                 var existingFile = await Folder.TryGetItemAsync(fileName);
 
                 return new ReturnWrapper<bool>(existingFile != null);
-            } catch (Exception ex)
+            } catch (JackException ex)
             {
                 return new ReturnWrapper<bool>(ex);
             }
@@ -68,7 +68,7 @@ namespace JackSazerak.UWP.PlatformImplementations
                 await FileIO.WriteTextAsync(file, content);
 
                 return new ReturnWrapper<bool>(true);
-            } catch (Exception ex)
+            } catch (JackException ex)
             {
                 return new ReturnWrapper<bool>(ex);
             }

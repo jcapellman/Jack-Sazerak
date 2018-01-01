@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace JackSazerak.Library.Common
+﻿namespace JackSazerak.Library.Common
 {
     public class ReturnWrapper<T>
     {
         public T Object { get; private set; }
 
-        public Exception ReturnException { get; private set; }
+        public JackException ReturnException { get; private set; }
 
         public bool HasException { get { return ReturnException != null; } }
 
@@ -15,7 +13,7 @@ namespace JackSazerak.Library.Common
             Object = objectValue;
         }
 
-        public ReturnWrapper(Exception exception)
+        public ReturnWrapper(JackException exception)
         {
             ReturnException = exception;
         }

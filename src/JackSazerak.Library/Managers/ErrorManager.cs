@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿using JackSazerak.Library.Common;
 using JackSazerak.Library.Enums;
 using JackSazerak.Library.PlatformInterfaces;
 using static JackSazerak.Library.Managers.EventManager;
@@ -19,6 +18,8 @@ namespace JackSazerak.Library.Managers
 
         private void EventManager_EventOccurred(object sender, EventWrapper eventWrapper)
         {
+            var exception = ((JackException)eventWrapper.Content);
+
             // TODO Handle various levels to local storage, WebAPI upload and user notification
             switch (eventWrapper.ActionFired)
             {
@@ -32,7 +33,7 @@ namespace JackSazerak.Library.Managers
                     return;
             }
 
-            userInterface.ShowMessageBox(eventWrapper.SourceAction.GetDescription(), ((Exception)eventWrapper.Content).ToString());
+            userInterface.ShowMessageBox(exception.ExceptionTitle, exception.ExceptionMessage);
         }
     }
 }
