@@ -162,9 +162,10 @@
     <Compile Include="PlatformInterfaces\IFileStorage.cs" />
     <Compile Include="PlatformInterfaces\IUserInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="States\BaseGameState.cs" />
     <Compile Include="States\BaseMenuState.cs" />
     <Compile Include="States\BaseState.cs" />
-    <Compile Include="States\LevelState.cs" />
+    <Compile Include="States\GameState\LevelState.cs" />
     <Compile Include="States\MainMenu\AboutMainMenuState.cs" />
     <Compile Include="States\MainMenu\LoadGameMainMenuState.cs" />
     <Compile Include="States\MainMenu\MainMenuState.cs" />
