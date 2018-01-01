@@ -1,5 +1,6 @@
-﻿using JackSazerak.Library.Enums;
-using System;
+﻿using System;
+
+using JackSazerak.Library.Enums;
 
 namespace JackSazerak.Library.Common
 {
@@ -11,6 +12,12 @@ namespace JackSazerak.Library.Common
 
         public string ExceptionMessage { get; set; }
         
+        public JackException() { }
+
+        public JackException(string message) : base(message) { }
+
+        public JackException(string message, Exception inner) : base(message, inner) { }
+
         public JackException(ExceptionTypes exceptionType, Exception exception, string userExceptionMessage = null)
         {
             ExceptionType = exceptionType;

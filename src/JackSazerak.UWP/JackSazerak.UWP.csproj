@@ -152,6 +152,7 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="JackSazerak.UWP_TemporaryKey.pfx" />
+    <Content Include="Levels\E1M1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JackSazerak.Library\JackSazerak.Library.csproj">

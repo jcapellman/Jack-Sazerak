@@ -1,4 +1,6 @@
-﻿namespace JackSazerak.Library.Common
+﻿using System;
+
+namespace JackSazerak.Library.Common
 {
     public class ReturnWrapper<T>
     {
@@ -13,9 +15,9 @@
             Object = objectValue;
         }
 
-        public ReturnWrapper(JackException exception)
+        public ReturnWrapper(Exception exception)
         {
-            ReturnException = exception;
+            ReturnException = new JackException(exception.Message, exception);
         }
     }
 }
