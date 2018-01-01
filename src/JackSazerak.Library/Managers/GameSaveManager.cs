@@ -22,55 +22,67 @@ namespace JackSazerak.Library.Managers
         
         public async Task<List<GameSave>> GetSavedGamesAsync()
         {
-            var files = await fileStorage.GetFilesAsync(Constants.FOLDER_NAME_SAVES);
-            
-            if (files.HasException)
+            try
             {
-                EventManager.FireEvent(EventAction.ERROR_CRITICAL, EventAction.LOADGAME_GETGAMES, files.ReturnException);
+                var files = await fileStorage.GetFilesAsync(Constants.FOLDER_NAME_SAVES);
+
+                if (files.HasException)
+                {
+                    throw new JackException(ExceptionTypes.GAMESAVEMANAGER_LOADGAMES, files.ReturnException, "Could not load save game folder");
+                }
+
+                var saveGames = new List<GameSave>();
+
+                foreach (var fileName in files.Object.Where(a => a.EndsWith(Constants.FILE_SAVE_EXTENSION)))
+                {
+                    var fileContent = await fileStorage.ReadTextFileAsync(fileName);
+
+                    if (fileContent.HasException)
+                    {
+                        throw new JackException(ExceptionTypes.GAMESAVEMANAGER_READGAME, files.ReturnException, $"Could not load save game ({fileName})");
+                    }
+                
+                    saveGames.Add((GameSave)JsonConvert.DeserializeObject(fileContent.Object));
+                }
+
+                return saveGames;
+            } catch (JackException ex)
+            {
+                EventManager.FireEvent(EventAction.ERROR_CRITICAL, EventAction.LOADGAME_GETGAMES, ex);
 
                 return new List<GameSave>();
             }
-
-            var saveGames = new List<GameSave>();
-
-            foreach (var fileName in files.Object.Where(a => a.EndsWith(Constants.FILE_SAVE_EXTENSION)))
-            {
-                var fileContent = await fileStorage.ReadTextFileAsync(fileName);
-
-                if (fileContent.HasException)
-                {
-                    EventManager.FireEvent(EventAction.ERROR_WARNING, EventAction.LOADGAME_READINGGAME, fileContent.ReturnException);
-
-                    continue;
-                }
-
-                saveGames.Add((GameSave)JsonConvert.DeserializeObject(fileContent.Object));
-            }
-
-            return saveGames;
         }
 
         private string BuildSaveFileName(string gameName) => $"{gameName}{Constants.FILE_SAVE_EXTENSION}";
 
         public async Task<bool> SaveGameAsync(GameSave gameSave, bool overwrite = false)
         {
-            var saveFileName = BuildSaveFileName(gameSave.GameName);
-
-            if (!overwrite)
+            try
             {
-                var result = await fileStorage.FileExistsAsync(saveFileName);
+                var saveFileName = BuildSaveFileName(gameSave.GameName);
 
-                if (result.HasException)
+                if (!overwrite)
                 {
-                    EventManager.FireEvent(EventAction.ERROR_CRITICAL, EventAction.SAVEGAME, result.ReturnException);
-                }
+                    var result = await fileStorage.FileExistsAsync(saveFileName);
+
+                    if (result.HasException)
+                    {
+                        throw new JackException(ExceptionTypes.GAMESAVEMANAGER_READGAME, result.ReturnException, $"{saveFileName} already exists");
+                    }
                 
+                    return false;
+                }
+
+                await fileStorage.WriteTextFileAsync(saveFileName, JsonConvert.SerializeObject(gameSave));
+
+                return true;
+            } catch (JackException ex)
+            {
+                EventManager.FireEvent(EventAction.ERROR_CRITICAL, EventAction.SAVEGAME, ex);
+
                 return false;
             }
-
-            await fileStorage.WriteTextFileAsync(saveFileName, JsonConvert.SerializeObject(gameSave));
-
-            return true;
         }
     }
 }
