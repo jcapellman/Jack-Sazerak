@@ -17,7 +17,7 @@ namespace JackSazerak.Library.States.MainMenu
 
         private List<GameSave> gameSaves;
 
-        public LoadGameMainMenuState(GameWrapper gameWrapper)
+        public override void InitState(GameWrapper gameWrapper)
         {
             SetBackground("loadgame_menu", gameWrapper);
             SetHeader("LOAD GAME", gameWrapper);
