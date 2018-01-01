@@ -16,8 +16,8 @@ namespace JackSazerak.Library.States.MainMenu
         private Guid guidSelector;
 
         public override GameStates GameState => GameStates.MAIN_MENU;
-
-        public MainMenuState(GameWrapper gameWrapper)
+        
+        public override void InitState(GameWrapper gameWrapper)
         {
             SetBackground("mainmenu", gameWrapper);
 
@@ -27,7 +27,7 @@ namespace JackSazerak.Library.States.MainMenu
             AddTextLabel("LOAD GAME", Color.White, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, gameWrapper, offsetY: -80);
             AddTextLabel("OPTIONS", Color.White, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, gameWrapper, offsetY: 0);
             AddTextLabel("ABOUT", Color.White, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, gameWrapper, offsetY: 80);
-            
+
             selectedIndex = 0;
         }
 
