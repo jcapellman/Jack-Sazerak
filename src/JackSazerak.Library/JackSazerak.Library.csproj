@@ -107,6 +107,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\JackException.cs" />
     <Compile Include="Common\ReturnWrapper.cs" />
     <Compile Include="Effects\Animations\Scroll.cs" />
     <Compile Include="Effects\Transitions\BaseTransitions.cs" />
