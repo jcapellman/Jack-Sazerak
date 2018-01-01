@@ -11,11 +11,11 @@ namespace JackSazerak.Library.States
 {
     public class LevelState : BaseState
     {
-        private readonly LevelContainer level;
+        private LevelContainer level;
 
         public override GameStates GameState => GameStates.LEVEL;
 
-        public LevelState(GameWrapper gameWrapper)
+        public override void InitState(GameWrapper gameWrapper)
         {
             level = LevelManager.LoadLevel(gameWrapper, "E1M1");
         }
