@@ -74,7 +74,7 @@ namespace JackSazerak.Library.States
                 textLabel.Render(spriteBatch);
             }
         }
-
+        
         public override void HandleInputs(KeyboardState state)
         {
             throw new System.NotImplementedException();

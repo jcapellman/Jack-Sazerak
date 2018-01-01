@@ -34,7 +34,7 @@ namespace JackSazerak.Library.Managers
         private void LoadGameStates(GameWrapper gameWrapper)
         {
             mainMenuStates = Assembly.GetExecutingAssembly().GetTypes().Where(a => 
-                a.BaseType == typeof(BaseMenuState) && !a.IsAbstract).Select(b => (BaseMenuState)Activator.CreateInstance(b, gameWrapper)).ToList();
+                a.BaseType == typeof(BaseMenuState) && !a.IsAbstract).Select(b => (BaseMenuState)Activator.CreateInstance(b)).ToList();
         }
 
         public void HandleInput(KeyboardState state)
@@ -83,6 +83,8 @@ namespace JackSazerak.Library.Managers
             }
             
             currentState = mainMenuStates.FirstOrDefault(a => a.GameState == gameState) ?? throw new Exception($"Could not find implementation of {gameState}");
+
+            currentState.InitState(gameWrapper);
 
             currentState.SwitchState += CurrentState_SwitchState;
         }
