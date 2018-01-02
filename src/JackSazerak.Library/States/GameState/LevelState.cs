@@ -7,9 +7,9 @@ using JackSazerak.Library.Objects.Containers;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace JackSazerak.Library.States
+namespace JackSazerak.Library.States.GameState
 {
-    public class LevelState : BaseState
+    public class LevelState : BaseGameState
     {
         private LevelContainer level;
 
