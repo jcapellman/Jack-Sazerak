@@ -30,6 +30,13 @@ namespace JackSazerak.Library.States.MainMenu
 
                 return;
             }
+
+            var index = 0;
+
+            foreach (var saveGame in gameSaves)
+            {
+                AddTextLabel(saveGame.GameName, Color.White, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, gameWrapper, offsetY: index * 90);
+            }
         }
 
         public override void HandleInputs(KeyboardState state)
