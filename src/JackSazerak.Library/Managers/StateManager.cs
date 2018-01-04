@@ -62,7 +62,7 @@ namespace JackSazerak.Library.Managers
             handler?.Invoke(this, gameState);
         }
 
-        private void handleTransition(Fade.FADE_TYPE fadeType)
+        private void HandleTransition(Fade.FADE_TYPE fadeType)
         {
             fade = baseFade;
 
@@ -77,13 +77,13 @@ namespace JackSazerak.Library.Managers
             {
                 transitionCompleted = false;
 
-                handleTransition(Fade.FADE_TYPE.FADE_IN);
+                HandleTransition(Fade.FADE_TYPE.FADE_IN);
             }
             else
             {
                 transitionCompleted = true;
 
-                handleTransition(Fade.FADE_TYPE.FADE_OUT);
+                HandleTransition(Fade.FADE_TYPE.FADE_OUT);
             }
 
             currentState = mainMenuStates.FirstOrDefault(a => a.GameState == gameState);

@@ -15,7 +15,12 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="JackSazerak.UWP.App">
-      <uap:VisualElements DisplayName="Jack Sazerak" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="JackSazerak.UWP" BackgroundColor="#464646">
+      <uap:VisualElements DisplayName="Jack Sazerak" Square150x150Logo="Assets\LogoMedium.png" Square44x44Logo="Assets\AppIcon.png" Description="JackSazerak.UWP" BackgroundColor="#464646">
+        <uap:DefaultTile>
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>

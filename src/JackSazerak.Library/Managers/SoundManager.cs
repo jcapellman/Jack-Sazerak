@@ -26,7 +26,7 @@ namespace JackSazerak.Library.Managers
             };
         }
 
-        private SoundEffect getSound(string soundName) => sounds.FirstOrDefault(a => a.Name == $"Sounds/{soundName}");
+        private SoundEffect GetSound(string soundName) => sounds.FirstOrDefault(a => a.Name == $"Sounds/{soundName}");
 
         private void EventManager_EventOccurred(object sender, EventWrapper eventWrapper)
         {
@@ -36,7 +36,7 @@ namespace JackSazerak.Library.Managers
                 case EventAction.PLAYER_MOVE_LEFT:
                 case EventAction.PLAYER_MOVE_RIGHT:
                 case EventAction.PLAYER_MOVE_UP:
-                    getSound(SND_FOOTSTEP).Play();
+                    GetSound(SND_FOOTSTEP).Play();
                     break;
             }
         }

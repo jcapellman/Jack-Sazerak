@@ -51,9 +51,10 @@ namespace JackSazerak.Library
         
         private void InitGraphics()
         {
-            graphics = new GraphicsDeviceManager(this);
-
-            graphics.IsFullScreen = true;
+            graphics = new GraphicsDeviceManager(this)
+            {
+                IsFullScreen = true
+            };
 
             graphics.PreparingDeviceSettings += Graphics_PreparingDeviceSettings;
 
