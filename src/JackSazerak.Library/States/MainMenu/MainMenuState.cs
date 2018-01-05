@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 using JackSazerak.Library.Enums;
 using JackSazerak.Library.GameObjects.Static;
@@ -19,6 +20,8 @@ namespace JackSazerak.Library.States.MainMenu
 
     public class MainMenuState : BaseMenuState
     {
+        private KeyboardState previousKeyboardState;
+
         private int selectedIndex = 0;
 
         private Guid guidSelector;
@@ -41,6 +44,10 @@ namespace JackSazerak.Library.States.MainMenu
 
         public override void HandleInputs(KeyboardState state)
         {
+            var pressedKeys = from k in state.GetPressedKeys()
+                                 where !(previousKeyboardState.GetPressedKeys().Contains(k))
+                                 select k;
+
             if (state.IsKeyDown(Keys.Enter))
             {
                 switch ((MENU)selectedIndex) {
@@ -61,7 +68,7 @@ namespace JackSazerak.Library.States.MainMenu
                 return;
             }
 
-            if (state.IsKeyDown(Keys.Up))
+            if (pressedKeys.Contains(Keys.Up))
             {
                 if (selectedIndex == 0)
                 {
@@ -71,13 +78,7 @@ namespace JackSazerak.Library.States.MainMenu
                 {
                     selectedIndex--;
                 }
-
-                GetGameObject(guidSelector).UpdatePosition(0, (selectedIndex * 128), true);
-
-                return;
-            }
-
-            if (state.IsKeyDown(Keys.Down))
+            } else if (pressedKeys.Contains(Keys.Down))
             {
                 if (selectedIndex == 3)
                 {
@@ -87,11 +88,11 @@ namespace JackSazerak.Library.States.MainMenu
                 {
                     selectedIndex++;
                 }
-
-                GetGameObject(guidSelector).UpdatePosition(0, (selectedIndex * 128), true);
-
-                return;
             }
+
+            GetGameObject(guidSelector).UpdatePosition(0, (-160 + (80 * selectedIndex)), true);
+
+            previousKeyboardState = state;
         }
     }
 }
