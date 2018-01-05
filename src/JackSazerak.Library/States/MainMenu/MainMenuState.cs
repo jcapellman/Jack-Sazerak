@@ -9,6 +9,14 @@ using Microsoft.Xna.Framework.Input;
 
 namespace JackSazerak.Library.States.MainMenu
 {
+    public enum MENU
+    {
+        NEW_GAME = 0,
+        LOAD_GAME = 1,
+        OPTIONS = 2,
+        ABOUT = 3
+    }
+
     public class MainMenuState : BaseMenuState
     {
         private int selectedIndex = 0;
@@ -33,36 +41,22 @@ namespace JackSazerak.Library.States.MainMenu
 
         public override void HandleInputs(KeyboardState state)
         {
-            if (state.IsKeyDown(Keys.Q)) {             
-                OnSwitchState(GameStates.LEVEL);
-
-                return;
-            }
-
-            if (state.IsKeyDown(Keys.W))
+            if (state.IsKeyDown(Keys.Enter))
             {
-                OnSwitchState(GameStates.MAIN_MENU_OPTIONS);
-
-                return;
-            }
-
-            if (state.IsKeyDown(Keys.E))
-            {
-                OnSwitchState(GameStates.MAIN_MENU_ABOUT);
-
-                return;
-            }
-
-            if (state.IsKeyDown(Keys.T))
-            {
-                OnSwitchState(GameStates.MAIN_MENU_LOADGAME);
-
-                return;
-            }
-
-            if (state.IsKeyDown(Keys.R))
-            {
-                OnSwitchState(GameStates.MAIN_MENU_NEWGAME);
+                switch ((MENU)selectedIndex) {
+                    case MENU.NEW_GAME:
+                        OnSwitchState(GameStates.MAIN_MENU_NEWGAME);
+                        break;
+                    case MENU.LOAD_GAME:
+                        OnSwitchState(GameStates.MAIN_MENU_LOADGAME);
+                        break;
+                    case MENU.OPTIONS:
+                        OnSwitchState(GameStates.MAIN_MENU_OPTIONS);
+                        break;
+                    case MENU.ABOUT:
+                        OnSwitchState(GameStates.MAIN_MENU_ABOUT);
+                        break;
+                }
 
                 return;
             }
