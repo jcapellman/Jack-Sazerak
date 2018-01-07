@@ -1,4 +1,6 @@
-﻿using Windows.UI.Xaml;
+﻿using JackSazerak.Library;
+
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace JackSazerak.UWP
