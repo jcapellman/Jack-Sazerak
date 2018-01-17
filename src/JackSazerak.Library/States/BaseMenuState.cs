@@ -32,7 +32,7 @@ namespace JackSazerak.Library.States
         protected Guid AddGameObject(BaseGameObject gameObject)
         {
             var guid = Guid.NewGuid();
-
+            
             gameObjects.Add(guid, gameObject);
 
             return guid;
