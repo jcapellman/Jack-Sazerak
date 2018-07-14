@@ -1,4 +1,5 @@
-﻿using JackSazerak.Library.Common;
+﻿using System;
+using JackSazerak.Library.Common;
 using JackSazerak.Library.Enums;
 using JackSazerak.Library.Objects;
 

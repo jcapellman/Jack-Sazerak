@@ -32,7 +32,7 @@ namespace JackSazerak.Library.States.MainMenu
         {
             SetBackground("mainmenu", gameWrapper);
 
-            guidSelector = AddGameObject(new MenuSelector("F45", gameWrapper), HorizontalAlignment.CENTER, VerticalAlignment.CENTER);
+            guidSelector = AddGameObject(new MenuSelector("F45", gameWrapper));
 
             AddTextLabel("NEW GAME", Color.White, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, gameWrapper, offsetY: -160);
             AddTextLabel("LOAD GAME", Color.White, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, gameWrapper, offsetY: -80);

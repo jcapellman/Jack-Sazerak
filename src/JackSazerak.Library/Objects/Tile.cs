@@ -56,6 +56,10 @@ namespace JackSazerak.Library.Objects
             }
         }
 
+        protected float Width => Rect.Width;
+
+        protected float Height => Rect.Height;
+
         private Vector2 TilePosition { get; set; }
 
         private Texture2D Texture { get; set; }
