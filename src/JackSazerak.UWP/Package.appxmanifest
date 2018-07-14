@@ -1,28 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="f16f3bb3-b75b-4be6-b071-d5a0d8393919" Publisher="CN=jcape" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="f16f3bb3-b75b-4be6-b071-d5a0d8393919" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  IgnorableNamespaces="uap mp">
+
+  <Identity
+    Name="d5ae1444-0756-4f9c-b857-f5308c693082"
+    Publisher="CN=jcape"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="d5ae1444-0756-4f9c-b857-f5308c693082" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
   <Properties>
-    <DisplayName>JackSazerak</DisplayName>
+    <DisplayName>JackSazerak.UWP</DisplayName>
     <PublisherDisplayName>jcape</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
+
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
   </Dependencies>
+
   <Resources>
-    <Resource Language="x-generate" />
+    <Resource Language="x-generate"/>
   </Resources>
+
   <Applications>
-    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="JackSazerak.UWP.App">
-      <uap:VisualElements DisplayName="Jack Sazerak" Square150x150Logo="Assets\LogoMedium.png" Square44x44Logo="Assets\AppIcon.png" Description="JackSazerak.UWP" BackgroundColor="#464646">
-        <uap:DefaultTile>
-          <uap:ShowNameOnTiles>
-            <uap:ShowOn Tile="square150x150Logo" />
-          </uap:ShowNameOnTiles>
-        </uap:DefaultTile>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="JackSazerak.UWP.App">
+      <uap:VisualElements
+        DisplayName="JackSazerak.UWP"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="JackSazerak.UWP"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
 </Package>
