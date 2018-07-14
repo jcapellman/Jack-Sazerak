@@ -148,7 +148,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\JackSazerak.lib\JackSazerak.lib.csproj">
+    <ProjectReference Include="..\JackSazerak.lib\JackSazerak.lib.csproj">
       <Project>{a74e5178-494a-4b79-86eb-ab16ca15c5db}</Project>
       <Name>JackSazerak.lib</Name>
     </ProjectReference>
