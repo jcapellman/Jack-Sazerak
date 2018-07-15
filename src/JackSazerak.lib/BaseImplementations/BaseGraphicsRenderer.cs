@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 
-using JackSazerak.lib.RenderableObjects.Base;
+using JackSazerak.lib.GameObjects.Base;
 
 namespace JackSazerak.lib.BaseImplementations
 {
@@ -13,7 +13,7 @@ namespace JackSazerak.lib.BaseImplementations
         
         public abstract void DrawTexture(object textureObject, float xPosition, float yPosition, float scale);
 
-        public virtual void Render(object renderObject, List<BaseRenderableObject> renderables)
+        public virtual void Render(object renderObject, IEnumerable<BaseGameObject> renderables)
         {
             foreach (var renderable in renderables)
             {
