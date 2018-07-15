@@ -10,6 +10,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <canvas:CanvasControl Draw="CanvasControl_Draw" SizeChanged="CControl_OnSizeChanged" CreateResources="cControl_CreateResources" x:Name="cControl" ClearColor="Black"/>
+        <canvas:CanvasControl Draw="CanvasControl_Draw" CreateResources="cControl_CreateResources" x:Name="cControl" ClearColor="Black"/>
     </Grid>
 </Page>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -24,8 +25,15 @@ namespace JackSazerak.UWP
             InitializeComponent();
 
             _nextState = new MainGameState();
+
+            Window.Current.SizeChanged += Current_SizeChanged;
         }
-        
+
+        private void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+        {
+            IOCContainer.GfxRenderer.UpdateScale();
+        }
+
         async Task LoadResourcesForStateAsync(CanvasControl resourceCreator, BaseState state)
         {
             foreach (var item in state.ResourceRenderables)
@@ -70,11 +78,6 @@ namespace JackSazerak.UWP
         private void cControl_CreateResources(CanvasControl sender, Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
         {
             args.TrackAsyncAction(CreateResourcesAsync(sender).AsAsyncAction());
-        }
-
-        private void CControl_OnSizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            IOCContainer.GfxRenderer.UpdateScale();
         }
     }
 }
