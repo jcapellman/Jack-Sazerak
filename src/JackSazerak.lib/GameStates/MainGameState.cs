@@ -8,6 +8,8 @@ namespace JackSazerak.lib.GameStates
     {
         public MainGameState()
         {
+            AddObject(new MapObject("E1M1"));
+
             AddObject(new PlayerObject(new F18(true)));
 
             MousePositionChanged += MainGameState_MousePositionChanged;
