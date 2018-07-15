@@ -2,12 +2,11 @@
 using System.Drawing;
 using System.Numerics;
 
-using Windows.Foundation;
 using Windows.UI.ViewManagement;
 
 using JackSazerak.lib.BaseImplementations;
 using JackSazerak.lib.Common;
-using JackSazerak.lib.RenderableObjects.Base;
+using JackSazerak.lib.GameObjects.Base;
 
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
@@ -23,7 +22,7 @@ namespace JackSazerak.UWP.Implementations
 
         public override void UpdateScale()
         {
-            Rect bounds = ApplicationView.GetForCurrentView().VisibleBounds;
+            var bounds = ApplicationView.GetForCurrentView().VisibleBounds;
 
             _scaleWidth = (float)bounds.Width / Constants.DESIGN_WIDTH;
             _scaleHeight = (float)bounds.Height / Constants.DESIGN_HEIGHT;
@@ -34,7 +33,7 @@ namespace JackSazerak.UWP.Implementations
             _session.DrawText(text, xPosition, yPosition, Windows.UI.Color.FromArgb(color.A, color.R, color.G, color.B));
         }
 
-        public override void Render(object renderObject, List<BaseRenderableObject> renderables)
+        public override void Render(object renderObject, IEnumerable<BaseGameObject> renderables)
         {
             _session = (CanvasDrawingSession) renderObject;
 
