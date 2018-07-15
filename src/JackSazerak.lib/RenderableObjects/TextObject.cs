@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 
+using JackSazerak.lib.Enums;
 using JackSazerak.lib.IoC;
 using JackSazerak.lib.RenderableObjects.Base;
 
@@ -18,8 +19,10 @@ namespace JackSazerak.lib.RenderableObjects
             _xPosition = xPosition;
             _yPosition = yPosition;
             _color = color;
-        }
 
+            _resourceObject = new Objects.ResourceObject(string.Empty, ResourceTypes.TEXT);
+        }
+        
         public override void Render()
         {
             IOCContainer.GfxRenderer.DrawText(_text, _xPosition, _yPosition, _color);
