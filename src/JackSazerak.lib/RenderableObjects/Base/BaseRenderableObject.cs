@@ -42,6 +42,13 @@ namespace JackSazerak.lib.RenderableObjects.Base
                 return;
             }
 
+            if (ResourceObject == null || !ResourceObject.RestrictedToWindow)
+            {
+                _currentPosition = point;
+
+                return;
+            }
+
             // Right Hand Collision
             if (point.X + ResouceWidth + Constants.WINDOW_WIDTH_COLLISION_BUFFER > windowWidth)
             {
