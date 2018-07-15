@@ -10,6 +10,8 @@ namespace JackSazerak.lib.GameStates
         public MainGameState()
         {
             AddObject(new TextObject("Jack Sazerak", 100, 100, Color.Black));
+
+            AddObject(new SpriteObject("F18.png", 100, 200, 1.0f));
         }
     }
 }
