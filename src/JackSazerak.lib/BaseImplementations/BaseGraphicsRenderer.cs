@@ -9,9 +9,7 @@ namespace JackSazerak.lib.BaseImplementations
     public abstract class BaseGraphicsRenderer
     {
         public abstract void DrawText(string text, float xPosition, float yPosition, Color color);
-
-        public abstract void LoadTexture(string textureName, ResourceTypes resourceType);
-
+        
         public abstract void DrawTexture(object textureObject, float xPosition, float yPosition, float scale);
 
         public virtual void Render(object renderObject, List<BaseRenderableObject> renderables)
