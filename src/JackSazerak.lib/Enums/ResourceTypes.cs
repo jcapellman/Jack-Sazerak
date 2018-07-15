@@ -3,6 +3,7 @@
     public enum ResourceTypes
     {
         SPRITE,
+        TEXT,
         TEXTURE,
         SOUND
     }
