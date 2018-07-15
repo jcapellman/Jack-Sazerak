@@ -7,21 +7,21 @@ namespace JackSazerak.lib.GameStates.Base
 {
     public abstract class BaseState
     {
-        private readonly List<BaseRenderableObject> _renderables;
+        public List<BaseRenderableObject> Renderables;
 
         protected BaseState()
         {
-            _renderables = new List<BaseRenderableObject>();
+            Renderables = new List<BaseRenderableObject>();
         }
-
+        
         protected void AddObject(BaseRenderableObject renderableObject)
         {
-            _renderables.Add(renderableObject);
+            Renderables.Add(renderableObject);
         }
-
+        
         public void Render(object renderObject)
         {
-            IOCContainer.GfxRenderer.Render(renderObject, _renderables);
+            IOCContainer.GfxRenderer.Render(renderObject, Renderables);
         }
     }
 }
