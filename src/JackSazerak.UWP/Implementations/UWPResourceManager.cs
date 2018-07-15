@@ -1,30 +1,17 @@
 ﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Graphics.Canvas;
 
 using JackSazerak.lib.BaseImplementations;
+using JackSazerak.lib.Enums;
 
 namespace JackSazerak.UWP.Implementations
 {
     public class UWPResourceManager : BaseResourceManager
     {
-        public class Texture
-        {
-            public byte[] arr;
-        }
+        public event EventHandler<string> OnTextureLoadRequest;
 
-        public enum ResourceType
+        public void LoadTexture(string textureName, ResourceTypes resourceType)
         {
-            SPRITE,
-            TEXTURE,
-            SOUND
-        }
-
-        public async Task<Texture> LoadTextureAsync(string textureName, ResourceType resourceType)
-        {
-            var result = await CanvasBitmap.LoadAsync(null, new Uri($"ms-appx:///Assets/{resourceType}/{textureName}"));
-            
-            return new Texture();
+            OnTextureLoadRequest?.Invoke(null, textureName);
         } 
     }
 }

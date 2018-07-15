@@ -109,15 +109,15 @@
     <None Include="JackSazerak.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Sprites\F18.png" />
-    <Content Include="Assets\Sprites\F19.png" />
-    <Content Include="Assets\Sprites\F25.png" />
-    <Content Include="Assets\Sprites\F28.png" />
-    <Content Include="Assets\Sprites\f55.png" />
-    <Content Include="Assets\Sprites\J20.png" />
-    <Content Include="Assets\Sprites\Mig51.png" />
-    <Content Include="Assets\Sprites\Su51.png" />
-    <Content Include="Assets\Sprites\XB91.png" />
+    <Content Include="Assets\Resources\Sprite\F18.png" />
+    <Content Include="Assets\Resources\Sprite\F19.png" />
+    <Content Include="Assets\Resources\Sprite\F25.png" />
+    <Content Include="Assets\Resources\Sprite\F28.png" />
+    <Content Include="Assets\Resources\Sprite\f55.png" />
+    <Content Include="Assets\Resources\Sprite\J20.png" />
+    <Content Include="Assets\Resources\Sprite\Mig51.png" />
+    <Content Include="Assets\Resources\Sprite\Su51.png" />
+    <Content Include="Assets\Resources\Sprite\XB91.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
