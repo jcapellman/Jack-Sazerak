@@ -27,9 +27,9 @@ namespace JackSazerak.UWP
         
         async Task LoadResourcesForStateAsync(CanvasControl resourceCreator, BaseState state)
         {
-            foreach (var item in state.Renderables)
+            foreach (var item in state.ResourceRenderables)
             {
-                item.Resource = await CanvasBitmap.LoadAsync(resourceCreator, item.ResouceFileName);
+                item.Resource = await CanvasBitmap.LoadAsync(resourceCreator, new Uri($"ms-appx:///Assets/Resources/{item.ResourceType}/{item.ResouceFileName}"));
             }
             
             _currentState = state;
@@ -45,6 +45,8 @@ namespace JackSazerak.UWP
         void CanvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args)
         {
             _currentState?.Render(args.DrawingSession);
+
+            cControl.Invalidate();
         }
 
         async Task CreateResourcesAsync(CanvasControl sender)
