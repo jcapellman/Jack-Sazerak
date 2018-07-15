@@ -5,14 +5,10 @@ namespace JackSazerak.lib.GameObjects.Base
 {
     public abstract class BaseGameObject
     {
-        protected Point _currentPosition;
-
         public BaseRenderableObject RenderObject;
 
         public void UpdatePosition(Point point)
         {
-            _currentPosition = point;
-
             RenderObject.UpdatePosition(point);
         }
 
