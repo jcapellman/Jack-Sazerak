@@ -5,24 +5,30 @@ namespace JackSazerak.lib.RenderableObjects.Base
 {
     public abstract class BaseRenderableObject
     {
+        protected Point _currentPosition;
+
         public abstract void Render();
 
-        protected ResourceObject _resourceObject;
+        protected ResourceObject ResourceObject;
 
-        public string ResouceFileName => _resourceObject?.FileName;
+        public string ResouceFileName => ResourceObject?.FileName;
 
-        public ResourceTypes ResourceType => _resourceObject.ResourceType;
+        public ResourceTypes ResourceType => ResourceObject.ResourceType;
 
         public object Resource {
-            get
-            {
-                return _resourceObject.Resource;
-            }
+            get => ResourceObject.Resource;
 
-            set
-            {
-                _resourceObject.Resource = value;
-            }
+            set => ResourceObject.Resource = value;
+        }
+
+        protected BaseRenderableObject()
+        {
+            _currentPosition = new Point(0.0f, 0.0f);
+        }
+
+        public void UpdatePosition(Point point)
+        {
+            _currentPosition = point;
         }
     }
 }
