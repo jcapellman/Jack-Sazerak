@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 using JackSazerak.lib.GameStates;
 using JackSazerak.lib.GameStates.Base;
+using JackSazerak.lib.IoC;
 
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using Microsoft.Graphics.Canvas;
@@ -69,6 +70,11 @@ namespace JackSazerak.UWP
         private void cControl_CreateResources(CanvasControl sender, Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
         {
             args.TrackAsyncAction(CreateResourcesAsync(sender).AsAsyncAction());
+        }
+
+        private void CControl_OnSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            IOCContainer.GfxRenderer.UpdateScale();
         }
     }
 }
