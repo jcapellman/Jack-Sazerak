@@ -10,10 +10,13 @@ namespace JackSazerak.lib.Objects
 
         public string FileName { get; private set; }
 
-        public ResourceObject(string fileName, ResourceTypes resourceType)
+        public bool RestrictedToWindow { get; private set; }
+
+        public ResourceObject(string fileName, ResourceTypes resourceType, bool restrictedToWindow = false)
         {
             FileName = fileName;
             ResourceType = resourceType;
+            RestrictedToWindow = restrictedToWindow;
         }
     }
 }

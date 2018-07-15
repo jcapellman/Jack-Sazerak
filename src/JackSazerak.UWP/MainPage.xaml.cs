@@ -38,13 +38,19 @@ namespace JackSazerak.UWP
         private void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
         {
             IOCContainer.GfxRenderer.UpdateScale();
+
+            _currentState?.UpdateWindowBounds(e.Size.Width, e.Size.Height);
         }
 
         async Task LoadResourcesForStateAsync(CanvasControl resourceCreator, BaseState state)
         {
             foreach (var item in state.ResourceRenderables)
             {
-                item.RenderObject.Resource = await CanvasBitmap.LoadAsync(resourceCreator, new Uri($"ms-appx:///Assets/Resources/{item.RenderObject.ResourceType}/{item.RenderObject.ResouceFileName}"));
+                var canvasBitmap = await CanvasBitmap.LoadAsync(resourceCreator, new Uri($"ms-appx:///Assets/Resources/{item.RenderObject.ResourceType}/{item.RenderObject.ResouceFileName}"));
+
+                item.RenderObject.ResouceWidth = canvasBitmap.Size.Width;
+                item.RenderObject.ResourceHeight = canvasBitmap.Size.Height;
+                item.RenderObject.Resource = canvasBitmap;
             }
             
             _currentState = state;

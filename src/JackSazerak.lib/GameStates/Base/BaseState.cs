@@ -13,6 +13,9 @@ namespace JackSazerak.lib.GameStates.Base
         private double _mousePositionX;
         private double _mousePositionY;
 
+        protected double _windowWidth;
+        protected double _windowHeight;
+
         private List<BaseGameObject> _stateObjects;
 
         protected event EventHandler<Point> MousePositionChanged;
@@ -35,6 +38,12 @@ namespace JackSazerak.lib.GameStates.Base
         public void Render(object renderObject)
         {
             IOCContainer.GfxRenderer.Render(renderObject, _stateObjects);
+        }
+
+        public void UpdateWindowBounds(double width, double height)
+        {
+            _windowHeight = height;
+            _windowWidth = width;
         }
 
         public void UpdateMousePosition(double positionX, double positionY)

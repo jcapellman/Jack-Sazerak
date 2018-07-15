@@ -6,15 +6,15 @@ namespace JackSazerak.lib.RenderableObjects
 {
     public class SpriteObject : BaseRenderableObject
     {
-        private float _scale;
+        private readonly float _scale;
 
-        public SpriteObject(string resourceFileName, float xPosition, float yPosition, float scale)
+        public SpriteObject(string resourceFileName, float xPosition, float yPosition, float scale, bool restrictToWindow = false)
         {
             UpdatePosition(new Point(xPosition, yPosition));
 
             _scale = scale;
 
-            ResourceObject = new Objects.ResourceObject(resourceFileName, ResourceTypes.SPRITE);
+            ResourceObject = new ResourceObject(resourceFileName, ResourceTypes.SPRITE, restrictToWindow);
         }
         
         public override void Render()

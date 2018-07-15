@@ -9,7 +9,7 @@ namespace JackSazerak.lib.GameObjects.Aircraft
             RenderObject.Render();
         }
 
-        public F18() : base("F18.png")
+        public F18(bool restrictToWindow) : base("F18.png", restrictToWindow)
         {
         }
     }
