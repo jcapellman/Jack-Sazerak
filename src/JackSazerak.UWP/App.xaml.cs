@@ -1,5 +1,8 @@
 ﻿using System;
 
+using JackSazerak.lib.IoC;
+using JackSazerak.UWP.Implementations;
+
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -20,6 +23,8 @@ namespace JackSazerak.UWP
         public App()
         {
             this.InitializeComponent();
+
+            IOCContainer.Initialize(new Win2DGraphicsRenderer());
             
             this.Suspending += OnSuspending;
         }
