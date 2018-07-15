@@ -6,9 +6,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-using JackSazerak.lib.IoC;
-using JackSazerak.UWP.Implementations;
-
 namespace JackSazerak.UWP
 {
     /// <summary>
@@ -23,9 +20,7 @@ namespace JackSazerak.UWP
         public App()
         {
             this.InitializeComponent();
-
-            IOCContainer.Initialize(new Win2DGraphicsRenderer());
-
+            
             this.Suspending += OnSuspending;
         }
 
