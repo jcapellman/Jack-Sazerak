@@ -18,7 +18,7 @@ namespace JackSazerak.UWP
         private BaseState _currentState;
         private BaseState _nextState = null;
 
-        Task stateLoadTask;
+        Task _stateLoadTask;
 
         public MainPage()
         {
@@ -27,6 +27,12 @@ namespace JackSazerak.UWP
             _nextState = new MainGameState();
 
             Window.Current.SizeChanged += Current_SizeChanged;
+            Window.Current.CoreWindow.PointerMoved += CoreWindow_PointerMoved;
+        }
+
+        private void CoreWindow_PointerMoved(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.PointerEventArgs args)
+        {
+            _currentState?.UpdateMousePosition(args.CurrentPoint.Position.X, args.CurrentPoint.Position.Y);
         }
 
         private void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
@@ -38,7 +44,7 @@ namespace JackSazerak.UWP
         {
             foreach (var item in state.ResourceRenderables)
             {
-                item.Resource = await CanvasBitmap.LoadAsync(resourceCreator, new Uri($"ms-appx:///Assets/Resources/{item.ResourceType}/{item.ResouceFileName}"));
+                item.RenderObject.Resource = await CanvasBitmap.LoadAsync(resourceCreator, new Uri($"ms-appx:///Assets/Resources/{item.RenderObject.ResourceType}/{item.RenderObject.ResouceFileName}"));
             }
             
             _currentState = state;
@@ -48,7 +54,7 @@ namespace JackSazerak.UWP
         {
             _nextState = state;
 
-            stateLoadTask = LoadResourcesForStateAsync(cControl, _nextState);
+            _stateLoadTask = LoadResourcesForStateAsync(cControl, _nextState);
         }
 
         void CanvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args)
@@ -60,13 +66,13 @@ namespace JackSazerak.UWP
 
         async Task CreateResourcesAsync(CanvasControl sender)
         {
-            if (stateLoadTask != null)
+            if (_stateLoadTask != null)
             {
-                stateLoadTask.AsAsyncAction().Cancel();
+                _stateLoadTask.AsAsyncAction().Cancel();
 
-                try { await stateLoadTask; } catch { }
+                try { await _stateLoadTask; } catch { }
 
-                stateLoadTask = null;
+                _stateLoadTask = null;
             }
 
             if (_nextState != null)

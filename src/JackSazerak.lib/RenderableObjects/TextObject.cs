@@ -20,7 +20,7 @@ namespace JackSazerak.lib.RenderableObjects
             _yPosition = yPosition;
             _color = color;
 
-            _resourceObject = new Objects.ResourceObject(string.Empty, ResourceTypes.TEXT);
+            ResourceObject = new Objects.ResourceObject(string.Empty, ResourceTypes.TEXT);
         }
         
         public override void Render()
