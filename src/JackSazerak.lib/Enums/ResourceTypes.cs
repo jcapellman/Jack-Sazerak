@@ -4,7 +4,7 @@
     {
         SPRITE,
         TEXT,
-        TEXTURE,
+        TILE,
         SOUND
     }
 }
