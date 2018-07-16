@@ -31,6 +31,19 @@ namespace JackSazerak.Editor.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        private BitmapImage _selectedTileImage;
+
+        public BitmapImage SelectedTileImage
+        {
+            get => _selectedTileImage;
+
+            set
+            {
+                _selectedTileImage = value;
+                OnPropertyChanged();
+            }
+        }
+
         private ObservableCollection<BitmapImage> _tileImages;
 
         public ObservableCollection<BitmapImage> TileImages
