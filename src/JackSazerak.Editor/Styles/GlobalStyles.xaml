@@ -5,15 +5,26 @@
         <Setter Property="Background" Value="#1e1e1e" />
     </Style>
 
-    <Style TargetType="Menu" x:Key="MainMenu">
+    <Style TargetType="Menu">
         <Setter Property="Background" Value="#2e2e2e" />
         <Setter Property="IsMainMenu" Value="True" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="White" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="5,5,5,5" />
     </Style>
 
     <Style TargetType="MenuItem">
         <Setter Property="Background" Value="#2e2e2e" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="14" />
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True" >
+                <Setter Property="Background" Value="#3e3e3e" />
+                <Setter Property="BorderThickness" Value="0" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>
