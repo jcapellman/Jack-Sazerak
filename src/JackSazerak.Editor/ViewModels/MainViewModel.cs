@@ -25,6 +25,7 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
 using JackSazerak.Editor.Common;
+using JackSazerak.lib.Common;
 
 namespace JackSazerak.Editor.ViewModels
 {
@@ -47,7 +48,7 @@ namespace JackSazerak.Editor.ViewModels
         {
             TileImages = new ObservableCollection<BitmapImage>();
 
-            var imageFiles = Directory.GetFiles(@"Assets\Resources\Tile");
+            var imageFiles = Directory.GetFiles(Constants.PATH_ASSET_TILES);
 
             foreach (var imageFile in imageFiles)
             {

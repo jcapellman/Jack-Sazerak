@@ -26,6 +26,8 @@ namespace JackSazerak.lib.Common
         public const float DESIGN_HEIGHT = 1080;
 
         public const float WINDOW_WIDTH_COLLISION_BUFFER = 35;
-        public const float WINDOW_HEIGHT_COLLISION_BUFFER = 25;    
+        public const float WINDOW_HEIGHT_COLLISION_BUFFER = 25;
+
+        public const string PATH_ASSET_TILES = @"Assets\Resources\Tile";
     }
 }
