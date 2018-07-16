@@ -11,9 +11,15 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <MenuItem Header="_File">
                 <MenuItem Header="New Level" />
                 <MenuItem Header="Load Level" />
@@ -27,5 +33,26 @@
                 <MenuItem Header="About" />
             </MenuItem>
         </Menu>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1" Style="{StaticResource TileSelectorGridStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Content="Tiles" Style="{StaticResource TileSelectorLabelStyle}" />
+
+            <ListView Grid.Row="1" Style="{StaticResource TileSelectorViewStyle}" ItemsSource="{Binding TileImages}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </Window>
