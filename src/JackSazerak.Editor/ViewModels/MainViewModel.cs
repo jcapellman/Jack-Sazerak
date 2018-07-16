@@ -20,19 +20,36 @@
 
 using JackSazerak.Editor.Common;
 
+using System.Collections.ObjectModel;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace JackSazerak.Editor.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        private ObservableCollection<BitmapImage> _tileImages;
+
+        public ObservableCollection<BitmapImage> TileImages
+        {
+            get => _tileImages;
+
+            set
+            {
+                _tileImages = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #region Exit Command
         private ICommand exitMenuCommand;
 
         public ICommand ExitMenuCommand => exitMenuCommand ?? (exitMenuCommand = new CommandHandler(ExitEditor));
-
+        
         public void ExitEditor()
         {
             App.Current.Shutdown();
         }
+        #endregion
     }
 }
