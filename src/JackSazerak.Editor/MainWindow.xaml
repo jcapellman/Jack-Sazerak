@@ -48,7 +48,7 @@
             <ListView Grid.Row="1" Style="{StaticResource TileSelectorViewStyle}" ItemsSource="{Binding TileImages}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Image Source="{Binding}" />
+                        <Image Source="{Binding}" Style="{StaticResource TileSelectorImageStyle}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
