@@ -5,6 +5,19 @@
         <Setter Property="Background" Value="#1e1e1e" />
     </Style>
 
+    <Style TargetType="Grid" x:Key="TileSelectorGridStyle">
+        <Setter Property="Background" Value="#3e3e3e" />
+        <Setter Property="Width" Value="200" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="TileSelectorLabelStyle">
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style TargetType="ListView" x:Key="TileSelectorViewStyle">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    
     <Style TargetType="Menu">
         <Setter Property="Background" Value="#2e2e2e" />
         <Setter Property="IsMainMenu" Value="True" />
