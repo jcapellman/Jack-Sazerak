@@ -26,11 +26,15 @@ namespace JackSazerak.Editor
 {
     public partial class MainWindow : Window
     {
+        private MainViewModel viewModel => (MainViewModel)DataContext;
+
         public MainWindow()
         {
             InitializeComponent();
 
             DataContext = new MainViewModel();
+
+            viewModel.LoadImages();
         }
     }
 }
