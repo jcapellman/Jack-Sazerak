@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:JackSazerak.Editor"
         xmlns:viewmodels="clr-namespace:JackSazerak.Editor.ViewModels"
         mc:Ignorable="d"
-        Style="{StaticResource MainWindow}"
-        Title="Jack Sazerak Editor" Height="720" Width="1280">
+        Style="{StaticResource MainWindow}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
