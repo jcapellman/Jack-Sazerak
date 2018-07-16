@@ -18,11 +18,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using JackSazerak.Editor.Common;
-
+using System;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+
+using JackSazerak.Editor.Common;
 
 namespace JackSazerak.Editor.ViewModels
 {
@@ -38,6 +40,20 @@ namespace JackSazerak.Editor.ViewModels
             {
                 _tileImages = value;
                 OnPropertyChanged();
+            }
+        }
+
+        public void LoadImages()
+        {
+            TileImages = new ObservableCollection<BitmapImage>();
+
+            var imageFiles = Directory.GetFiles(@"Assets\Resources\Tile");
+
+            foreach (var imageFile in imageFiles)
+            {
+                var image = new BitmapImage(new Uri(Path.Combine(AppContext.BaseDirectory, imageFile), UriKind.Absolute));
+
+                TileImages.Add(image);
             }
         }
 
