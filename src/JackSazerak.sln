@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27906.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JackSazerak.UWP", "JackSazerak.UWP\JackSazerak.UWP.csproj", "{6207EBFB-0099-465E-BB5B-35D9B5669295}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JackSazerak.lib", "JackSazerak.lib\JackSazerak.lib.csproj", "{A74E5178-494A-4B79-86EB-AB16CA15C5DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JackSazerak.lib", "JackSazerak.lib\JackSazerak.lib.csproj", "{A74E5178-494A-4B79-86EB-AB16CA15C5DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JackSazerak.Editor", "JackSazerak.Editor\JackSazerak.Editor.csproj", "{9DFCE27B-9493-4685-9A7F-C4731D89B36D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,22 @@ Global
 		{A74E5178-494A-4B79-86EB-AB16CA15C5DB}.Release|x64.Build.0 = Release|Any CPU
 		{A74E5178-494A-4B79-86EB-AB16CA15C5DB}.Release|x86.ActiveCfg = Release|Any CPU
 		{A74E5178-494A-4B79-86EB-AB16CA15C5DB}.Release|x86.Build.0 = Release|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Debug|ARM.Build.0 = Debug|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Debug|x64.Build.0 = Debug|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Debug|x86.Build.0 = Debug|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Release|ARM.ActiveCfg = Release|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Release|ARM.Build.0 = Release|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Release|x64.ActiveCfg = Release|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Release|x64.Build.0 = Release|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Release|x86.ActiveCfg = Release|Any CPU
+		{9DFCE27B-9493-4685-9A7F-C4731D89B36D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
