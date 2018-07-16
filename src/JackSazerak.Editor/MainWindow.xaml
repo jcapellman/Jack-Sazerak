@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JackSazerak.Editor"
+        xmlns:viewmodels="clr-namespace:JackSazerak.Editor.ViewModels"
         mc:Ignorable="d"
         Style="{StaticResource MainWindow}"
         Title="Jack Sazerak Editor" Height="720" Width="1280">
@@ -12,14 +13,14 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row="0" Style="{StaticResource MainMenu}">
+        <Menu Grid.Row="0">
             <MenuItem Header="_File">
                 <MenuItem Header="New Level" />
                 <MenuItem Header="Load Level" />
                 <Separator />
                 <MenuItem Header="Save Level" />
                 <Separator />
-                <MenuItem Header="Exit" />
+                <MenuItem Header="Exit" Command="{Binding ExitMenuCommand}" />
             </MenuItem>
 
             <MenuItem Header="_Help">
