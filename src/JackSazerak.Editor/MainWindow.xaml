@@ -43,15 +43,38 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Content="Tiles" Style="{StaticResource TileSelectorLabelStyle}" />
+            <Grid Grid.Row="0" Margin="5,10,5,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <ListView Grid.Row="1" Style="{StaticResource TileSelectorViewStyle}" ItemsSource="{Binding TileImages}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Image Source="{Binding}" Style="{StaticResource TileSelectorImageStyle}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                <Label Grid.Row="0" Style="{StaticResource TileSelectorLabelStyle}" Content="Selected Layer" />
+
+                <ComboBox Grid.Row="1" SelectedItem="{Binding SelectedLayer}">
+                    <ComboBox.Items>
+                        <ComboBoxItem Content="Background" />
+                        <ComboBoxItem Content="Foreground" />
+                    </ComboBox.Items>
+                </ComboBox>
+            </Grid>
+            
+            <Grid Grid.Row="1" Margin="5,10,5,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <Label Grid.Row="0" Content="Tiles" Style="{StaticResource TileSelectorLabelStyle}" />
+
+                <ListView Grid.Row="1" Style="{StaticResource TileSelectorViewStyle}" ItemsSource="{Binding TileImages}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding}" Style="{StaticResource TileSelectorImageStyle}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

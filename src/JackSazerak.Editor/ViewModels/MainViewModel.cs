@@ -44,6 +44,19 @@ namespace JackSazerak.Editor.ViewModels
             }
         }
 
+        private string _selectedLayer;
+
+        public string SelectedLayer
+        {
+            get => _selectedLayer;
+
+            set
+            {
+                _selectedLayer = value;
+                OnPropertyChanged();
+            }
+        }
+
         private ObservableCollection<BitmapImage> _tileImages;
 
         public ObservableCollection<BitmapImage> TileImages
@@ -59,6 +72,8 @@ namespace JackSazerak.Editor.ViewModels
 
         public void LoadImages()
         {
+            SelectedLayer = "Background";
+
             TileImages = new ObservableCollection<BitmapImage>();
 
             var imageFiles = Directory.GetFiles(Constants.PATH_ASSET_TILES);
