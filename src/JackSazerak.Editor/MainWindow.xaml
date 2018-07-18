@@ -51,12 +51,7 @@
 
                 <Label Grid.Row="0" Style="{StaticResource TileSelectorLabelStyle}" Content="Selected Layer" />
 
-                <ComboBox Grid.Row="1" SelectedItem="{Binding SelectedLayer}">
-                    <ComboBox.Items>
-                        <ComboBoxItem Content="Background" />
-                        <ComboBoxItem Content="Foreground" />
-                    </ComboBox.Items>
-                </ComboBox>
+                <ComboBox Grid.Row="1" SelectedItem="{Binding SelectedLayer, Mode=TwoWay}" ItemsSource="{Binding MapLayers}" />
             </Grid>
             
             <Grid Grid.Row="1" Margin="5,10,5,10">
