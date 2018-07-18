@@ -19,13 +19,16 @@
 // THE SOFTWARE.
 
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
 using JackSazerak.Editor.Common;
 using JackSazerak.lib.Common;
+using JackSazerak.lib.Enums;
 
 namespace JackSazerak.Editor.ViewModels
 {
@@ -57,6 +60,18 @@ namespace JackSazerak.Editor.ViewModels
             }
         }
 
+        private List<string> _mapLayers;
+
+        public List<string> MapLayers
+        {
+            get => _mapLayers;
+
+            set {
+                _mapLayers = value;
+                OnPropertyChanged();
+            }
+        }
+
         private ObservableCollection<BitmapImage> _tileImages;
 
         public ObservableCollection<BitmapImage> TileImages
@@ -72,7 +87,9 @@ namespace JackSazerak.Editor.ViewModels
 
         public void LoadImages()
         {
-            SelectedLayer = "Background";
+            MapLayers = Enum.GetNames(typeof(MapLayers)).OrderBy(a => a).ToList();
+
+            SelectedLayer = MapLayers.FirstOrDefault();
 
             TileImages = new ObservableCollection<BitmapImage>();
 
