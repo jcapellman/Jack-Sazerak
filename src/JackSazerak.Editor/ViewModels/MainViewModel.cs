@@ -103,6 +103,39 @@ namespace JackSazerak.Editor.ViewModels
             }
         }
 
+        #region New Level Command
+        private ICommand newLevelMenuCommand;
+
+        public ICommand NewLevelMenuCommand => newLevelMenuCommand ?? (newLevelMenuCommand = new CommandHandler(NewLevel));
+
+        public void NewLevel()
+        {
+            // TODO: Reset Map and prompt user to save
+        }
+        #endregion
+
+        #region Load Level Command
+        private ICommand loadLevelMenuCommand;
+
+        public ICommand LoadLevelMenuCommand => loadLevelMenuCommand ?? (loadLevelMenuCommand = new CommandHandler(LoadLevel));
+
+        public void LoadLevel()
+        {
+            // TODO: Prompt User to select level and Load Map
+        }
+        #endregion
+
+        #region Save Level Command
+        private ICommand saveLevelMenuCommand;
+
+        public ICommand SaveLevelMenuCommand => saveLevelMenuCommand ?? (saveLevelMenuCommand = new CommandHandler(SaveLevel));
+
+        public void SaveLevel()
+        {
+            // TODO: Prompt User to save if no file has been set and save level
+        }
+        #endregion
+
         #region Exit Command
         private ICommand exitMenuCommand;
 
