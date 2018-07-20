@@ -20,10 +20,10 @@
 
         <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <MenuItem Header="_File">
-                <MenuItem Header="New Level" />
-                <MenuItem Header="Load Level" />
+                <MenuItem Header="New Level" Command="{Binding NewLevelMenuCommand}" />
+                <MenuItem Header="Load Level" Command="{Binding LoadLevelMenuCommand}" />
                 <Separator />
-                <MenuItem Header="Save Level" />
+                <MenuItem Header="Save Level" Command="{Binding SaveLEvelMenuCommand}" />
                 <Separator />
                 <MenuItem Header="Exit" Command="{Binding ExitMenuCommand}" />
             </MenuItem>
