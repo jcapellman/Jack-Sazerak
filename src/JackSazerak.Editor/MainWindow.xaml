@@ -33,9 +33,21 @@
             </MenuItem>
         </Menu>
 
-        <UniformGrid Grid.Row="1" Grid.Column="0" Columns="3" Rows="100" x:Name="ugLevel" MouseLeftButtonDown="UniformGrid_MouseLeftButtonDown">
-                
-        </UniformGrid>
+        <ListView Grid.Row="1" Grid.Column="0" ItemsSource="{Binding MapTiles, Mode=TwoWay}" MouseDown="lvMap_OnMouseDown">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn />
+                    <GridViewColumn />
+                    <GridViewColumn />
+                </GridView>
+            </ListView.View>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding Texture}" Style="{StaticResource TileSelectorImageStyle}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <Grid Grid.Row="1" Grid.Column="1" Style="{StaticResource TileSelectorGridStyle}">
             <Grid.RowDefinitions>

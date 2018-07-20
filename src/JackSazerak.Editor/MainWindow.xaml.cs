@@ -20,7 +20,7 @@
 
 using System.Windows;
 using System.Windows.Controls;
-
+using System.Windows.Input;
 using JackSazerak.Editor.ViewModels;
 
 namespace JackSazerak.Editor
@@ -38,14 +38,9 @@ namespace JackSazerak.Editor
             viewModel.LoadImages();
         }
 
-        private void UniformGrid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void lvMap_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            var image = new Image
-            {
-                Source = viewModel.SelectedTileImage
-            };
-
-            ugLevel.Children.Add(image);
+            
         }
     }
 }

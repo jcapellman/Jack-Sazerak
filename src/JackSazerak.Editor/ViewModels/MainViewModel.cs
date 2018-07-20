@@ -27,6 +27,7 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
 using JackSazerak.Editor.Common;
+using JackSazerak.Editor.Objects;
 using JackSazerak.lib.Common;
 using JackSazerak.lib.Enums;
 
@@ -85,6 +86,19 @@ namespace JackSazerak.Editor.ViewModels
             }
         }
 
+        private ObservableCollection<Tile> _tiles;
+
+        public ObservableCollection<Tile> Tiles
+        {
+            get => _tiles;
+
+            set
+            {
+                _tiles = value;
+                OnPropertyChanged();
+            }
+        }
+
         public void LoadImages()
         {
             MapLayers = Enum.GetNames(typeof(MapLayers)).OrderBy(a => a).ToList();
@@ -100,6 +114,24 @@ namespace JackSazerak.Editor.ViewModels
                 var image = new BitmapImage(new Uri(Path.Combine(AppContext.BaseDirectory, imageFile), UriKind.Absolute));
 
                 TileImages.Add(image);
+            }
+
+            Tiles = new ObservableCollection<Tile>();
+
+            // TODO: Prompt User for dimension of map
+            for (var x = 0; x < 100; x++)
+            {
+                for (var y = 0; y < 3; y++)
+                {
+                    Tiles.Add(new Tile
+                    {
+                        Texture = TileImages.FirstOrDefault(),
+                        IsSet = false,
+                        TextureName = "Test",
+                        XPosition = x,
+                        YPosition = y
+                    });
+                }
             }
         }
 
