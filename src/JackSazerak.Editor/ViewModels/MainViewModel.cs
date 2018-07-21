@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
@@ -30,6 +31,11 @@ using JackSazerak.Editor.Common;
 using JackSazerak.Editor.Objects;
 using JackSazerak.lib.Common;
 using JackSazerak.lib.Enums;
+using JackSazerak.lib.JSONObjects;
+
+using Microsoft.Win32;
+
+using Newtonsoft.Json;
 
 namespace JackSazerak.Editor.ViewModels
 {
@@ -99,6 +105,20 @@ namespace JackSazerak.Editor.ViewModels
             }
         }
 
+        private LevelJSONObject _levelObject;
+
+        public LevelJSONObject LevelObject
+        {
+            get => _levelObject;
+
+            set
+            {
+                _levelObject = value;
+
+                OnPropertyChanged();
+            }
+        }
+
         public void LoadImages()
         {
             MapLayers = Enum.GetNames(typeof(MapLayers)).OrderBy(a => a).ToList();
@@ -164,7 +184,34 @@ namespace JackSazerak.Editor.ViewModels
 
         public void SaveLevel()
         {
-            // TODO: Prompt User to save if no file has been set and save level
+            var fileName = string.Empty;
+
+            if (LevelObject == null)
+            {
+                SaveFileDialog sfDialog = new SaveFileDialog();
+
+                sfDialog.Filter = "Level|*.map";
+                sfDialog.Title = "Save Level";
+
+                sfDialog.ShowDialog();
+
+                if (!string.IsNullOrEmpty(sfDialog.FileName))
+                {
+                    fileName = sfDialog.FileName;
+                }
+            } else
+            {
+                fileName = LevelObject.FileName;
+            }
+
+            if (string.IsNullOrEmpty(fileName))
+            {
+                return;
+            }
+
+            File.WriteAllText(fileName, JsonConvert.SerializeObject(LevelObject));
+
+            MessageBox.Show("Saved Level");
         }
         #endregion
 
