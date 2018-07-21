@@ -23,7 +23,7 @@
                 <MenuItem Header="New Level" Command="{Binding NewLevelMenuCommand}" />
                 <MenuItem Header="Load Level" Command="{Binding LoadLevelMenuCommand}" />
                 <Separator />
-                <MenuItem Header="Save Level" Command="{Binding SaveLEvelMenuCommand}" />
+                <MenuItem Header="Save Level" Command="{Binding SaveLevelMenuCommand}" />
                 <Separator />
                 <MenuItem Header="Exit" Command="{Binding ExitMenuCommand}" />
             </MenuItem>
