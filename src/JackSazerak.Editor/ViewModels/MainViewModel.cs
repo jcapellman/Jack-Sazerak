@@ -28,6 +28,7 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
 using JackSazerak.Editor.Common;
+using JackSazerak.Editor.Extensions;
 using JackSazerak.Editor.Objects;
 using JackSazerak.lib.Common;
 using JackSazerak.lib.Enums;
@@ -182,7 +183,7 @@ namespace JackSazerak.Editor.ViewModels
 
         public ICommand SaveLevelMenuCommand => saveLevelMenuCommand ?? (saveLevelMenuCommand = new CommandHandler(SaveLevel));
 
-        public void SaveLevel()
+        private void SaveLevel()
         {
             if (LevelObject == null)
             {
@@ -198,7 +199,7 @@ namespace JackSazerak.Editor.ViewModels
                 {
                     LevelObject = new LevelJSONObject
                     {
-                        Tiles = Tiles.Select(a => a.TextureName).ToList(),
+                        Tiles = Tiles.Select(a => a.TileJsonObject()).ToList(),
                         FileName = sfDialog.FileName,
                         Name = sfDialog.FileName
                     };

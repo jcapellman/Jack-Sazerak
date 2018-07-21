@@ -13,6 +13,6 @@ namespace JackSazerak.lib.JSONObjects
         public string Name { get; set; }
 
         [DataMember]
-        public List<string> Tiles { get; set; }
+        public List<TileJSONObject> Tiles { get; set; }
     }
 }
