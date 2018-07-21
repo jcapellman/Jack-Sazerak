@@ -184,34 +184,35 @@ namespace JackSazerak.Editor.ViewModels
 
         public void SaveLevel()
         {
-            var fileName = string.Empty;
-
             if (LevelObject == null)
             {
-                SaveFileDialog sfDialog = new SaveFileDialog();
-
-                sfDialog.Filter = "Level|*.map";
-                sfDialog.Title = "Save Level";
+                var sfDialog = new SaveFileDialog
+                {
+                    Filter = "Level|*.map",
+                    Title = "Save Level"
+                };
 
                 sfDialog.ShowDialog();
 
                 if (!string.IsNullOrEmpty(sfDialog.FileName))
                 {
-                    fileName = sfDialog.FileName;
+                    LevelObject = new LevelJSONObject
+                    {
+                        Tiles = Tiles.Select(a => a.TextureName).ToList(),
+                        FileName = sfDialog.FileName,
+                        Name = sfDialog.FileName
+                    };
                 }
-            } else
-            {
-                fileName = LevelObject.FileName;
             }
 
-            if (string.IsNullOrEmpty(fileName))
+            if (string.IsNullOrEmpty(LevelObject?.FileName))
             {
                 return;
             }
 
-            File.WriteAllText(fileName, JsonConvert.SerializeObject(LevelObject));
+            File.WriteAllText(LevelObject.FileName, JsonConvert.SerializeObject(LevelObject));
 
-            MessageBox.Show("Saved Level");
+            MessageBox.Show($"Saved Level to {LevelObject.FileName}");
         }
         #endregion
 
