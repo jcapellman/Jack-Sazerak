@@ -139,6 +139,20 @@ namespace JackSazerak.Editor.ViewModels
 
             Tiles = new ObservableCollection<Tile>();
 
+            NewLevel();
+        }
+
+        #region New Level Command
+        private ICommand newLevelMenuCommand;
+
+        public ICommand NewLevelMenuCommand => newLevelMenuCommand ?? (newLevelMenuCommand = new CommandHandler(NewLevel));
+
+        private void NewLevel()
+        {
+            Tiles.Clear();
+
+            LevelObject = null;
+
             // TODO: Prompt User for dimension of map
             for (var x = 0; x < 100; x++)
             {
@@ -154,16 +168,6 @@ namespace JackSazerak.Editor.ViewModels
                     });
                 }
             }
-        }
-
-        #region New Level Command
-        private ICommand newLevelMenuCommand;
-
-        public ICommand NewLevelMenuCommand => newLevelMenuCommand ?? (newLevelMenuCommand = new CommandHandler(NewLevel));
-
-        public void NewLevel()
-        {
-            // TODO: Reset Map and prompt user to save
         }
         #endregion
 
