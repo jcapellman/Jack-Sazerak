@@ -178,8 +178,32 @@ namespace JackSazerak.Editor.ViewModels
 
         public void LoadLevel()
         {
-            // TODO: Prompt User to select level and Load Map
+            var ofDialog = new OpenFileDialog
+            {
+                Filter = "Level|*.map",
+                Title = "Open Level"
+            };
+
+            ofDialog.ShowDialog();
+
+            if (string.IsNullOrEmpty(ofDialog.FileName))
+            {
+                return;
+            }
+
+            try
+            {
+                var jsonObject = JsonConvert.DeserializeObject<LevelJSONObject>(File.ReadAllText(ofDialog.FileName));
+
+                LevelObject = jsonObject;
+            }
+            catch (Exception)
+            {
+                // TODO: Log Exception
+                MessageBox.Show($"Could not load {ofDialog.FileName}, it may be corrupt");
+            }
         }
+
         #endregion
 
         #region Save Level Command
