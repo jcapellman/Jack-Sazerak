@@ -33,22 +33,8 @@
             </MenuItem>
         </Menu>
 
-        <ListView Grid.Row="1" Grid.Column="0" ItemsSource="{Binding MapTiles, Mode=TwoWay}" MouseDown="lvMap_OnMouseDown">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn />
-                    <GridViewColumn />
-                    <GridViewColumn />
-                </GridView>
-            </ListView.View>
-
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Image Source="{Binding Texture}" Style="{StaticResource TileSelectorImageStyle}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
+        <Canvas Grid.Row="1" Grid.Column="0"  MouseDown="UIElement_OnMouseDown"></Canvas>
+       
         <Grid Grid.Row="1" Grid.Column="1" Style="{StaticResource TileSelectorGridStyle}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
