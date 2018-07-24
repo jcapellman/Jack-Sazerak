@@ -37,10 +37,20 @@ namespace JackSazerak.Editor
 
             viewModel.LoadImages();
         }
-
-        private void lvMap_OnMouseDown(object sender, MouseButtonEventArgs e)
+        
+        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            
+            var selectedTile = viewModel.SelectedTileImage;
+
+            var image = new Image
+            {
+                Source = selectedTile
+            };
+
+            ((Canvas)sender).Children.Add(image);
+
+            Canvas.SetTop(image, e.GetPosition(((Canvas)sender)).Y);
+            Canvas.SetLeft(image, e.GetPosition(((Canvas)sender)).X);
         }
     }
 }

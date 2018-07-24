@@ -2,7 +2,8 @@
 {
     public enum MapLayers
     {
-        FOREGROUND,
-        BACKGROUND
+        SKY = 100,
+        FOREGROUND = 50,
+        BACKGROUND = 0
     }
 }
