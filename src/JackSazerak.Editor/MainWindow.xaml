@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JackSazerak.Editor"
+        xmlns:xamlExtensions="clr-namespace:JackSazerak.Editor.XAMLExtensions"
         xmlns:viewmodels="clr-namespace:JackSazerak.Editor.ViewModels"
         mc:Ignorable="d"
         Style="{StaticResource MainWindow}">
@@ -20,8 +21,8 @@
 
         <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <MenuItem Header="_File">
-                <MenuItem Header="New Level" Command="{Binding NewLevelMenuCommand}" />
-                <MenuItem Header="Load Level" Command="{Binding LoadLevelMenuCommand}" />
+                <MenuItem Header="{xamlExtensions:Loc File_NewLevel}" Command="{Binding NewLevelMenuCommand}" />
+                <MenuItem Header="{xamlExtensions:Loc File_LoadLevel}" Command="{Binding LoadLevelMenuCommand}" />
                 <Separator />
                 <MenuItem Header="Save Level" Command="{Binding SaveLevelMenuCommand}" />
                 <Separator />
