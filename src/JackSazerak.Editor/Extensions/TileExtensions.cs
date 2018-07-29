@@ -18,7 +18,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+using System;
+
 using JackSazerak.Editor.Objects;
+using JackSazerak.lib.Enums;
 using JackSazerak.lib.JSONObjects;
 
 namespace JackSazerak.Editor.Extensions
@@ -28,9 +31,9 @@ namespace JackSazerak.Editor.Extensions
         public static TileJSONObject TileJsonObject(this Tile tile) => new TileJSONObject
         {
             TextureName = tile.TextureName,
-            YPosition = tile.YPosition,
-            XPosition = tile.XPosition,
             Layer = tile.Layer
         };
+
+        public static MapLayers ToMapLayer(this string mapLayer) => (MapLayers)Enum.Parse(typeof(MapLayers), mapLayer, true);
     }
 }

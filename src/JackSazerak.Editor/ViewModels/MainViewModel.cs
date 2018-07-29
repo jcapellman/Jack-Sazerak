@@ -152,22 +152,6 @@ namespace JackSazerak.Editor.ViewModels
             Tiles.Clear();
 
             LevelObject = null;
-
-            // TODO: Prompt User for dimension of map
-            for (var x = 0; x < 100; x++)
-            {
-                for (var y = 0; y < 3; y++)
-                {
-                    Tiles.Add(new Tile
-                    {
-                        Texture = TileImages.FirstOrDefault(),
-                        IsSet = false,
-                        TextureName = "Test",
-                        XPosition = x,
-                        YPosition = y
-                    });
-                }
-            }
         }
         #endregion
 
@@ -253,6 +237,25 @@ namespace JackSazerak.Editor.ViewModels
         public void ExitEditor()
         {
             App.Current.Shutdown();
+        }
+        #endregion
+
+        #region New Tile Command
+        private ICommand newTileCommand;
+
+        public ICommand NewTileCommand => newTileCommand ?? (newTileCommand = new CommandHandler(NewTile));
+
+        private void NewTile()
+        {
+            var tile = new Tile()
+            {
+                Chance = 0.0,
+                Layer = SelectedLayer.ToMapLayer(),
+                Texture = SelectedTileImage,
+                TextureName = "test"
+            };
+
+            Tiles.Add(tile);
         }
         #endregion
     }
