@@ -18,6 +18,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+
 namespace JackSazerak.Web
 {
     public class Program
