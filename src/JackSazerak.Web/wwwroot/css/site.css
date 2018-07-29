@@ -1,37 +1,61 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
-for details on configuring this project to bundle and minify static web assets. */
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿body, html {
+    height: 100%;
+    margin: 0;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    color: #777;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+.bgimg-1 {
+    background-image: url("../images/top.jpg");
+    min-height: 100%;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+.bgimg-2 {
+    background-image: url("../images/middle.png");
+    min-height: 400px;
+}
+
+.bgimg-3 {
+    background-image: url("../images/bottom.png");
+    min-height: 400px;
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
     width: 100%;
+    text-align: center;
+    color: #000;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+.caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
+h3 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font: 20px "Lato", sans-serif;
+    color: #111;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
     }
-}
+}
