@@ -50,16 +50,23 @@
                 <Button Grid.Column="1" Content="Add New Tile" Command="{Binding NewTileCommand}" />
             </Grid>
             
-            <ListView Grid.Row="1" ItemsSource="{Binding Tiles}">
+            <ListView Grid.Row="1" ItemsSource="{Binding Tiles, Mode=TwoWay}" Style="{StaticResource TileRowListViewStyle}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
+                        <Grid Style="{StaticResource TileRowContainer}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <Image Source="{Binding Texture}" />
+                            <Image Grid.Column="0" Source="{Binding Texture}" Style="{StaticResource TilePreviewInRow}" />
+                            <ComboBox Grid.Column="1" ItemsSource="{Binding MapLayers, Mode=TwoWay}" SelectedValue="{Binding Layer}" />
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
