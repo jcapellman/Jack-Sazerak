@@ -7,8 +7,8 @@
     <ProjectGuid>{58F7941B-9FB0-4EE5-9AF1-C07EAEAB8744}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JackSazerak.Edtior.UWP</RootNamespace>
-    <AssemblyName>JackSazerak.Edtior.UWP</AssemblyName>
+    <RootNamespace>JackSazerak.Editor.UWP</RootNamespace>
+    <AssemblyName>JackSazerak.Editor.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>

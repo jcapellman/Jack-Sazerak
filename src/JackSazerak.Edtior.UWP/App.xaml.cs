@@ -27,7 +27,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace JackSazerak.Edtior.UWP
+namespace JackSazerak.Editor.UWP
 {
     sealed partial class App : Application
     {

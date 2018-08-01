@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="JackSazerak.Edtior.UWP.MainPage"
+    x:Class="JackSazerak.Editor.UWP.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:JackSazerak.Edtior.UWP"
+    xmlns:local="using:JackSazerak.Editor.UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"

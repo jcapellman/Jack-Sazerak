@@ -23,7 +23,7 @@ using JackSazerak.Editor.UWP.ViewModels;
 
 using Windows.UI.Xaml.Controls;
 
-namespace JackSazerak.Edtior.UWP
+namespace JackSazerak.Editor.UWP
 {
     public sealed partial class MainPage : Page
     {
@@ -33,9 +33,9 @@ namespace JackSazerak.Edtior.UWP
         {
             InitializeComponent();
 
-            DataContext = new MainViewModel();
+      //      DataContext = new MainViewModel();
 
-            viewModel.LoadImages();
+     //       viewModel.LoadImages();
         }
     }
 }

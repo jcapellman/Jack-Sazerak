@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="JackSazerak.Edtior.UWP.App"
+    x:Class="JackSazerak.Editor.UWP.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:JackSazerak.Edtior.UWP">
+    xmlns:local="using:JackSazerak.Editor.UWP">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

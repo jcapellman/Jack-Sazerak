@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JackSazerak.lib", "JackSaze
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JackSazerak.Web", "JackSazerak.Web\JackSazerak.Web.csproj", "{ABDED655-471F-4938-82A3-18812EE661A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JackSazerak.Edtior.UWP", "JackSazerak.Edtior.UWP\JackSazerak.Edtior.UWP.csproj", "{58F7941B-9FB0-4EE5-9AF1-C07EAEAB8744}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JackSazerak.Editor.UWP", "JackSazerak.Edtior.UWP\JackSazerak.Editor.UWP.csproj", "{58F7941B-9FB0-4EE5-9AF1-C07EAEAB8744}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,7 +60,6 @@ Global
 		{A74E5178-494A-4B79-86EB-AB16CA15C5DB}.Release|x86.ActiveCfg = Release|Any CPU
 		{A74E5178-494A-4B79-86EB-AB16CA15C5DB}.Release|x86.Build.0 = Release|Any CPU
 		{ABDED655-471F-4938-82A3-18812EE661A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABDED655-471F-4938-82A3-18812EE661A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABDED655-471F-4938-82A3-18812EE661A1}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{ABDED655-471F-4938-82A3-18812EE661A1}.Debug|ARM.Build.0 = Debug|Any CPU
 		{ABDED655-471F-4938-82A3-18812EE661A1}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -76,6 +75,8 @@ Global
 		{ABDED655-471F-4938-82A3-18812EE661A1}.Release|x86.ActiveCfg = Release|Any CPU
 		{ABDED655-471F-4938-82A3-18812EE661A1}.Release|x86.Build.0 = Release|Any CPU
 		{58F7941B-9FB0-4EE5-9AF1-C07EAEAB8744}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{58F7941B-9FB0-4EE5-9AF1-C07EAEAB8744}.Debug|Any CPU.Build.0 = Debug|x86
+		{58F7941B-9FB0-4EE5-9AF1-C07EAEAB8744}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{58F7941B-9FB0-4EE5-9AF1-C07EAEAB8744}.Debug|ARM.ActiveCfg = Debug|ARM
 		{58F7941B-9FB0-4EE5-9AF1-C07EAEAB8744}.Debug|ARM.Build.0 = Debug|ARM
 		{58F7941B-9FB0-4EE5-9AF1-C07EAEAB8744}.Debug|ARM.Deploy.0 = Debug|ARM
