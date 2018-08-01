@@ -27,6 +27,9 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
+using JackSazerak.lib.IoC;
+using JackSazerak.Editor.UWP.PlatformImplementations;
+
 namespace JackSazerak.Editor.UWP
 {
     sealed partial class App : Application
@@ -34,6 +37,8 @@ namespace JackSazerak.Editor.UWP
         public App()
         {
             InitializeComponent();
+
+            IOCEditorContainer.Initialize(new EditorSettings());
 
             Suspending += OnSuspending;
         }
