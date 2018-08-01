@@ -25,5 +25,7 @@ namespace JackSazerak.lib.PlatformInterfaces
     public interface IEditorSettings
     {
         T GetValue<T>(EditorSettingsOptions editorSettings);
+
+        bool SetValue<T>(EditorSettingsOptions editorSettings, T value);
     }
 }
