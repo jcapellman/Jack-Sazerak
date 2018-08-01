@@ -38,5 +38,14 @@ namespace JackSazerak.Editor.UWP.PlatformImplementations
 
             return (T)Convert.ChangeType(localSettings.Values[editorSettings.ToString()], typeof(T));
         }
+
+        public bool SetValue<T>(EditorSettingsOptions editorSettings, T value)
+        {
+            localSettings.Values[editorSettings.ToString()] = value;
+
+            // TODO Error Handling
+
+            return true;
+        }
     }
 }
