@@ -21,7 +21,7 @@
 using System;
 using System.Windows.Input;
 
-namespace JackSazerak.Editor.UWP.Common
+namespace JackSazerak.Editor.lib.Common
 {
     public class CommandHandler : ICommand
     {
