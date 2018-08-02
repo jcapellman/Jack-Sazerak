@@ -30,9 +30,12 @@ namespace JackSazerak.Editor.lib.IoC
 
         public static IEditorSettings EditorSettings => Kernel.Get<IEditorSettings>();
 
-        public static void Initialize(IEditorSettings editorSettings)
+        public static IFileSystem FileSystem => Kernel.Get<IFileSystem>();
+
+        public static void Initialize(IEditorSettings editorSettings, IFileSystem fileSystem)
         {
             Kernel.Bind<IEditorSettings>().To(editorSettings.GetType()).InSingletonScope();
+            Kernel.Bind<IFileSystem>().To(fileSystem.GetType()).InSingletonScope();
         }
     }
 }
