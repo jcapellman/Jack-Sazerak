@@ -20,14 +20,10 @@
 
 using JackSazerak.lib.Enums;
 
-using Windows.UI.Xaml.Media.Imaging;
-
-namespace JackSazerak.Editor.Objects
+namespace JackSazerak.Editor.lib.Objects
 {
     public class Tile
     {
-        public BitmapImage Texture { get; set; }
-
         public double Chance { get; set; }
 
         public string TextureName { get; set; }

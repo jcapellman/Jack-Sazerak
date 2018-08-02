@@ -27,7 +27,7 @@ namespace JackSazerak.Editor.lib.IoC
     public static class IOCEditorContainer
     {
         private static IKernel Kernel { get; set; } = new StandardKernel();
-
+        
         public static IEditorSettings EditorSettings => Kernel.Get<IEditorSettings>();
 
         public static IFileSystem FileSystem => Kernel.Get<IFileSystem>();

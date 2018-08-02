@@ -19,9 +19,7 @@
 // THE SOFTWARE.
 
 using System;
-
-using JackSazerak.Editor.Objects;
-
+using JackSazerak.Editor.lib.Objects;
 using JackSazerak.lib.Enums;
 using JackSazerak.lib.JSONObjects;
 
