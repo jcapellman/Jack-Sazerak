@@ -38,7 +38,7 @@ namespace JackSazerak.Editor.UWP
         {
             InitializeComponent();
 
-            IOCEditorContainer.Initialize(new EditorSettings(), new FileSystem());
+            IOCEditorContainer.Initialize(new EditorSettings(), new FileSystem(), new MessageBox());
 
             Suspending += OnSuspending;
         }

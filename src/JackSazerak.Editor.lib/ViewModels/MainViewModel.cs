@@ -28,8 +28,6 @@ using System.Windows.Input;
 using JackSazerak.Editor.lib.Extensions;
 using JackSazerak.Editor.lib.IoC;
 using JackSazerak.Editor.Objects;
-using JackSazerak.Editor.UWP.ViewModels;
-
 using JackSazerak.lib.Common;
 using JackSazerak.lib.Enums;
 using JackSazerak.lib.JSONObjects;

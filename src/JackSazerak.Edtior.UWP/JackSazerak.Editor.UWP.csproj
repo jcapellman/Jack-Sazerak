@@ -103,6 +103,7 @@
     </Compile>
     <Compile Include="PlatformImplementations\EditorSettings.cs" />
     <Compile Include="PlatformImplementations\FileSystem.cs" />
+    <Compile Include="PlatformImplementations\MessageBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
