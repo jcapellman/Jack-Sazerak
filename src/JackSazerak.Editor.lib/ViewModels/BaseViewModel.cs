@@ -18,21 +18,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-using Windows.UI.Popups;
+using JackSazerak.Editor.lib.IoC;
 
-namespace JackSazerak.Editor.UWP.ViewModels
+namespace JackSazerak.Editor.lib.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        protected async void ShowMessage(string message)
+        protected void ShowMessage(string message)
         {
-            var dialog = new MessageDialog(message);
-
-            await dialog.ShowAsync();
+            IOCEditorContainer.MessageBox.Show(message);
         }
 
         #region MVVM Boilerplate code
