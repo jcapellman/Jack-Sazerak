@@ -98,15 +98,11 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\CommandHandler.cs" />
-    <Compile Include="Extensions\TileExtensions.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Objects\Tile.cs" />
     <Compile Include="PlatformImplementations\EditorSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -148,6 +144,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JackSazerak.Editor.lib\JackSazerak.Editor.lib.csproj">
+      <Project>{f53b3ac4-7f77-4db3-ab97-e50fa23e0881}</Project>
+      <Name>JackSazerak.Editor.lib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JackSazerak.lib\JackSazerak.lib.csproj">
       <Project>{a74e5178-494a-4b79-86eb-ab16ca15c5db}</Project>
       <Name>JackSazerak.lib</Name>

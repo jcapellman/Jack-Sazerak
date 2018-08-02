@@ -27,7 +27,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-using JackSazerak.lib.IoC;
+using JackSazerak.Editor.lib.IoC;
 using JackSazerak.Editor.UWP.PlatformImplementations;
 
 namespace JackSazerak.Editor.UWP

@@ -20,8 +20,8 @@
 
 using System;
 
-using JackSazerak.lib.Enums;
-using JackSazerak.lib.PlatformInterfaces;
+using JackSazerak.Editor.lib.Enums;
+using JackSazerak.Editor.lib.PlatformInterfaces;
 
 namespace JackSazerak.Editor.UWP.PlatformImplementations
 {

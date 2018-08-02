@@ -19,9 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using JackSazerak.Editor.UWP.ViewModels;
-
 using Windows.UI.Xaml.Controls;
+
+using JackSazerak.Editor.lib.ViewModels;
 
 namespace JackSazerak.Editor.UWP
 {
@@ -32,10 +32,10 @@ namespace JackSazerak.Editor.UWP
         public MainPage()
         {
             InitializeComponent();
+            
+            DataContext = new MainViewModel();
 
-      //      DataContext = new MainViewModel();
-
-     //       viewModel.LoadImages();
+            viewModel.LoadImages();
         }
     }
 }
