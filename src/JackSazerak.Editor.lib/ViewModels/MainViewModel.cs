@@ -25,9 +25,11 @@ using System.IO;
 using System.Linq;
 using System.Windows.Input;
 
+using JackSazerak.Editor.lib.Common;
 using JackSazerak.Editor.lib.Extensions;
 using JackSazerak.Editor.lib.IoC;
-using JackSazerak.Editor.Objects;
+using JackSazerak.Editor.lib.Objects;
+
 using JackSazerak.lib.Common;
 using JackSazerak.lib.Enums;
 using JackSazerak.lib.JSONObjects;
@@ -38,9 +40,9 @@ namespace JackSazerak.Editor.lib.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        private BitmapImage _selectedTileImage;
+        private string _selectedTileImage;
 
-        public BitmapImage SelectedTileImage
+        public string SelectedTileImage
         {
             get => _selectedTileImage;
 
@@ -76,9 +78,9 @@ namespace JackSazerak.Editor.lib.ViewModels
             }
         }
 
-        private ObservableCollection<BitmapImage> _tileImages;
+        private ObservableCollection<string> _tileImages;
 
-        public ObservableCollection<BitmapImage> TileImages
+        public ObservableCollection<string> TileImages
         {
             get => _tileImages;
 
@@ -121,16 +123,14 @@ namespace JackSazerak.Editor.lib.ViewModels
             MapLayers = Enum.GetNames(typeof(MapLayers)).OrderBy(a => a).ToList();
 
             SelectedLayer = MapLayers.FirstOrDefault();
-
-            TileImages = new ObservableCollection<BitmapImage>();
+            
+            TileImages = new ObservableCollection<string>();
 
             var imageFiles = Directory.GetFiles(Constants.PATH_ASSET_TILES);
 
             foreach (var imageFile in imageFiles)
             {
-                var image = new BitmapImage(new Uri(Path.Combine(AppContext.BaseDirectory, imageFile), UriKind.Absolute));
-
-                TileImages.Add(image);
+                TileImages.Add(Path.Combine(AppContext.BaseDirectory, imageFile));
             }
 
             Tiles = new ObservableCollection<Tile>();
@@ -224,8 +224,7 @@ namespace JackSazerak.Editor.lib.ViewModels
             {
                 Chance = 0.0,
                 Layer = SelectedLayer.ToMapLayer(),
-                Texture = SelectedTileImage,
-                TextureName = "test"
+                TextureName = SelectedTileImage
             };
 
             Tiles.Add(tile);
