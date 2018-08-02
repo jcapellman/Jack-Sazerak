@@ -26,6 +26,7 @@ using System.Linq;
 using System.Windows.Input;
 
 using JackSazerak.Editor.lib.Extensions;
+using JackSazerak.Editor.lib.IoC;
 using JackSazerak.Editor.Objects;
 using JackSazerak.Editor.UWP.ViewModels;
 
@@ -159,31 +160,23 @@ namespace JackSazerak.Editor.lib.ViewModels
 
         public async void LoadLevel()
         {
-            var picker = new Windows.Storage.Pickers.FileOpenPicker
-            {
-                ViewMode = Windows.Storage.Pickers.PickerViewMode.List,
-                SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
-            };
+            var filePath = await IOCEditorContainer.FileSystem.OpenFilePickerAsync(".map");
 
-            picker.FileTypeFilter.Add(".map");
-            
-            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
-            
-            if (file == null)
+            if (string.IsNullOrEmpty(filePath))
             {
                 return;
             }
 
             try
             {
-                var jsonObject = JsonConvert.DeserializeObject<LevelJSONObject>(File.ReadAllText(file.Path));
+                var jsonObject = JsonConvert.DeserializeObject<LevelJSONObject>(File.ReadAllText(filePath));
 
                 LevelObject = jsonObject;
             }
             catch (Exception)
             {
                 // TODO: Log Exception
-                ShowMessage($"Could not load {file.Path}, it may be corrupt");
+                ShowMessage($"Could not load {filePath}, it may be corrupt");
             }
         }
 
@@ -198,25 +191,15 @@ namespace JackSazerak.Editor.lib.ViewModels
         {
             if (LevelObject == null)
             {
-                var savePicker = new Windows.Storage.Pickers.FileSavePicker
-                {
-                    SuggestedStartLocation =
-                    Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
-                };
+                var filePath = await IOCEditorContainer.FileSystem.SaveFilePickerAsync("Level", ".map");
 
-                savePicker.FileTypeChoices.Add("Level", new List<string>() { ".map" });
-
-                savePicker.SuggestedFileName = "Level";
-
-                Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
-
-                if (file != null)
+                if (filePath != null)
                 {
                     LevelObject = new LevelJSONObject
                     {
                         Tiles = Tiles.Select(a => a.TileJsonObject()).ToList(),
-                        FileName = file.Path,
-                        Name = file.Name
+                        FileName = filePath,
+                        Name = filePath
                     };
                 }
             }
