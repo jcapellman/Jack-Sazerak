@@ -19,23 +19,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using Windows.UI.Xaml.Controls;
-
 using JackSazerak.Editor.lib.ViewModels;
+
+using Xamarin.Forms.Platform.UWP;
 
 namespace JackSazerak.Editor.UWP
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : WindowsPage
     {
-        private MainViewModel viewModel => (MainViewModel)DataContext;
-
         public MainPage()
         {
             InitializeComponent();
-            
-            DataContext = new MainViewModel();
-
-            viewModel.LoadImages();
         }
     }
 }
