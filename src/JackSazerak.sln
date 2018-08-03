@@ -13,9 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JackSazerak.Editor.UWP", "J
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JackSazerak.Editor.lib", "JackSazerak.Editor.lib\JackSazerak.Editor.lib.csproj", "{F53B3AC4-7F77-4DB3-AB97-E50FA23E0881}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JackSazerak.Editor.Android", "JackSazerak.Editor\JackSazerak.Editor.Android\JackSazerak.Editor.Android.csproj", "{A0035C27-B208-4D28-B184-A372953DDA01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JackSazerak.Editor.Android", "JackSazerak.Editor.Android\JackSazerak.Editor.Android.csproj", "{A0035C27-B208-4D28-B184-A372953DDA01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JackSazerak.Editor.iOS", "JackSazerak.Editor\JackSazerak.Editor.iOS\JackSazerak.Editor.iOS.csproj", "{1A0E717A-4439-4E2F-822C-203CAA14E047}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JackSazerak.Editor.iOS", "JackSazerak.Editor.iOS\JackSazerak.Editor.iOS.csproj", "{1A0E717A-4439-4E2F-822C-203CAA14E047}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
