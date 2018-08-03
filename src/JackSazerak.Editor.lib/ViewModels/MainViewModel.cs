@@ -27,14 +27,15 @@ using System.Windows.Input;
 
 using JackSazerak.Editor.lib.Common;
 using JackSazerak.Editor.lib.Extensions;
-using JackSazerak.Editor.lib.IoC;
 using JackSazerak.Editor.lib.Objects;
+using JackSazerak.Editor.lib.PlatformInterfaces;
 
 using JackSazerak.lib.Common;
 using JackSazerak.lib.Enums;
 using JackSazerak.lib.JSONObjects;
 
 using Newtonsoft.Json;
+using Xamarin.Forms;
 
 namespace JackSazerak.Editor.lib.ViewModels
 {
@@ -158,7 +159,7 @@ namespace JackSazerak.Editor.lib.ViewModels
 
         public async void LoadLevel()
         {
-            var filePath = await IOCEditorContainer.FileSystem.OpenFilePickerAsync(".map");
+            var filePath = await DependencyService.Get<IFileSystem>().OpenFilePickerAsync(".map");
 
             if (string.IsNullOrEmpty(filePath))
             {
@@ -189,7 +190,7 @@ namespace JackSazerak.Editor.lib.ViewModels
         {
             if (LevelObject == null)
             {
-                var filePath = await IOCEditorContainer.FileSystem.SaveFilePickerAsync("Level", ".map");
+                var filePath = await DependencyService.Get<IFileSystem>().SaveFilePickerAsync("Level", ".map");
 
                 if (filePath != null)
                 {
