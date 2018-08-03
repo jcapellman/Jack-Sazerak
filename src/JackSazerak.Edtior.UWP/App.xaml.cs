@@ -27,7 +27,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-using JackSazerak.Editor.lib.IoC;
 using JackSazerak.Editor.UWP.PlatformImplementations;
 
 namespace JackSazerak.Editor.UWP
@@ -37,9 +36,7 @@ namespace JackSazerak.Editor.UWP
         public App()
         {
             InitializeComponent();
-
-            IOCEditorContainer.Initialize(new EditorSettings(), new FileSystem(), new MessageBox());
-
+            
             Suspending += OnSuspending;
         }
 
@@ -58,6 +55,12 @@ namespace JackSazerak.Editor.UWP
                 {
                     //TODO: Load state from previously suspended application
                 }
+
+                Xamarin.Forms.Forms.Init(e);
+
+                Xamarin.Forms.DependencyService.Register<FileSystem>();
+                Xamarin.Forms.DependencyService.Register<EditorSettings>();
+                Xamarin.Forms.DependencyService.Register<MessageBox>();
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
