@@ -21,7 +21,9 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-using JackSazerak.Editor.lib.IoC;
+using JackSazerak.Editor.lib.PlatformInterfaces;
+
+using Xamarin.Forms;
 
 namespace JackSazerak.Editor.lib.ViewModels
 {
@@ -29,7 +31,7 @@ namespace JackSazerak.Editor.lib.ViewModels
     {
         protected void ShowMessage(string message)
         {
-            IOCEditorContainer.MessageBox.Show(message);
+            DependencyService.Get<IMessageBox>().Show(message);
         }
 
         #region MVVM Boilerplate code
