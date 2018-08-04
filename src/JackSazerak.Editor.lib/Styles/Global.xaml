@@ -4,7 +4,7 @@
     <Color x:Key="BackgroundColor">#1e1e1e</Color>
     <Color x:Key="AltBackgroundColor">#2e2e2e</Color>
     <Color x:Key="ForegroundColor">White</Color>
-    
+
     <Style TargetType="ContentPage" x:Key="MainWindow">
         <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}" />
         <Setter Property="Width" Value="1280" />
