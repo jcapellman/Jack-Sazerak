@@ -10,10 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Include="Styles\GlobalStyles.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\JackSazerak.lib\JackSazerak.lib.csproj" />
   </ItemGroup>
 
@@ -27,6 +23,10 @@
     <EmbeddedResource Update="Resx\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+
+    <EmbeddedResource Update="Styles\Global.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
 
