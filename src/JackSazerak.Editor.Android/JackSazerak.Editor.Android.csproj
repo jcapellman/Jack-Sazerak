@@ -91,9 +91,13 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\JackSazerak.Editor.lib\JackSazerak.Editor.lib.csproj">
+    <ProjectReference Include="..\JackSazerak.Editor.lib\JackSazerak.Editor.lib.csproj">
       <Project>{f53b3ac4-7f77-4db3-ab97-e50fa23e0881}</Project>
       <Name>JackSazerak.Editor.lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JackSazerak.lib\JackSazerak.lib.csproj">
+      <Project>{a74e5178-494a-4b79-86eb-ab16ca15c5db}</Project>
+      <Name>JackSazerak.lib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

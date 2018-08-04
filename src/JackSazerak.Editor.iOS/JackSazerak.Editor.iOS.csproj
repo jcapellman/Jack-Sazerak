@@ -150,7 +150,7 @@
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\JackSazerak.Editor.lib\JackSazerak.Editor.lib.csproj">
+    <ProjectReference Include="..\JackSazerak.Editor.lib\JackSazerak.Editor.lib.csproj">
       <Project>{f53b3ac4-7f77-4db3-ab97-e50fa23e0881}</Project>
       <Name>JackSazerak.Editor.lib</Name>
     </ProjectReference>
