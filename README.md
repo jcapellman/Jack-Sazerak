@@ -1,6 +1,8 @@
 # Jack Sazerak
 Top down shooter throwback to the early 90s utilizing Win2D and C#.  Eventually High Scores and Player Profiles will be added - but this will be near the end of development.
 
+In addition an Editor for iOS, Android and UWP will be provided.
+
 ## Gameplay Features
 * Top-down aircraft shooter set in an alternate timeline where the cold war never ended
 * Level Progression coincides with ability to purchase new aircraft and upgrades
